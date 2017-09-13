@@ -4,9 +4,9 @@
   <img src="https://github.com/micyo202/yan_demo/raw/master/src/main/webapp/resources/images/logo.png" alt="Yan Frame" title="Yan Frame">
 </p>
 
-[![Releases](https://img.shields.io/badge/beta-v1.2.0-brightgreen.svg)](https://github.com/micyo202/yan_demo)
+[![Beta](https://img.shields.io/badge/beta-1.0.9-brightgreen.svg)](https://github.com/micyo202/yan_demo)
 [![Downloads](https://img.shields.io/badge/downloads-2.8MB-yellow.svg)](https://github.com/micyo202/yan_demo/archive/master.zip)
-[![Since](https://img.shields.io/badge/since-2017-blue.svg)](https://github.com/micyo202/yan_demo/archive/master.zip)
+[![Since](https://img.shields.io/badge/since-2017-blue.svg)](https://github.com/micyo202/yan_demo)
 [![GitHub stars](https://img.shields.io/github/stars/micyo202/yan_demo.svg?style=social&label=Stars)](https://github.com/micyo202/yan_demo)
 [![GitHub forks](https://img.shields.io/github/forks/micyo202/yan_demo.svg?style=social&label=Fork)](https://github.com/micyo202/yan_demo)
 
