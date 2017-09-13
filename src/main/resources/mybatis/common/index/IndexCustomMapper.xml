@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yan.common.index.mapper.IndexCustomMapper">
+	<resultMap id="menuMap" type="com.yan.common.index.model.MenuModel">
+		<id column="MENU_ID" jdbcType="VARCHAR" property="id" />
+		<result column="MENU_NAME" jdbcType="VARCHAR" property="name" />
+		<result column="MENU_ICON" jdbcType="VARCHAR" property="icon" />
+		<result column="MENU_URL" jdbcType="VARCHAR" property="url" />
+	</resultMap>
+	
+	<select id="getMenu" resultMap="menuMap" parameterType="java.lang.String">
+		SELECT MENU_ID, MENU_NAME, IF(MENU_ICON IS NULL, 'zmdi zmdi-apps', MENU_ICON) MENU_ICON, IF(MENU_URL IS NULL, '', MENU_URL) MENU_URL FROM TB_SYS_MENU WHERE MENU_VALID=1 AND MENU_PID=#{0} ORDER BY MENU_LEVEL, MENU_INDEX
+	</select>
+	
+</mapper>
