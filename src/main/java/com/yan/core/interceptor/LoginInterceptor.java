@@ -23,6 +23,7 @@ import com.yan.common.user.model.TbSysUser;
  * 版权：<br>
  * Copyright 2017 <a href="https://github.com/micyo202" target="_blank">https://github.com/micyo202</a>. All rights reserved.
  */
+@Deprecated
 public class LoginInterceptor implements HandlerInterceptor {
 
 	private static final Logger log = LoggerFactory.getLogger(LoginInterceptor.class);

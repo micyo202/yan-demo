@@ -46,6 +46,27 @@ public class IndexController extends BaseController {
 	private DelegateMapper delegateMapper;
 	
 	/**
+	 * 跳转到登录页<br>
+	 *
+	 * @return String 登录页路径
+	 */
+	@RequestMapping("/login")
+	public String login() {
+		return "login";
+	}
+	
+	/**
+	 * 跳转错误页（包含404、500等一系列错误页）<br>
+	 *
+	 * @return String 错误页路径
+	 */
+	@RequestMapping("/{errorCode}/error")
+	public String error(@PathVariable String errorCode) {
+		System.out.println(errorCode);
+		return "error";
+	}
+	
+	/**
 	 * UI模板查看<br>
 	 *
 	 * @return String 模板页面地址

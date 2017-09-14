@@ -142,9 +142,8 @@
 		<!-- 添加 shiro 依赖包 -->
 		<!-- 包含 shiro-core-1.4.0.jar、 shiro-lang-1.4.0.jar、 shiro-cache-1.4.0.jar、 shiro-crypto-hash-1.4.0.jar、
 			shiro-crypto-core-1.4.0.jar、 shiro-crypto-cipher-1.4.0.jar、 shiro-config-core-1.4.0.jar、
-			shiro-config-ogdl-1.4.0.jar、 commons-beanutils-1.9.3.jar、 commons-collections-3.2.2.jar、
-			shiro-event-1.4.0.jar、 shiro-web-1.4.0.jar、 shiro-quartz-1.4.0.jar、 quartz-1.6.1.jar、
-			shiro-spring-1.4.0.jar -->
+			shiro-config-ogdl-1.4.0.jar、commons-beanutils-1.9.3.jar、 commons-collections-3.2.2.jar、
+			shiro-event-1.4.0.jar、 shiro-web-1.4.0.jar、 shiro-spring-1.4.0.jar -->
 		<dependency>
 		    <groupId>org.apache.shiro</groupId>
 		    <artifactId>shiro-core</artifactId>
@@ -155,11 +154,6 @@
 			<artifactId>shiro-web</artifactId>
 			<version>${shiro.version}</version>
 		</dependency>
-		<dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-quartz</artifactId>
-            <version>${shiro.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
@@ -276,7 +270,7 @@
 		    <version>${logback.version}</version>
 		</dependency>
 		 -->
-		 
+		
 		<!-- Apple Push Notification Service（苹果推送服务） -->
 		<!-- 
 		<dependency>

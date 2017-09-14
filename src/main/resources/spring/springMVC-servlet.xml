@@ -78,7 +78,8 @@
 		<property name="resolveLazily" value="true"/>
 	</bean>
 
-	<!-- 配置拦截器 -->
+	<!-- 配置 Login 登录拦截器（改为 shrio 安全认证模式） -->
+	<!-- 
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
@@ -86,14 +87,17 @@
 			<bean class="com.yan.core.interceptor.LoginInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
+	 -->
 
-	<!-- 配置静态资源库，不被DispatcherServlet处理 -->
-	<mvc:resources location="/resources/" mapping="/resources/**" />
-
-	<!-- 将静态资源的处理经由Spring MVC框架交回Web应用服务器处理 -->
+	<!-- 配置spring处理静态资源文件 两种方案 -->
+    <!--方案一: 将静态资源的处理经由Spring MVC框架交回Web应用服务器服务器默认的defaultServlet处理 -->
+    <!-- 
 	<mvc:default-servlet-handler />
+	 -->
+	<!--(推荐方案)方案二: 把images/**映射到ResourceHttpRequestHandler进行处理 -->
+	<mvc:resources location="/resources/" mapping="/resources/**" />
 	
-	<!-- springMVC 异常处理 -->
+	<!-- springMVC 异常处理（由于无法处理404异常，404由web.xml处理） -->
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>

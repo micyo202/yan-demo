@@ -9,6 +9,6 @@
 <title>错误页面</title>
 </head>
 <body>
-	<h1>springMVC报错了...</h1>
+	<h1>这是错误页面错误代码${errorCode}</h1>
 </body>
 </html>

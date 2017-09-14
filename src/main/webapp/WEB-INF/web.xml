@@ -23,23 +23,13 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-	<!-- 自定义过滤器，过滤所有.jsp请求 -->
-	<filter>
-		<filter-name>loginFilter</filter-name>
-		<filter-class>com.yan.core.filter.LoginFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>loginFilter</filter-name>
-		<url-pattern>*.jsp</url-pattern>
-	</filter-mapping>
-
 	<!-- 配置 springMVC 基本配置 -->
 	<servlet>
 		<servlet-name>springMVC</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:spring/springMvc-servlet.xml</param-value>
+			<param-value>classpath:spring/springMVC-servlet.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
@@ -58,6 +48,32 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
+	<!-- 自定义过滤器，过滤所有.jsp请求，用于登录过滤（改为 shiro 安全认证模式） -->
+	<!-- 
+	<filter>
+		<filter-name>loginFilter</filter-name>
+		<filter-class>com.yan.core.filter.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>loginFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	 -->
+	
+	<!-- shiro 认证过滤器 -->
+	<filter>  
+	    <filter-name>shiroFilter</filter-name>  
+	    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>  
+	    <init-param>  
+	        <param-name>targetFilterLifecycle</param-name>  
+	        <param-value>true</param-value>  
+	    </init-param>  
+	</filter>  
+	<filter-mapping>  
+	    <filter-name>shiroFilter</filter-name>  
+	    <url-pattern>/*</url-pattern>  
+	</filter-mapping> 
 	
 	<!-- 配置 Druid 监控的数据  -->
 	<filter>
@@ -121,5 +137,11 @@
 	<welcome-file-list>
 		<welcome-file>views/index.jsp</welcome-file>
 	</welcome-file-list>
-
+	
+	<!-- 配置错误页 -->  
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404/error</location>
+    </error-page>
+    
 </web-app>

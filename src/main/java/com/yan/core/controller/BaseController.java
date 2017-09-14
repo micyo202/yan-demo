@@ -125,13 +125,13 @@ public class BaseController extends ControllerSupport {
 		}
 		// shiro 没有权限异常
 		if (exception instanceof UnauthorizedException) {
-			return "/403.jsp";
+			return "/403/error";
 		}
 		// shiro 会话已过期异常
 		if (exception instanceof InvalidSessionException) {
-			return "/error.jsp";
+			return "/login";
 		}
-		return "/error.jsp";
+		return "/500/error";
 	}
 
 }

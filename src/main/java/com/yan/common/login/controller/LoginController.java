@@ -2,6 +2,10 @@ package com.yan.common.login.controller;
 
 import java.util.List;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,31 +44,34 @@ public class LoginController extends BaseController {
 	@ResponseBody
 	public LoginModel signin(String username, String password, boolean remember) {
 		
-		LoginModel loginModel = new LoginModel();
-
 		TbSysUserMapper mapper = this.getMapper(TbSysUserMapper.class);
 		TbSysUserExample example = new TbSysUserExample();
-		example.createCriteria().andUserCodeEqualTo(username).andUserPasswordEqualTo(password)
-				.andUserValidEqualTo(true);
+		example.createCriteria().andUserCodeEqualTo(username).andUserPasswordEqualTo(password);
 		List<TbSysUser> userList = mapper.selectByExample(example);
 		TbSysUser user = null;
-		if (!this.isNull(userList)) {
+		
+		if (!this.isNull(userList))
 			user = userList.get(0);
-		}
-
-		if (!this.isNull(user)) {
-			this.getSession().setAttribute("user", user);
-			loginModel.setStatus(1);
-			loginModel.setMsg("登录成功！");
-			loginModel.setUrl("views/index.jsp");
-			loginModel.setRemember(remember);
-		} else {
-			loginModel.setStatus(0);
-			loginModel.setMsg("用户名、密码不正确！");
-			//loginModel.setUrl("views/login.jsp");
-		}
-
-		return loginModel;
+		
+		if(this.isNull(user))
+			return new LoginModel(0, "用户名、密码不正确！");
+		
+		if(Boolean.FALSE.equals(user.getUserValid()))
+			return new LoginModel(0, "该用户已失效！");
+		
+		try{
+            UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+            token.setRememberMe(remember);
+            Subject subject = SecurityUtils.getSubject();  
+            // 使用 shiro 来验证
+            subject.login(token);//验证角色和权限
+            subject.getSession().setAttribute("user", user);
+            //this.getSession().setAttribute("user", user);
+            return new LoginModel(1, "", remember);
+        }catch(AuthenticationException e){
+        	e.printStackTrace();
+			return new LoginModel(0, "未知异常！");
+        }
 	}
 
 	/**
@@ -74,8 +81,10 @@ public class LoginController extends BaseController {
 	 */
 	@RequestMapping("/signout")
 	public String signout() {
-		this.getSession().invalidate();
-		return "redirect:/views/login.jsp";
+		Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        //this.getSession().invalidate();
+		return "redirect:/login";
 	}
 
 }
