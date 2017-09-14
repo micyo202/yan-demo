@@ -87,7 +87,7 @@ jquery-cookie | [https://github.com/carhartl/jquery-cookie](https://github.com/c
 > 2. 修改 **resources/properties** 路径下的配置文件（详见 - 五、配置说明）
 > 3. 创建系统必要的表，表名以 **TB_SYS_** 开头，建表语句在 **resources/database** 路径下
 > 4. 完成以上步骤就可以正常启动服务了（建议使用 **jetty** 启动），以下步骤为开发环节
-> 5. 在数据库中创建对应的表，建议业务表名以 **TB_** 开头，字典表以 **TC_** 开头
+> 5. 在数据库中创建对应的表，命名规范：“模块名_表名” 如：**SYS_RESOURCE**
 > 6. 修改 **resources** 路径下的 **generatorConfig.xml** 中的 *targetPackage* 包名及 *tableName* 表名，使用 **MyBatis generator** 插件生成对应的持久层模块代码（Maven 执行命令：**mvn mybatis-generator:generate**），具体配置请参考[MyBatis GeneratorXML Configuration](http://www.mybatis.org/generator/configreference/xmlconfig.html)
 > 7. 编写控制层业务代码类，在业务模块下创建 **controller** 包，并在包中创建 **Controller** 类，类名以 **Controller** 结尾，继承于 **BaseController** 类，具体使用参考 - 七、示例代码
 > 8. 编写前端页面展示代码
