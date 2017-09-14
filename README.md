@@ -18,7 +18,7 @@
 
 ## 一、项目开发环境&工具（Environment&Tools）
 
-- MacOS Sierra
+- MacOS Sierra / Windows 7
 - MySql 5.7
 - JDK 1.8
 - CentOS 7
@@ -29,7 +29,7 @@
 
 ## 二、技术选型（Technology）
 #### 1.服务端技术（Server）
-技术 | 版本 | 官网
+名称 | 版本 | 官网
 ----|------|----
 Spring Framework | 4.3.10.RELEASE  | [http://projects.spring.io/spring-framework/](http://projects.spring.io/spring-framework/)
 AspectJ | 1.8.10 | [http://www.eclipse.org/aspectj/](http://www.eclipse.org/aspectj/)
@@ -42,9 +42,9 @@ Logback | 1.2.3 | [https://logback.qos.ch](https://logback.qos.ch)
 Dom4j | 1.6.1 | [http://www.dom4j.org](http://www.dom4j.org)
 MyBatis Generator | 1.3.5 | [http://www.mybatis.org/generator/index.html](http://www.mybatis.org/generator/index.html)
 Jetty | 9.4.6.v20170531 | [http://www.eclipse.org/jetty/](http://www.eclipse.org/jetty/)
-Maven | 3.5.0 | [http://maven.apache.org/](http://maven.apache.org/)
+Maven | 3.3.9 | [http://maven.apache.org/](http://maven.apache.org/)
 #### 2.前端技术（Web）
-技术 | 官网
+名称 | 官网
 ----|----
 angular | [https://angularjs.org](https://angularjs.org)
 awesome-bootstrap-checkbox | [https://github.com/flatlogic/awesome-bootstrap-checkbox](https://github.com/flatlogic/awesome-bootstrap-checkbox)
@@ -83,14 +83,15 @@ jquery-cookie | [https://github.com/carhartl/jquery-cookie](https://github.com/c
 > * webapp/views：视图存放路径，所有业务功能的*.jsp页面
 
 ## 四、项目入门（Introduction）
-> 1. 通过 **Maven** 构建项目
-> 2. 修改 **resources/properties** 路径下的配置文件（详见 - 五、配置说明）
-> 3. 创建系统必要的表，表名以 **TB_SYS_** 开头，建表语句在 **resources/database** 路径下
-> 4. 完成以上步骤就可以正常启动服务了（建议使用 **jetty** 启动），以下步骤为开发环节
-> 5. 在数据库中创建对应的表，命名规范：“模块名_表名” 如：**SYS_RESOURCE**
+> 1. 使用 **Maven** 构建项目
+> 2. 创建数据库并执行 **resources/database** 路径下的 **sql** 文件，创建框架必要的表（如：用户表、资源表、日志记录表等...）
+> 3. 修改 **resources/properties** 路径下的配置文件（具体修改方法，详见 - 五、配置说明）
+> 4. 完成以上步骤就可以正常部署启动服务了（使用 **jetty / tomcat** 均可），接下来进入开发阶段
+> 5. 根据实际业务需求，在对应的数据库中创建业务表，表命名规范：“模块名_表名” 如：**SYS_RESOURCE**（系统模块资源表）
 > 6. 修改 **resources** 路径下的 **generatorConfig.xml** 中的 *targetPackage* 包名及 *tableName* 表名，使用 **MyBatis generator** 插件生成对应的持久层模块代码（Maven 执行命令：**mvn mybatis-generator:generate**），具体配置请参考[MyBatis GeneratorXML Configuration](http://www.mybatis.org/generator/configreference/xmlconfig.html)
-> 7. 编写控制层业务代码类，在业务模块下创建 **controller** 包，并在包中创建 **Controller** 类，类名以 **Controller** 结尾，继承于 **BaseController** 类，具体使用参考 - 七、示例代码
-> 8. 编写前端页面展示代码
+> 7. 在业务模块包下创建对应的 **controller** 包，并在包中创建控制器类，控制器类命名规范以 **Controller** 结尾，并继承于 **BaseController** 类
+> 8. 编写控制器业务处理代码，具体使用参考 - 七、示例代码
+> 9. 创建对应jsp页面，并编写前端页面展示代码
 
 ## 五、配置说明（Properties）
 | 名称（key）| 描述 |
