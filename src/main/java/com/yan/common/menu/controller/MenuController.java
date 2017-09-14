@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yan.common.menu.mapper.TbSysMenuMapper;
+import com.yan.common.menu.mapper.SysMenuMapper;
 import com.yan.common.menu.model.MenuNode;
-import com.yan.common.menu.model.TbSysMenu;
-import com.yan.common.menu.model.TbSysMenuExample;
+import com.yan.common.menu.model.SysMenu;
+import com.yan.common.menu.model.SysMenuExample;
 import com.yan.core.annotation.MapperInject;
 import com.yan.core.controller.BaseController;
 import com.yan.core.model.MsgModel;
@@ -36,6 +36,8 @@ import com.yan.core.persistence.DelegateMapper;
 @Controller
 @RequestMapping("/common/menu")
 public class MenuController extends BaseController {
+	
+	private static final String NAMESPACE = "com.yan.common.menu.mapper.SysMenuCustomMapper";
 
 	/**
 	 * 使用注解获取 delegateMapper 对象 
@@ -46,8 +48,8 @@ public class MenuController extends BaseController {
 	/**
 	 * 使用注解获取指定对象的 mapper 映射
 	 */
-	@MapperInject(TbSysMenuMapper.class)
-	private TbSysMenuMapper mapper;
+	@MapperInject(SysMenuMapper.class)
+	private SysMenuMapper mapper;
 	
 	/**
 	 * 菜单管理初始化<br>
@@ -72,7 +74,7 @@ public class MenuController extends BaseController {
 			id = "00000000000000000000000000000000";
 		}
 		List<MenuNode> nodeList = new ArrayList<>();
-		List<MenuNode> rootList = delegateMapper.selectList("com.yan.common.menu.mapper.TbSysMenuCustomMapper.getMenuNode", id);
+		List<MenuNode> rootList = delegateMapper.selectList(NAMESPACE + ".getMenuNode", id);
 		for (MenuNode menuNode : rootList) {
 			menuNode.setChildren(getMenuNode(menuNode.getId()));
 			nodeList.add(menuNode);
@@ -89,8 +91,8 @@ public class MenuController extends BaseController {
 	 */
 	@RequestMapping("/{menuId}/add")
 	public String add(@PathVariable String menuId, Model model) {
-		TbSysMenu pMenu = mapper.selectByPrimaryKey(menuId);
-		TbSysMenu menu = new TbSysMenu();
+		SysMenu pMenu = mapper.selectByPrimaryKey(menuId);
+		SysMenu menu = new SysMenu();
 		menu.setMenuPid(pMenu.getMenuId());
 		menu.setMenuLevel(pMenu.getMenuLevel() + 1);
 		menu.setMenuValid(pMenu.getMenuValid());
@@ -107,7 +109,7 @@ public class MenuController extends BaseController {
 	 */
 	@RequestMapping("/{menuId}/edit")
 	public String edit(@PathVariable String menuId, Model model) {
-		TbSysMenu menu = mapper.selectByPrimaryKey(menuId);
+		SysMenu menu = mapper.selectByPrimaryKey(menuId);
 		model.addAttribute("menu", menu);
 		return "common/menu/addOrEdit";
 	}
@@ -121,20 +123,20 @@ public class MenuController extends BaseController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	@ResponseBody
 	@Transactional
-	public MsgModel save(TbSysMenu menu) {
+	public MsgModel save(SysMenu menu) {
 		String status = "0";// 状态值，0：刷新本级树，1：刷新父级树
 		if (this.isNull(menu.getMenuId())) {
 			// 添加操作
 			menu.setMenuId(this.getUUID());
 			menu.setMenuType("menu");
 			mapper.insertSelective(menu);
-			TbSysMenu pMenu = mapper.selectByPrimaryKey(menu.getMenuPid());
+			SysMenu pMenu = mapper.selectByPrimaryKey(menu.getMenuPid());
 			if ("menu".equals(pMenu.getMenuType())) {
 				// 修改父节点为 folder
 				Map<String, Object> map = new HashMap<>();
 				map.put("menuType", "folder");
 				map.put("menuId", menu.getMenuPid());
-				delegateMapper.update("com.yan.common.menu.mapper.TbSysMenuCustomMapper.updateMenuType", map);
+				delegateMapper.update(NAMESPACE + ".updateMenuType", map);
 				status = "1";
 			}
 		} else {
@@ -157,20 +159,20 @@ public class MenuController extends BaseController {
 	@Transactional
 	public MsgModel delete(String menuId, String menuPid) {
 		String status = "0";
-		TbSysMenuExample example = new TbSysMenuExample();
+		SysMenuExample example = new SysMenuExample();
 		example.createCriteria().andMenuPidEqualTo(menuId);
 		mapper.deleteByExample(example);// 删除子级数据
 		mapper.deleteByPrimaryKey(menuId);// 删除当前数据
 		// 如果父节点下没有子菜单，则修父节点改类型为 menu
-		TbSysMenuExample pExample = new TbSysMenuExample();
+		SysMenuExample pExample = new SysMenuExample();
 		pExample.createCriteria().andMenuPidEqualTo(menuPid);
-		List<TbSysMenu> list = mapper.selectByExample(pExample);
+		List<SysMenu> list = mapper.selectByExample(pExample);
 		if (this.isNull(list)) {
 			// 修改父节点为 menu
 			Map<String, Object> map = new HashMap<>();
 			map.put("menuType", "menu");
 			map.put("menuId", menuPid);
-			delegateMapper.update("com.yan.common.menu.mapper.TbSysMenuCustomMapper.updateMenuType", map);
+			delegateMapper.update(NAMESPACE + ".updateMenuType", map);
 			status = "1";
 		}
 		return this.resultMsg(status, "删除成功！");
@@ -183,7 +185,7 @@ public class MenuController extends BaseController {
 	 * @return List<MenuNode> 菜单节点集合
 	 */
 	private List<MenuNode> getMenuNode(String pid) {
-		List<MenuNode> menuList = delegateMapper.selectList("com.yan.common.menu.mapper.TbSysMenuCustomMapper.getMenuNode", pid);
+		List<MenuNode> menuList = delegateMapper.selectList(NAMESPACE + ".getMenuNode", pid);
 		return menuList;
 	}
 

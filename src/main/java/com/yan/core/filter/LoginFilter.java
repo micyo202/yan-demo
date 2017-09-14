@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.yan.common.user.model.TbSysUser;
+import com.yan.common.user.model.SysUser;
 
 /**
  * 名称：LoginFilter<br>
@@ -67,7 +67,7 @@ public class LoginFilter implements Filter {
 			return;
 		}
 
-		TbSysUser user = (TbSysUser) req.getSession().getAttribute("user");
+		SysUser user = (SysUser) req.getSession().getAttribute("user");
 		if (null == user) {
 			res.sendRedirect(loginPath);
 			return;

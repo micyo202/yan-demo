@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yan.common.menu.mapper.TbSysMenuCustomMapper">
+<mapper namespace="com.yan.common.menu.mapper.SysMenuCustomMapper">
 	<resultMap id="menuNodeMap" type="com.yan.common.menu.model.MenuNode">
 		<id column="MENU_ID" jdbcType="VARCHAR" property="id" />
 		<id column="MENU_PID" jdbcType="VARCHAR" property="pid" />
@@ -13,11 +13,11 @@
 	</resultMap>
 	
 	<select id="getMenuNode" resultMap="menuNodeMap" parameterType="java.lang.String">
-		SELECT MENU_ID, MENU_PID, MENU_NAME, IF(MENU_URL IS NULL, '', MENU_URL) MENU_URL, MENU_LEVEL, IF(MENU_TYPE='folder', TRUE, FALSE) MENU_PARENT, IF(MENU_LEVEL=0, TRUE, IF(MENU_LEVEL=1, TRUE, FALSE)) MENU_OPEN, MENU_VALID FROM TB_SYS_MENU WHERE MENU_PID=#{0} ORDER BY MENU_LEVEL, MENU_INDEX
+		SELECT MENU_ID, MENU_PID, MENU_NAME, IF(MENU_URL IS NULL, '', MENU_URL) MENU_URL, MENU_LEVEL, IF(MENU_TYPE='folder', TRUE, FALSE) MENU_PARENT, IF(MENU_LEVEL=0, TRUE, IF(MENU_LEVEL=1, TRUE, FALSE)) MENU_OPEN, MENU_VALID FROM SYS_MENU WHERE MENU_PID=#{0} ORDER BY MENU_LEVEL, MENU_INDEX
 	</select>
 	
 	<select id="updateMenuType" parameterType="java.util.HashMap">
-		UPDATE TB_SYS_MENU SET MENU_TYPE=#{menuType} WHERE MENU_ID=#{menuId}		
+		UPDATE SYS_MENU SET MENU_TYPE=#{menuType} WHERE MENU_ID=#{menuId}		
 	</select>
 	
 </mapper>

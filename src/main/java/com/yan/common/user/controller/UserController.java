@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yan.common.user.mapper.TbSysUserMapper;
-import com.yan.common.user.model.TbSysUser;
+import com.yan.common.user.mapper.SysUserMapper;
+import com.yan.common.user.model.SysUser;
 import com.yan.core.annotation.MapperInject;
 import com.yan.core.controller.BaseController;
 import com.yan.core.model.PageModel;
@@ -30,8 +30,8 @@ import com.yan.core.model.PageModel;
 @RequestMapping("/common/user")
 public class UserController extends BaseController {
 
-	@MapperInject(TbSysUserMapper.class)
-	private TbSysUserMapper mapper;
+	@MapperInject(SysUserMapper.class)
+	private SysUserMapper mapper;
 
 	@RequestMapping("/init")
 	public String init() {
@@ -40,9 +40,9 @@ public class UserController extends BaseController {
 
 	@RequestMapping(value = "/list", method = RequestMethod.POST)
 	@ResponseBody
-	public PageModel<TbSysUser> list(int offset, int limit, String search, String sort, String order) {
+	public PageModel<SysUser> list(int offset, int limit, String search, String sort, String order) {
 		this.offsetPage(offset, limit);
-		List<TbSysUser> list = mapper.selectByExample(null);
+		List<SysUser> list = mapper.selectByExample(null);
 		return this.resultPage(list);
 	}
 

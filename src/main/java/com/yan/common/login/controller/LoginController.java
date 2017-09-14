@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yan.common.login.model.LoginModel;
-import com.yan.common.user.mapper.TbSysUserMapper;
-import com.yan.common.user.model.TbSysUser;
-import com.yan.common.user.model.TbSysUserExample;
+import com.yan.common.user.mapper.SysUserMapper;
+import com.yan.common.user.model.SysUser;
+import com.yan.common.user.model.SysUserExample;
 import com.yan.core.controller.BaseController;
 
 /**
@@ -44,11 +44,11 @@ public class LoginController extends BaseController {
 	@ResponseBody
 	public LoginModel signin(String username, String password, boolean remember) {
 		
-		TbSysUserMapper mapper = this.getMapper(TbSysUserMapper.class);
-		TbSysUserExample example = new TbSysUserExample();
+		SysUserMapper mapper = this.getMapper(SysUserMapper.class);
+		SysUserExample example = new SysUserExample();
 		example.createCriteria().andUserCodeEqualTo(username).andUserPasswordEqualTo(password);
-		List<TbSysUser> userList = mapper.selectByExample(example);
-		TbSysUser user = null;
+		List<SysUser> userList = mapper.selectByExample(example);
+		SysUser user = null;
 		
 		if (!this.isNull(userList))
 			user = userList.get(0);

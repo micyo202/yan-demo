@@ -40,20 +40,20 @@
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 
-		<javaModelGenerator targetPackage="com.yan.common.logging.model" targetProject="${mbg.path}/java">
+		<javaModelGenerator targetPackage="com.yan.common.menu.model" targetProject="${mbg.path}/java">
 			<property name="enableSubPackages" value="false" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
-		<sqlMapGenerator targetPackage="mybatis.common.logging" targetProject="${mbg.path}/resources">
+		<sqlMapGenerator targetPackage="mybatis.common.menu" targetProject="${mbg.path}/resources">
 			<property name="enableSubPackages" value="false" />
 		</sqlMapGenerator>
 
-		<javaClientGenerator targetPackage="com.yan.common.logging.mapper" targetProject="${mbg.path}/java" type="XMLMAPPER">
+		<javaClientGenerator targetPackage="com.yan.common.menu.mapper" targetProject="${mbg.path}/java" type="XMLMAPPER">
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 
-		<table schema="" tableName="logging_event" />
+		<table schema="" tableName="SYS_MENU" />
 
 	</context>
 </generatorConfiguration>

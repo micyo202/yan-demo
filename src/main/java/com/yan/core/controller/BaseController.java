@@ -9,7 +9,7 @@ import org.apache.shiro.session.InvalidSessionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.yan.common.user.model.TbSysUser;
+import com.yan.common.user.model.SysUser;
 
 /**
  * 名称：BaseController<br>
@@ -104,8 +104,8 @@ public class BaseController extends ControllerSupport {
 	 *
 	 * @return TbSysUser 用户对象
 	 */
-	protected TbSysUser getSessionUser() {
-		return (TbSysUser) this.session.getAttribute("user");
+	protected SysUser getSessionUser() {
+		return (SysUser) this.session.getAttribute("user");
 	}
 	
 	/**

@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.yan.common.user.model.TbSysUser;
+import com.yan.common.user.model.SysUser;
 
 /**
  * 名称：LoginInterceptor<br>
@@ -35,7 +35,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 	 */
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object obj) throws Exception {
-		TbSysUser user = (TbSysUser) request.getSession().getAttribute("user");
+		SysUser user = (SysUser) request.getSession().getAttribute("user");
 
 		if (null != user) {
 			return true;
