@@ -36,6 +36,7 @@ AspectJ | 1.8.10 | [http://www.eclipse.org/aspectj/](http://www.eclipse.org/aspe
 MyBatis | 3.4.5 | [http://www.mybatis.org/mybatis-3/zh/index.html](http://www.mybatis.org/mybatis-3/zh/index.html)
 PageHelper | 5.1.1 | [http://git.oschina.net/free/Mybatis_PageHelper](http://git.oschina.net/free/Mybatis_PageHelper)
 Druid | 1.1.3 | [https://github.com/alibaba/druid](https://github.com/alibaba/druid)
+Shiro | 1.4.0 | [http://shiro.apache.org](http://shiro.apache.org)
 Jackson | 2.9.1 | [https://github.com/FasterXML/jackson](https://github.com/FasterXML/jackson)
 Logback | 1.2.3 | [https://logback.qos.ch](https://logback.qos.ch)
 Dom4j | 1.6.1 | [http://www.dom4j.org](http://www.dom4j.org)
