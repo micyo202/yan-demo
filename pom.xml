@@ -57,10 +57,10 @@
 		 -->
 
 		<!-- 添加 spring 依赖包 -->
-		<!-- 包含 spring-aop-4.3.10.RELEASE.jar、 spring-aspects-4.3.10.RELEASE.jar、 
-			spring-beans-4.3.10.RELEASE.jar、 spring-context-4.3.10.RELEASE.jar、 spring-core-4.3.10.RELEASE.jar、 
-			spring-expression-4.3.10.RELEASE.jar、 spring-jdbc-4.3.10.RELEASE.jar、 spring-test-4.3.10.RELEASE.jar、 
-			spring-tx-4.3.10.RELEASE.jar、 spring-web-4.3.10.RELEASE.jar、 spring-webmvc-4.3.10.RELEASE.jar -->
+		<!-- 包含 spring-aop-4.3.11.RELEASE.jar、 spring-aspects-4.3.11.RELEASE.jar、 spring-beans-4.3.11.RELEASE.jar、
+			spring-context-4.3.11.RELEASE.jar、 spring-core-4.3.11.RELEASE.jar、 spring-expression-4.3.11.RELEASE.jar、
+			spring-jdbc-4.3.11.RELEASE.jar、 spring-test-4.3.11.RELEASE.jar、 spring-tx-4.3.11.RELEASE.jar、
+			spring-web-4.3.11.RELEASE.jar、 spring-webmvc-4.3.11.RELEASE.jar、 spring-context-support-4.3.11.RELEASE.jar -->
 		<!-- 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -120,6 +120,11 @@
 			<version>${spring.framework.version}</version>
 		</dependency>
 		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-context-support</artifactId>
+    		<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${spring.framework.version}</version>
@@ -157,6 +162,16 @@
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+    		<artifactId>shiro-quartz</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+    		<artifactId>shiro-ehcache</artifactId>
             <version>${shiro.version}</version>
         </dependency>
 		

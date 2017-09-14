@@ -26,7 +26,6 @@ public class ShiroRealm extends AuthorizingRealm {
 	 * 为当前登录的Subject授予角色和权限
 	 * 
 	 * 该方法的调用时机为需授权资源被访问时 每次访问需授权资源时都会执行该方法中的逻辑,如果用户授权内容被缓存，则在不会重复调用该方法
-	 *
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
@@ -61,7 +60,6 @@ public class ShiroRealm extends AuthorizingRealm {
 		SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(usernamePasswordToken.getUsername(),
 				usernamePasswordToken.getPassword(), getName());
 		return authenticationInfo;
-
 	}
-
+	
 }
