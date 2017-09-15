@@ -52,7 +52,7 @@ public class IndexController extends BaseController {
 	 */
 	@RequestMapping("/login")
 	public String login() {
-		return "login";
+        return "login";
 	}
 	
 	/**

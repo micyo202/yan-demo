@@ -60,17 +60,17 @@ public class LoginController extends BaseController {
 			return new LoginModel(0, "该用户已失效！");
 		
 		try{
-            UsernamePasswordToken token = new UsernamePasswordToken(username, password);
-            token.setRememberMe(remember);
-            Subject subject = SecurityUtils.getSubject();  
-            // 使用 shiro 来验证
-            subject.login(token);//验证角色和权限
-            subject.getSession().setAttribute("user", user);
-            //this.getSession().setAttribute("user", user);
-            return new LoginModel(1, "", remember);
+			Subject subject = SecurityUtils.getSubject();
+			if(!subject.isAuthenticated()) { // 当前用户是否已通过身份验证
+				UsernamePasswordToken token = new UsernamePasswordToken(username, password, remember);
+	            // 使用 shiro 来验证
+	            subject.login(token);//验证角色和权限
+	            this.getSession().setAttribute("user", user);
+			}
+			return new LoginModel(1, "/", remember);
         }catch(AuthenticationException e){
         	e.printStackTrace();
-			return new LoginModel(0, "未知异常！");
+        	return new LoginModel(0, "登录失败，未知异常！");
         }
 	}
 

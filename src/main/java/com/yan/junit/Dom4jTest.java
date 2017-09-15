@@ -1,12 +1,15 @@
 package com.yan.junit;
 
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.List;
 
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.junit.Test;
+import org.springframework.util.Base64Utils;
 
 public class Dom4jTest {
 
@@ -37,10 +40,18 @@ public class Dom4jTest {
 
 	@Test
 	public void test1() {
+
+		String keyStr = "Test123";
+		byte[] keys = keyStr.getBytes(StandardCharsets.UTF_8);
+		System.out.println(Base64Utils.encodeToString(Arrays.copyOf(keys, 16)));
 		
+		 byte[] bytes = Base64Utils.decode("VGVzdDEyMwAAAAAAAAAAAA==".getBytes(StandardCharsets.UTF_8));
+         String target = new String(bytes, StandardCharsets.UTF_8);
+         System.out.println(target);
+
 		String aa = "common_user_201709111505093847834.m";
-		System.out.println(aa.substring(aa.lastIndexOf("_")+1));
-				
+		System.out.println(aa.substring(aa.lastIndexOf("_") + 1));
+
 	}
 
 }

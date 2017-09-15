@@ -1,4 +1,4 @@
-package com.yan.core.realm;
+package com.yan.core.shiro;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -59,6 +59,7 @@ public class ShiroRealm extends AuthorizingRealm {
 		// 交给AuthenticatingRealm使用CredentialsMatcher进行密码匹配，如果觉得人家的不好可以自定义实现
 		SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(usernamePasswordToken.getUsername(),
 				usernamePasswordToken.getPassword(), getName());
+		clearCache(authenticationInfo.getPrincipals());// 认证成功清除之前缓存
 		return authenticationInfo;
 	}
 	

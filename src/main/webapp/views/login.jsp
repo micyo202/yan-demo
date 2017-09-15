@@ -82,7 +82,7 @@
 							}else{
 								$.cookie('loginCookie', null);
 							}
-							location.href = '${pageContext.request.contextPath}/'+ data.url;
+							location.href = '${pageContext.request.contextPath}'+ data.url;
 						}
 					});
 		});

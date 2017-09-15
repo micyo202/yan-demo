@@ -40,13 +40,13 @@
             <onMismatch>DENY</onMismatch>
         </filter>
 		<!--日志异步到数据库 -->
-		<connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
+		<connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
 			<!--连接池 -->
 			<dataSource class="com.alibaba.druid.pool.DruidDataSource">
 				<url>${default.db.url}</url>
-				<user>${default.db.username}</user>
+				<username>${default.db.username}</username>
 				<password>${default.db.password}</password>
-				<driverClass>${default.db.driverClassName}</driverClass>
+				<driverClassName>${default.db.driverClassName}</driverClassName>
 			</dataSource>
 		</connectionSource>
 	</appender>
