@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 管理员菜单xml配置 -->
 <adminMenu>
-	<menu name="用户角色管理" icon="zmdi zmdi-accounts">
+	<menu name="用户与权限管理" icon="zmdi zmdi-accounts">
 		<menuItem>
 			<name>用户管理</name>
 			<url>/common/user/init</url>
 		</menuItem>
 		<menuItem>
+			<name>权限管理</name>
+			<url>/common/permission/init</url>
+		</menuItem>
+	</menu>
+	<menu name="角色与资源管理" icon="zmdi zmdi-lock-outline">
+		<menuItem>
 			<name>角色管理</name>
 			<url>/common/role/init</url>
 		</menuItem>
-	</menu>
-	<menu name="权限资源管理" icon="zmdi zmdi-lock-outline">
 		<menuItem>
-			<name>权限管理</name>
-			<url>/common/limit/init</url>
-		</menuItem>
-		<menuItem>
-			<name>菜单管理</name>
+			<name>菜单资源管理</name>
 			<url>/common/menu/init</url>
 		</menuItem>
 	</menu>
@@ -27,7 +27,7 @@
 			<url>/common/logging/init</url>
 		</menuItem>
 		<menuItem>
-			<name>数据源监控信息</name>
+			<name>监控信息</name>
 			<url>/druid/index.html</url>
 		</menuItem>
 	</menu>
