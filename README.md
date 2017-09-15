@@ -29,7 +29,7 @@
 
 ## 二、技术选型（Technology）
 #### 1.服务端技术（Server）
-名称 | 版本 | 官网
+名称 | 版本号 | 网址
 --- | --- | ---
 Spring Framework | 4.3.10.RELEASE  | [http://projects.spring.io/spring-framework/](http://projects.spring.io/spring-framework/)
 AspectJ | 1.8.10 | [http://www.eclipse.org/aspectj/](http://www.eclipse.org/aspectj/)
@@ -45,7 +45,7 @@ MyBatis Generator | 1.3.5 | [http://www.mybatis.org/generator/index.html](http:/
 Jetty | 9.4.6.v20170531 | [http://www.eclipse.org/jetty/](http://www.eclipse.org/jetty/)
 Maven | 3.3.9 | [http://maven.apache.org/](http://maven.apache.org/)
 #### 2.前端技术（Web）
-名称 | 名称 | 官网
+名称 | 版本号 | 网址
 --- | --- | ---
 angular | - | [https://angularjs.org](https://angularjs.org)
 awesome-bootstrap-checkbox | - | [https://github.com/flatlogic/awesome-bootstrap-checkbox](https://github.com/flatlogic/awesome-bootstrap-checkbox)
