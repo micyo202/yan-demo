@@ -29,7 +29,7 @@
 
 ## 二、技术选型（Technology）
 #### 1.服务端技术（Server）
-名称 | 版本号 | 网址
+名称（Name） | 版本号（Version） | 网址（Website）
 --- | --- | ---
 Spring Framework | 4.3.10.RELEASE  | [http://projects.spring.io/spring-framework/](http://projects.spring.io/spring-framework/)
 AspectJ | 1.8.10 | [http://www.eclipse.org/aspectj/](http://www.eclipse.org/aspectj/)
@@ -45,7 +45,7 @@ MyBatis Generator | 1.3.5 | [http://www.mybatis.org/generator/index.html](http:/
 Jetty | 9.4.6.v20170531 | [http://www.eclipse.org/jetty/](http://www.eclipse.org/jetty/)
 Maven | 3.3.9 | [http://maven.apache.org/](http://maven.apache.org/)
 #### 2.前端技术（Web）
-名称 | 版本号 | 网址
+名称（Name） | 版本号（Version） | 网址（Website）
 --- | --- | ---
 angular | - | [https://angularjs.org](https://angularjs.org)
 awesome-bootstrap-checkbox | - | [https://github.com/flatlogic/awesome-bootstrap-checkbox](https://github.com/flatlogic/awesome-bootstrap-checkbox)
@@ -95,25 +95,25 @@ jquery-cookie | - | [https://github.com/carhartl/jquery-cookie](https://github.c
 > 9. 创建对应jsp页面，并编写前端页面展示代码
 
 ## 五、配置说明（Properties）
-| 名称（key）| 描述 |
+| 名称（Key）| 描述（Description） |
 | --- | :--- |
-| setting.upload | 文件上传路径（绝对路径） |
+| **setting.upload** | 文件上传路径（绝对路径） |
 |- |- |
-| logback.path | 日志存放路径（绝对路径） |
-| logback.name | 日志前缀名称（一般使用项目名称，便于区分） |
+| **logback.path** | 日志存放路径（绝对路径） |
+| **logback.name** | 日志前缀名称（一般使用项目名称，便于区分） |
 |- |- |
-| mbg.jar | mgb插件链接数据库所需的jar包（绝对路径） |
-| mbg.path | 生成代码的路径（绝对路径） |
+| **mbg.jar** | mgb插件链接数据库所需的jar包（绝对路径） |
+| **mbg.path** | 生成代码的路径（绝对路径） |
 |- |- |
-| default.db.username | 默认数据库用户名 |
-| default.db.password | 默认数据库密码 |
-| default.db.driverClassName | 默认数据库驱动类 |
-| default.db.url | 默认数据库链接地址 |
+| **default.db.username** | 默认数据库用户名 |
+| **default.db.password** | 默认数据库密码 |
+| **default.db.driverClassName** | 默认数据库驱动类 |
+| **default.db.url** | 默认数据库链接地址 |
 |- |- |
-| dextend.db.username | 扩展数据库用户名（用于多数据源切换） |
-| dextend.db.password | 扩展数据库密码（用于多数据源切换） |
-| dextend.db.driverClassName | 扩展数据库驱动类（用于多数据源切换） |
-| dextend.db.url | 扩展数据库链接地址（用于多数据源切换） |
+| **dextend.db.username** | 扩展数据库用户名（用于多数据源切换） |
+| **dextend.db.password** | 扩展数据库密码（用于多数据源切换） |
+| **dextend.db.driverClassName** | 扩展数据库驱动类（用于多数据源切换） |
+| **dextend.db.url** | 扩展数据库链接地址（用于多数据源切换） |
 |- |- |
 | db.initialSize | 初始化时建立物理连接的个数 |
 | db.minIdle | 最小连接池数量 |
@@ -132,7 +132,7 @@ jquery-cookie | - | [https://github.com/carhartl/jquery-cookie](https://github.c
 ## 六、常用方法（Methods）
 ##### *方法均在继承于BaseController的类中使用this.metodName；进行调用（其中methodName代表需要调用的方法名称）*
 
-| 方法 | 参数 | 返回值 | 描述 |
+| 方法名（MethodName） | 参数（Params） | 返回值(Return) | 描述（Describtion） |
 | --- | :--- | :--- | :--- |
 | getSession | 无 | HttpSession 服务器会话 | 获取服务器会话 session 对象 |
 | setSession | session 服务器会话 | 无 | 设置服务器会话 session 对象 |
