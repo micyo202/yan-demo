@@ -132,7 +132,7 @@ jquery-cookie | - | [https://github.com/carhartl/jquery-cookie](https://github.c
 ## 六、常用方法（Methods）
 ##### *方法均在继承于BaseController的类中使用this.metodName；进行调用（其中methodName代表需要调用的方法名称）*
 
-| 方法名（MethodName） | 参数（Params） | 返回值(Return) | 描述（Describtion） |
+| 方法名（MethodName） | 参数（Params） | 返回值（Return） | 描述（Describtion） |
 | --- | :--- | :--- | :--- |
 | getSession | 无 | HttpSession 服务器会话 | 获取服务器会话 session 对象 |
 | setSession | session 服务器会话 | 无 | 设置服务器会话 session 对象 |
