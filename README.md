@@ -30,7 +30,7 @@
 ## 二、技术选型（Technology）
 #### 1.服务端技术（Server）
 名称 | 版本 | 官网
-----|------|----
+--- | --- | ---
 Spring Framework | 4.3.10.RELEASE  | [http://projects.spring.io/spring-framework/](http://projects.spring.io/spring-framework/)
 AspectJ | 1.8.10 | [http://www.eclipse.org/aspectj/](http://www.eclipse.org/aspectj/)
 MyBatis | 3.4.5 | [http://www.mybatis.org/mybatis-3/zh/index.html](http://www.mybatis.org/mybatis-3/zh/index.html)
@@ -40,31 +40,32 @@ Shiro | 1.4.0 | [http://shiro.apache.org](http://shiro.apache.org)
 Jackson | 2.9.1 | [https://github.com/FasterXML/jackson](https://github.com/FasterXML/jackson)
 Logback | 1.2.3 | [https://logback.qos.ch](https://logback.qos.ch)
 Dom4j | 1.6.1 | [http://www.dom4j.org](http://www.dom4j.org)
+Ehcache | 2.6.11| [http://www.ehcache.org/](http://www.ehcache.org/)
 MyBatis Generator | 1.3.5 | [http://www.mybatis.org/generator/index.html](http://www.mybatis.org/generator/index.html)
 Jetty | 9.4.6.v20170531 | [http://www.eclipse.org/jetty/](http://www.eclipse.org/jetty/)
 Maven | 3.3.9 | [http://maven.apache.org/](http://maven.apache.org/)
 #### 2.前端技术（Web）
-名称 | 官网
-----|----
-angular | [https://angularjs.org](https://angularjs.org)
-awesome-bootstrap-checkbox | [https://github.com/flatlogic/awesome-bootstrap-checkbox](https://github.com/flatlogic/awesome-bootstrap-checkbox)
-bootstrap-3.3.7 | [http://www.bootcss.com](http://www.bootcss.com)
-bootstrap-datetimepicker | [http://www.bootcss.com/p/bootstrap-datetimepicker/](http://www.bootcss.com/p/bootstrap-datetimepicker/)
-bootstrap-select-1.12.4 | [http://silviomoreto.github.io/bootstrap-select/](http://silviomoreto.github.io/bootstrap-select/)
-bootstrap-table-1.11.1 | [http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/](http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/)
-bootstrapvalidator-0.5.3 | [https://github.com/nghuuphuoc/bootstrapvalidator/](https://github.com/nghuuphuoc/bootstrapvalidator/)
-font-awesome-4.7.0 | [http://fontawesome.io/icons/](http://fontawesome.io/icons/)
-fontIconPicker-2.0.0 | [https://codeb.it/fonticonpicker/](https://codeb.it/fonticonpicker/)
-fullPage | [https://alvarotrigo.com/fullPage/](https://alvarotrigo.com/fullPage/)
-jquery-confirm-3.3.0 | [https://github.com/craftpip/jquery-confirm](https://github.com/craftpip/jquery-confirm)
-malihu-custom-scrollbar-plugin | [https://github.com/videoMonkey/malihu-custom-scrollbar-plugin](https://github.com/videoMonkey/malihu-custom-scrollbar-plugin)
-material-design-iconic-font-2.2.0 | [https://github.com/zavoloklom/material-design-iconic-font](https://github.com/zavoloklom/material-design-iconic-font)
-waves-0.7.5 | [https://github.com/fians/Waves](https://github.com/fians/Waves)
-zTree_v3-3.5.26 | [http://www.treejs.cn/v3/main.php#_zTreeInfo](http://www.treejs.cn/v3/main.php#_zTreeInfo)
-BootstrapMenu | [https://mobirise.com/bootstrap-menu](https://mobirise.com/bootstrap-menu)
-device | [https://github.com/matthewhudson/device.js](https://github.com/matthewhudson/device.js)
-jquery-3.2.1 | [http://jquery.com](http://jquery.com)
-jquery-cookie | [https://github.com/carhartl/jquery-cookie](https://github.com/carhartl/jquery-cookie)
+名称 | 名称 | 官网
+--- | --- | ---
+angular | - | [https://angularjs.org](https://angularjs.org)
+awesome-bootstrap-checkbox | - | [https://github.com/flatlogic/awesome-bootstrap-checkbox](https://github.com/flatlogic/awesome-bootstrap-checkbox)
+bootstrap | 3.3.7 | [http://www.bootcss.com](http://www.bootcss.com)
+bootstrap-datetimepicker | - | [http://www.bootcss.com/p/bootstrap-datetimepicker/](http://www.bootcss.com/p/bootstrap-datetimepicker/)
+bootstrap-select | 1.12.4 | [http://silviomoreto.github.io/bootstrap-select/](http://silviomoreto.github.io/bootstrap-select/)
+bootstrap-table | 1.11.1 | [http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/](http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/)
+bootstrapvalidator | 0.5.3 | [https://github.com/nghuuphuoc/bootstrapvalidator/](https://github.com/nghuuphuoc/bootstrapvalidator/)
+font-awesome | 4.7.0 | [http://fontawesome.io/icons/](http://fontawesome.io/icons/)
+fontIconPicker | 2.0.0 | [https://codeb.it/fonticonpicker/](https://codeb.it/fonticonpicker/)
+fullPage | - | [https://alvarotrigo.com/fullPage/](https://alvarotrigo.com/fullPage/)
+jquery-confirm | 3.3.0 | [https://github.com/craftpip/jquery-confirm](https://github.com/craftpip/jquery-confirm)
+malihu-custom-scrollbar-plugin | - | [https://github.com/videoMonkey/malihu-custom-scrollbar-plugin](https://github.com/videoMonkey/malihu-custom-scrollbar-plugin)
+material-design-iconic-font | 2.2.0 | [https://github.com/zavoloklom/material-design-iconic-font](https://github.com/zavoloklom/material-design-iconic-font)
+waves | 0.7.5 | [https://github.com/fians/Waves](https://github.com/fians/Waves)
+zTree_v3 | 3.5.26 | [http://www.treejs.cn/v3/main.php#_zTreeInfo](http://www.treejs.cn/v3/main.php#_zTreeInfo)
+BootstrapMenu | - | [https://mobirise.com/bootstrap-menu](https://mobirise.com/bootstrap-menu)
+device | - | [https://github.com/matthewhudson/device.js](https://github.com/matthewhudson/device.js)
+jquery | 3.2.1 | [http://jquery.com](http://jquery.com)
+jquery-cookie | - | [https://github.com/carhartl/jquery-cookie](https://github.com/carhartl/jquery-cookie)
 
 ## 三、项目结构（Construction）
 > * com.yan.common：通用模块类路径（包含：用户登录、菜单、后台管理等...）
