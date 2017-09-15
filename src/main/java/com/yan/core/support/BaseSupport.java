@@ -1,4 +1,4 @@
-package com.yan.core.controller;
+package com.yan.core.support;
 
 import java.io.File;
 import java.io.FileReader;
@@ -38,7 +38,7 @@ public class BaseSupport {
 	 * @param obj 需要进行判断的对象
 	 * @return boolean 为null或空返回 true，否则返回 false
 	 */
-	protected boolean isNull(Object obj) {
+	public boolean isNull(Object obj) {
 		if (null == obj)
 			return true;
 		if (obj instanceof List) {
@@ -66,7 +66,7 @@ public class BaseSupport {
 	 * @param obj 需要转换的对象
 	 * @return String 对象的值（为null则返回""）
 	 */
-	protected String obj2Str(Object obj) {
+	public String obj2Str(Object obj) {
 		return null == obj ? "" : obj.toString();
 	}
 
@@ -75,7 +75,7 @@ public class BaseSupport {
 	 *
 	 * @return String 32位主键字符串
 	 */
-	protected String getUUID() {
+	public String getUUID() {
 		return UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
 	}
 
@@ -85,7 +85,7 @@ public class BaseSupport {
 	 * @param str 需要进行编码的字符串
 	 * @return String 进行编码后的结果字符串
 	 */
-	protected String base64Encoder(String str) {
+	public String base64Encoder(String str) {
 		if (this.isNull(str))
 			return null;
 		return Base64.getUrlEncoder().encodeToString(str.getBytes(StandardCharsets.UTF_8));
@@ -97,7 +97,7 @@ public class BaseSupport {
 	 * @param str 已进行 base64 编码的编码字符串
 	 * @return String 解码后的原字符串
 	 */
-	protected String base64Decoder(String str) {
+	public String base64Decoder(String str) {
 		if (this.isNull(str))
 			return null;
 		return new String(Base64.getUrlDecoder().decode(str), StandardCharsets.UTF_8);
@@ -109,7 +109,7 @@ public class BaseSupport {
 	 * @param str 需要进行 md5 加密的字符串
 	 * @return String 加密后的结果
 	 */
-	protected String md5(String str) {
+	public String md5(String str) {
 		if (this.isNull(str))
 			return null;
 		try {
@@ -128,7 +128,7 @@ public class BaseSupport {
 	 * @param pattern 获取系统时间的格式，如：yyyy-MM-dd HH:mm:ss
 	 * @return String 返回格式化后的当前时间
 	 */
-	protected String currentDate(String pattern) {
+	public String currentDate(String pattern) {
 		if (this.isNull(pattern))
 			return null;
 		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
@@ -142,7 +142,7 @@ public class BaseSupport {
 	 * @param pattern 转换后的格式
 	 * @return String 格式化后的日期
 	 */
-	protected String timeStamp2Date(String timestamp, String pattern) {
+	public String timeStamp2Date(String timestamp, String pattern) {
 		if (this.isNull(timestamp) || this.isNull(pattern))
 			return null;
 		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
@@ -156,7 +156,7 @@ public class BaseSupport {
 	 * @param pattern 日期的格式
 	 * @return String 转换后的时间戳
 	 */
-	protected String date2TimeStamp(String dateStr, String pattern) {
+	public String date2TimeStamp(String dateStr, String pattern) {
 		if (this.isNull(dateStr) || this.isNull(pattern))
 			return null;
 		try {
@@ -174,7 +174,7 @@ public class BaseSupport {
 	 * @param filePath 文件路径（绝对路径）
 	 * @return String 读取的文件内容
 	 */
-	protected String readFromFile(String filePath) {
+	public String readFromFile(String filePath) {
 		if (this.isNull(filePath))
 			return null;
 		try {
@@ -200,7 +200,7 @@ public class BaseSupport {
 	 * @param content 需要写入文件中的内容
 	 * @param filePath 文件路径（绝对路径）
 	 */
-	protected void writeToFile(String content, String filePath) {
+	public void writeToFile(String content, String filePath) {
 		if (!this.isNull(content) && !this.isNull(filePath)) {
 			try {
 				generateFile(filePath);
@@ -220,7 +220,7 @@ public class BaseSupport {
 	 *
 	 * @param path 文件夹路径（绝对路径）
 	 */
-	protected void generatePath(String path) {
+	public void generatePath(String path) {
 		if (!this.isNull(path)) {
 			File file = new File(path);
 			if (!file.exists() && !file.isDirectory()) {
@@ -234,7 +234,7 @@ public class BaseSupport {
 	 *
 	 * @param path 文件路径（绝对路径）
 	 */
-	protected void generateFile(String path) {
+	public void generateFile(String path) {
 		if (!this.isNull(path)) {
 			File file = new File(path);
 			if (!file.exists()) {
@@ -253,7 +253,7 @@ public class BaseSupport {
 	 * @param key 资源文件中的 key 值
 	 * @return String 读取到的 key 对应的 value 值
 	 */
-	protected String propertiesValue(String key) {
+	public String propertiesValue(String key) {
 		if (this.isNull(key))
 			return null;
 		try {
@@ -275,7 +275,7 @@ public class BaseSupport {
 	 * @param key 资源文件中的 key 值
 	 * @return String 读取到的 key 对应的 value 值
 	 */
-	protected String propertiesValue(String resource, String key) {
+	public String propertiesValue(String resource, String key) {
 		if (this.isNull(resource) || this.isNull(key))
 			return null;
 		try {

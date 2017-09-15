@@ -27,7 +27,7 @@ import com.yan.common.user.model.SysUser;
  * @see ControllerSupport
  * @see BaseSupport
  */
-public class BaseController extends ControllerSupport {
+public abstract class BaseController extends ControllerSupport {
 
 	/**
 	 * 服务器会话信息 session 对象<br>
@@ -109,7 +109,7 @@ public class BaseController extends ControllerSupport {
 	}
 	
 	/**
-	 * 统一异常处理类<br>
+	 * 统一异常处理类
 	 *
 	 * @param request
 	 * @param response

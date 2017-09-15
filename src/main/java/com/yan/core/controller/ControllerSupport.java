@@ -24,6 +24,7 @@ import com.yan.core.model.MsgModel;
 import com.yan.core.model.PageModel;
 import com.yan.core.persistence.DelegateMapper;
 import com.yan.core.spring.DataSourceContextHolder;
+import com.yan.core.support.BaseSupport;
 
 /**
  * 名称：ControllerSupport<br>
@@ -42,7 +43,7 @@ import com.yan.core.spring.DataSourceContextHolder;
  * @see MsgModel
  * @see PageModel
  */
-public class ControllerSupport extends BaseSupport {
+public abstract class ControllerSupport extends BaseSupport {
 
 	/**
 	 * 根据 spring 配置获取 mybatis 中的 sqlSessionTemplate 模板<br>

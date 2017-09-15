@@ -14,14 +14,14 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
- * 名称：LogAspect<br>
+ * 名称：LogAspect
  *
- * 描述：面向切面编程（自定义日志输出）（order=3 优先级低）<br>
+ * 描述：面向切面编程（自定义日志输出）（order=3 优先级低）
  *
- * @author Yanzheng 严正<br>
- * 时间：<br>
- * 2017-08-25 16:00:34<br>
- * 版权：<br>
+ * @author Yanzheng 严正
+ * 时间：
+ * 2017-08-25 16:00:34
+ * 版权：
  * Copyright 2017 <a href="https://github.com/micyo202" target="_blank">https://github.com/micyo202</a>. All rights reserved.
  */
 @Component
@@ -30,18 +30,18 @@ import org.springframework.stereotype.Component;
 public class LogAspect {
 	
 	/**
-	 * 日志记录类<br>
+	 * 日志记录类
 	 */
 	private static final Logger log = LoggerFactory.getLogger(LogAspect.class);
 
 	/**
-	 * 切入点表达式<br>
+	 * 切入点表达式
 	 */
 	@Pointcut("execution(* com.yan..*.controller.*.*(..))")
 	public void logPointCut() {}
 	
 	/**
-	 * 前置通知<br>
+	 * 前置通知
 	 */
 	/*
 	@Before("logPointCut()")
@@ -62,7 +62,7 @@ public class LogAspect {
 	*/
 
 	/**
-	 * 后置通知<br>
+	 * 后置通知
 	 */
 	/*
 	@After("logPointCut()")
@@ -74,7 +74,7 @@ public class LogAspect {
 	*/
 
 	/**
-	 * 返回通知<br>
+	 * 返回通知
 	 *
 	 * @param joinPoint 目标类连接点对象
 	 * @param result 返回结果
@@ -93,7 +93,7 @@ public class LogAspect {
 	
 	
 	/**
-	 * 异常通知<br>
+	 * 异常通知
 	 *
 	 * @param joinPoint 目标类连接点对象
 	 * @param exception 异常类
@@ -111,7 +111,7 @@ public class LogAspect {
 	}
 
 	/**
-	 * 环绕通知<br>
+	 * 环绕通知
 	 */
 	/*
 	@Around("logPointCut()")

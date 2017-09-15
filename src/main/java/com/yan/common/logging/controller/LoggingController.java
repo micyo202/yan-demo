@@ -3,12 +3,15 @@ package com.yan.common.logging.controller;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageHelper;
+import com.yan.common.logging.mapper.LoggingEventExceptionMapper;
 import com.yan.common.logging.mapper.LoggingEventMapper;
+import com.yan.common.logging.mapper.LoggingEventPropertyMapper;
 import com.yan.common.logging.model.LoggingEvent;
 import com.yan.common.logging.model.LoggingEventExample;
 import com.yan.core.annotation.MapperInject;
@@ -32,7 +35,13 @@ import com.yan.core.model.PageModel;
 public class LoggingController extends BaseController {
 
 	@MapperInject(LoggingEventMapper.class)
-	private LoggingEventMapper mapper;
+	private LoggingEventMapper eventMapper;
+	
+	@MapperInject(LoggingEventExceptionMapper.class)
+	private LoggingEventExceptionMapper exceptionMapper;
+	
+	@MapperInject(LoggingEventPropertyMapper.class)
+	private LoggingEventPropertyMapper propertyMapper;
 
 	/**
 	 * 日志查看初始化<br>
@@ -61,7 +70,7 @@ public class LoggingController extends BaseController {
 		PageHelper.offsetPage(offset, limit);
 		LoggingEventExample example = new LoggingEventExample();
 		example.setOrderByClause("timestmp desc");
-		List<LoggingEvent> list = mapper.selectByExampleWithBLOBs(example);
+		List<LoggingEvent> list = eventMapper.selectByExampleWithBLOBs(example);
 		return new PageModel<>(list);
 
 	}
@@ -73,8 +82,11 @@ public class LoggingController extends BaseController {
 	 */
 	@RequestMapping(value = "/clear", method = RequestMethod.POST)
 	@ResponseBody
+	@Transactional
 	public MsgModel clear() {
-		mapper.deleteByExample(null);
+		propertyMapper.deleteByExample(null);
+		exceptionMapper.deleteByExample(null);
+		eventMapper.deleteByExample(null);
 		return this.resultMsg("删除成功！");
 	}
 

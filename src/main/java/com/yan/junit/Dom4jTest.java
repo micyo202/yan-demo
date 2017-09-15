@@ -11,6 +11,8 @@ import org.dom4j.io.SAXReader;
 import org.junit.Test;
 import org.springframework.util.Base64Utils;
 
+import com.yan.core.support.BaseSupport;
+
 public class Dom4jTest {
 
 	@SuppressWarnings("unchecked")
@@ -40,7 +42,7 @@ public class Dom4jTest {
 
 	@Test
 	public void test1() {
-
+		
 		String keyStr = "Test123";
 		byte[] keys = keyStr.getBytes(StandardCharsets.UTF_8);
 		System.out.println(Base64Utils.encodeToString(Arrays.copyOf(keys, 16)));
