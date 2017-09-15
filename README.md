@@ -4,7 +4,7 @@
   <img src="https://github.com/micyo202/yan_demo/raw/master/src/main/webapp/resources/images/logo.png" alt="Yan Frame" title="Yan Frame">
 </p>
 
-[![Beta](https://img.shields.io/badge/beta-1.0.9-brightgreen.svg)](https://github.com/micyo202/yan_demo)
+[![Beta](https://img.shields.io/badge/beta-0.0.7-brightgreen.svg)](https://github.com/micyo202/yan_demo)
 [![Downloads](https://img.shields.io/badge/downloads-2.8MB-yellow.svg)](https://github.com/micyo202/yan_demo/archive/master.zip)
 [![Since](https://img.shields.io/badge/since-2017-blue.svg)](https://github.com/micyo202/yan_demo)
 [![GitHub stars](https://img.shields.io/github/stars/micyo202/yan_demo.svg?style=social&label=Stars)](https://github.com/micyo202/yan_demo)
@@ -29,23 +29,22 @@
 
 ## 二、技术选型（Technology）
 #### 1.服务端技术（Server）
-名称（Name） | 版本号（Version） | 网址（Website）
+名称 | 版本号 | 网址
 --- | --- | ---
 Spring Framework | 4.3.10.RELEASE  | [http://projects.spring.io/spring-framework/](http://projects.spring.io/spring-framework/)
+Shiro | 1.4.0 | [http://shiro.apache.org](http://shiro.apache.org)
 AspectJ | 1.8.10 | [http://www.eclipse.org/aspectj/](http://www.eclipse.org/aspectj/)
 MyBatis | 3.4.5 | [http://www.mybatis.org/mybatis-3/zh/index.html](http://www.mybatis.org/mybatis-3/zh/index.html)
+MyBatis Generator | 1.3.5 | [http://www.mybatis.org/generator/index.html](http://www.mybatis.org/generator/index.html)
 PageHelper | 5.1.1 | [http://git.oschina.net/free/Mybatis_PageHelper](http://git.oschina.net/free/Mybatis_PageHelper)
 Druid | 1.1.3 | [https://github.com/alibaba/druid](https://github.com/alibaba/druid)
-Shiro | 1.4.0 | [http://shiro.apache.org](http://shiro.apache.org)
 Jackson | 2.9.1 | [https://github.com/FasterXML/jackson](https://github.com/FasterXML/jackson)
-Logback | 1.2.3 | [https://logback.qos.ch](https://logback.qos.ch)
 Dom4j | 1.6.1 | [http://www.dom4j.org](http://www.dom4j.org)
 Ehcache | 2.6.11| [http://www.ehcache.org/](http://www.ehcache.org/)
-MyBatis Generator | 1.3.5 | [http://www.mybatis.org/generator/index.html](http://www.mybatis.org/generator/index.html)
-Jetty | 9.4.6.v20170531 | [http://www.eclipse.org/jetty/](http://www.eclipse.org/jetty/)
+Logback | 1.2.3 | [https://logback.qos.ch](https://logback.qos.ch)
 Maven | 3.3.9 | [http://maven.apache.org/](http://maven.apache.org/)
 #### 2.前端技术（Web）
-名称（Name） | 版本号（Version） | 网址（Website）
+名称 | 版本号 | 网址
 --- | --- | ---
 angular | - | [https://angularjs.org](https://angularjs.org)
 awesome-bootstrap-checkbox | - | [https://github.com/flatlogic/awesome-bootstrap-checkbox](https://github.com/flatlogic/awesome-bootstrap-checkbox)
@@ -95,7 +94,7 @@ jquery-cookie | - | [https://github.com/carhartl/jquery-cookie](https://github.c
 > 9. 创建对应jsp页面，并编写前端页面展示代码
 
 ## 五、配置说明（Properties）
-| 名称（Key）| 描述（Description） |
+| 名称（Key值）| 描述 |
 | --- | :--- |
 | **setting.upload** | 文件上传路径（绝对路径） |
 |- |- |
@@ -132,7 +131,7 @@ jquery-cookie | - | [https://github.com/carhartl/jquery-cookie](https://github.c
 ## 六、常用方法（Methods）
 ##### *方法均在继承于BaseController的类中使用this.metodName；进行调用（其中methodName代表需要调用的方法名称）*
 
-| 方法名（MethodName） | 参数（Params） | 返回值（Return） | 描述（Describtion） |
+| 方法名 | 参数 | 返回值 | 描述 |
 | --- | :--- | :--- | :--- |
 | getSession | 无 | HttpSession 服务器会话 | 获取服务器会话 session 对象 |
 | setSession | session 服务器会话 | 无 | 设置服务器会话 session 对象 |
