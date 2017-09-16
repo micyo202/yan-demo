@@ -10,8 +10,42 @@
 	<title>Yan Frame Demo</title>
 	<style>
 	/** skins **/
-	#header {background: #29A176;}
-	.content_tab{background: #29A176;}
+	#header {
+		background: #4B96B4;
+		/* Old browsers */
+		background: -moz-linear-gradient(-45deg, #4B96B4 0%, #59C0BF 100%);
+		/* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #4B96B4), color-stop(100%, #59C0BF));
+		/* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(-45deg, #4B96B4 0%, #59C0BF 100%);
+		/* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(-45deg, #4B96B4 0%, #59C0BF 100%);
+		/* Opera 11.10+ */
+		background: -ms-linear-gradient(-45deg, #4B96B4 0%, #59C0BF 100%);
+		/* IE10+ */
+		background: linear-gradient(-45deg, #4B96B4 0%, #59C0BF 100%);
+		/* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4B96B4, endColorstr=#59C0BF, GradientType=1);
+		/* IE6-9 fallback on horizontal gradient */
+	}
+	.content_tab{
+		background: #4B96B4;
+		/* Old browsers */
+		background: -moz-linear-gradient(-45deg, #4B96B4 0%, #57B9BD 100%);
+		/* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #4B96B4), color-stop(100%, #57B9BD));
+		/* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(-45deg, #4B96B4 0%, #57B9BD 100%);
+		/* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(-45deg, #4B96B4 0%, #57B9BD 100%);
+		/* Opera 11.10+ */
+		background: -ms-linear-gradient(-45deg, #4B96B4 0%, #57B9BD 100%);
+		/* IE10+ */
+		background: linear-gradient(-45deg, #4B96B4 0%, #57B9BD 100%);
+		/* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4B96B4, endColorstr=#57B9BD, GradientType=1);
+		/* IE6-9 fallback on horizontal gradient */
+	}
 	.s-profile>a{background: url(${pageContext.request.contextPath}/resources/images/background.png) left top no-repeat;}
 	</style>
 </head>
@@ -49,7 +83,7 @@
 				</li>
 				<li class="dropdown">
 					<a class="waves-effect waves-light" data-toggle="dropdown" href="javascript:;">
-						<i class="him-icon zmdi zmdi-dropbox"></i>
+						<i class="him-icon zmdi zmdi-transform"></i>
 					</a>
 					<ul class="dropdown-menu dm-icon pull-right">
 						<li class="skin-switch">

@@ -11,8 +11,6 @@ import org.dom4j.io.SAXReader;
 import org.junit.Test;
 import org.springframework.util.Base64Utils;
 
-import com.yan.core.support.BaseSupport;
-
 public class Dom4jTest {
 
 	@SuppressWarnings("unchecked")
