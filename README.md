@@ -17,7 +17,6 @@
 项目目标为中小型企业打造全方位的J2EE企业级开发解决方案。
 
 ## 一、项目开发环境&工具（Environment&Tools）
-
 - MacOS Sierra / Windows 7
 - MySql 5.7
 - JDK 1.8
@@ -66,34 +65,54 @@ device | - | [https://github.com/matthewhudson/device.js](https://github.com/mat
 jquery | 3.2.1 | [http://jquery.com](http://jquery.com)
 jquery-cookie | - | [https://github.com/carhartl/jquery-cookie](https://github.com/carhartl/jquery-cookie)
 
-## 三、项目结构（Construction）
-> * com.yan.common：通用模块类路径（包含：用户登录、菜单、后台管理等...）
-> * com.yan.core：框架核心类（包括基础的控制器、过滤器、拦截器、类加载器、注入器、注解、以及框架封装的核心方法部分）
-> * com.yan.demo：系统业务层模块路径，可根据实际项目名称换掉demo名称（后期添加的业务模块均在在路径下）
-> * com.yan.junit：单元测试类目录便于撰写测试代码
-> * com.yan.**.controller：业务控制器类路径，用于自己编写业务处理的控制器
-> * com.yan.**.mapper：持久层映射接口类路径，存放mbg生成mybatis对应的Mapper映射接口类
-> * com.yan.**.model：业务模型类路径，存放mbg生成的模型以及自定义模型
-> * resources/database：存放创建数据库表结构的*.sql文件（包含Yan Frame框架所需的基本系统数据表，如：用户表、权限表、菜单表等...）
-> * resources/mybatis：存放所有mybatis的sql模板*.xml文件
-> * resources/properties：存放系统配置文件（如：系统基本配置、数据库配置、日志配置、MyBatis generator配置）
-> * resources/spring：存放spring相关配置文件
-> * webapp/common：前台框架的通用*.jsp文件，其他业务页面仅需引入这里面对应的jsp即可
-> * webapp/resources：前台资源文件，包含了images、css、js、doc、plugins
-> * webapp/views：视图存放路径，所有业务功能的*.jsp页面
 
-## 四、项目入门（Introduction）
+## 三、组织树（Tree）
+```lua
+yan_demo
+├── java -- java类路径
+|    ├── com.yan.common -- 通用功能模块
+|    ├── com.yan.core -- 框架核心模块
+|    ├── com.yan.demo -- 业务模块
+|    ├── com.yan.junit -- 单元测试模块
+├── resources -- 资源配置路径
+|    ├── database -- 数据库sql文件
+|    ├── mybatis -- mapper映射文件
+|    ├── properties -- 配置文件
+|    ├── spring -- spring的配置文件
+├── webapp -- web应用根路径
+|    ├── common -- 公共路径
+|    ├── resources -- 静态资源路径
+|    ├── views -- 视图路径
+```
+
+## 四、项目结构（Construction）
+> * com.yan.common：通用功能模块（包含：用户登录、菜单、后台管理等...）
+> * com.yan.core：框架核心模块（包括基础的控制器、过滤器、拦截器、类加载器、注入器、注解、以及框架封装的核心方法部分）
+> * com.yan.demo：业务模块（根据实际项目名称换掉demo名称，所有业务模块均在该路径下）
+> * com.yan.junit：单元测试模块（便于撰写单元测试代码）
+> * com.yan.**.controller：控制器路径，存放自己编写业务处理的控制器（继承BaseController）
+> * com.yan.**.mapper：持久层映射接口类路径（mbg生成mybatis对应的Mapper映射接口类）
+> * com.yan.**.model：模型类路径（mbg生成的模型以及自定义模型）
+> * resources/database：数据库sql文件（数据库表结构的*.sql文件，包含Yan Frame框架所需的基本系统数据表，如：用户表、权限表、菜单表等...）
+> * resources/mybatis：mapper映射文件（所有mybatis的sql模板*.xml文件）
+> * resources/properties：配置文件（如：系统基本配置、数据库配置、日志配置、MyBatis generator配置）
+> * resources/spring：spring的配置文件（命名规范：spring-*.xml）
+> * webapp/common：公共路径（前台框架的通用*.jsp头文件，页面仅需引入这里面对应的jsp即可）
+> * webapp/resources：静态资源路径（包含了js、css、images、doc、plugins等）
+> * webapp/views：视图路径（所有业务功能的*.jsp页面）
+
+## 五、项目入门（Introduction）
 > 1. 使用 **Maven** 构建项目
 > 2. 创建数据库并执行 **resources/database** 路径下的 **sql** 文件，创建框架必要的表（如：用户表、资源表、日志记录表等...）
-> 3. 修改 **resources/properties** 路径下的配置文件（具体修改方法，详见 - 五、配置说明）
+> 3. 修改 **resources/properties** 路径下的配置文件（具体修改方法，详见 - 六、配置说明）
 > 4. 完成以上步骤就可以正常部署启动服务了（使用 **jetty / tomcat** 均可），接下来进入开发阶段
 > 5. 根据实际业务需求，在对应的数据库中创建业务表，表命名规范：“模块名_表名” 如：**SYS_RESOURCE**（系统模块资源表）
 > 6. 修改 **resources** 路径下的 **generatorConfig.xml** 中的 *targetPackage* 包名及 *tableName* 表名，使用 **MyBatis generator** 插件生成对应的持久层模块代码（Maven 执行命令：**mvn mybatis-generator:generate**），具体配置请参考[MyBatis GeneratorXML Configuration](http://www.mybatis.org/generator/configreference/xmlconfig.html)
 > 7. 在业务模块包下创建对应的 **controller** 包，并在包中创建控制器类，控制器类命名规范以 **Controller** 结尾，并继承于 **BaseController** 类
-> 8. 编写控制器业务处理代码，具体使用参考 - 七、示例代码
+> 8. 编写控制器业务处理代码，具体使用参考 - 八、示例代码
 > 9. 创建对应jsp页面，并编写前端页面展示代码
 
-## 五、配置说明（Properties）
+## 六、配置说明（Properties）
 | 名称（Key值）| 描述 |
 | --- | :--- |
 | **setting.upload** | 文件上传路径（绝对路径） |
@@ -128,7 +147,7 @@ jquery-cookie | - | [https://github.com/carhartl/jquery-cookie](https://github.c
 | db.maxPoolPreparedStatementPerConnectionSize | 每个连接上PSCache的大小 |
 | db.filters | 属性类型是字符串，通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat日志用的filter:log4j防御sql注入的filter:wall |
 
-## 六、常用方法（Methods）
+## 七、常用方法（Methods）
 ##### *方法均在继承于BaseController的类中使用this.metodName；进行调用（其中methodName代表需要调用的方法名称）*
 
 | 方法名 | 参数 | 返回值 | 描述 |
@@ -164,7 +183,8 @@ jquery-cookie | - | [https://github.com/carhartl/jquery-cookie](https://github.c
 | generateFile | path 文件路径（绝对路径） | 无 | 生成指定路径的文件，先进行判断文件是否存在，若不存在则进行创建文件，若存在则不进行任何操作 |
 | propertiesValue | key 资源文件中的 key 值 | String 读取到的 key 对应的 value 值 | 读取 properties 文件中的值，读取 classpath 下 /properties/config.properties 配置文件 |
 | propertiesValue | resource 资源文件路径（对应 classpath 中的路径）；key 资源文件中的 key 值 | String 读取到的 key 对应的 value 值 | 读取指定路径 properties 文件中的值，会从 classpath 路径下进行查找资源文件 |
-## 七、示例代码（Codes）
+
+## 八、示例代码（Codes）
 ##### 创建一个继承与BaseController的控制器
 ```java
 @Controller
@@ -337,8 +357,7 @@ int res = mapper.deleteByExample(example);
 
 *更多方法使用请参考项目中API文档或demo模块下的代码*
 
-## 八、效果预览（Preview）
-
+## 九、效果预览（Preview）
 <img src="https://github.com/micyo202/yan_demo/raw/master/src/main/webapp/resources/images/login_preview.png" alt="login" title="login">
 <img src="https://github.com/micyo202/yan_demo/raw/master/src/main/webapp/resources/images/web_preview.png" alt="web" title="web">
 <img src="https://github.com/micyo202/yan_demo/raw/master/src/main/webapp/resources/images/mobile_preview.png" alt="mobile" title="mobile">
