@@ -72,12 +72,13 @@
     	<div id="overlay"></div>
 		<div id="login-window">
 			<h1 style="color: #fff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yan Frame</h1>
-			<input id="username" type="text" class="username" name="username" placeholder="帐号" required autofocus>
+			<input id="username" type="text" class="username" name="username" placeholder="用户名" required autofocus>
 			<input id="password" type="password" class="password" name="password" placeholder="密码" required>
 			<div class="checkbox checkbox-primary">
 				<input id="remember" class="styled" type="checkbox">
 				<label for="remember" style="color: #fff;">记住我</label>
 			</div>
+        	<b><p id="msg" style="color: red;font-size: 10pt;"></p></b>
 			<button id="login-bt" type="button">登录</button>
 		</div>
 	</div>
@@ -109,7 +110,7 @@
 					},
 					function(data) {
 						if (data.status == 0) {
-							$.alert(data.msg);
+							$('#msg').html(data.msg);
 						} else {
 								if (data.remember) {
 									var loginCookie = $('#username').val() + ',' + $('#password').val() + ',' + $('#remember').is(":checked");

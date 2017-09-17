@@ -43,7 +43,13 @@ $(function() {
 			{field: 'userJoindate', title: '注册时间', align: 'center'},
 			{field: 'userPhoto', title: '照片', align: 'center'},
 			{field: 'userType', title: '用户类型', align: 'center'},
-			{field: 'userValid', title: '是否有效', align: 'center'},
+			{field: 'userValid', title: '是否有效', align: 'center', formatter: function(value, row, index){
+				if(value){
+					return '<span class="label label-info">正常</span>';
+				}else {
+					return '<span class="label label-danger">失效</span>';
+				}
+			}},
 			{field: 'action', title: '操作', align: 'center', formatter: 'actionFormatter', events: 'actionEvents', clickToSelect: false}
 		]
 	});

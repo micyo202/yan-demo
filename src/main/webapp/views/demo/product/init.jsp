@@ -64,13 +64,11 @@ $(function() {
 			{field: 'productDate', title: '操作时间', align: 'center'},
 			{field: 'productType', title: '产品类型', align: 'center'},
 			{field: 'productStatus', title: '产品状态', align: 'center', formatter: function(value, row, index){
-				var res;
-				if(value == true){
-					res = '<span class="label label-sm label-info">有效</span>';
+				if(value){
+					return '<span class="label label-sm label-info">有效</span>';
 				}else{
-					res = '<span class="label label-sm label-danger">无效</span>';
+					return '<span class="label label-sm label-danger">无效</span>';
 				}
-				return res;
 			}},
 			{field: 'action', title: '操作', align: 'center', formatter: 'actionFormatter', events: 'actionEvents', clickToSelect: false}
 		]
