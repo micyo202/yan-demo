@@ -17,14 +17,14 @@
 项目目标为中小型企业打造全方位的J2EE企业级开发解决方案。
 
 ## 一、项目开发环境&工具（Environment&Tools）
-- MacOS Sierra / Windows 7
-- MySql 5.7
-- JDK 1.8
-- CentOS 7
-- Eclipse 4.6.1
-- Navicat Premium 11.1.12
-- Maven 3.3.9
-- Jetty 9.4.6.v20170531 / Tomcat 9.0
+* MacOS Sierra / Windows 7
+* MySql 5.7
+* JDK 1.8
+* CentOS 7
+* Eclipse 4.6.1
+* Navicat Premium 11.1.12
+* Maven 3.3.9
+* Jetty 9.4.6.v20170531 / Tomcat 9.0
 
 ## 二、技术选型（Technology）
 #### 1.服务端技术（Server）
