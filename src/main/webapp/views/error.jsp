@@ -6,8 +6,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script
-	src="${pageContext.request.contextPath}/resources/plugins/countUp.js"></script>
 <title>错误页面</title>
 <style type="text/css">
 body, html {
@@ -35,32 +33,7 @@ body, html {
 	/* IE6-9 fallback on horizontal gradient */
 	color: #fff;
 }
-
-#error-link {
-	font-size: 150px;
-	padding: 10px;
-}
 </style>
-<script type="text/javascript">
-	var errorCode = '${errorCode}';
-	var mainApp = {
-		main_fun : function() {
-			var count = new countUp("error-link", 0, errorCode, 0, 5);
-			window.onload = function() {
-				count.start();
-			}
-		},
-		initialization : function() {
-			mainApp.main_fun();
-		}
-	}
-	$(function() {
-		mainApp.main_fun();
-	});
-	window.onload = function() {
-		setTimeout("location.reload()", 1);
-	}
-</script>
 </head>
 <body>
 	<div class="container">
@@ -68,7 +41,7 @@ body, html {
 			<div class="col-md-6 col-md-offset-3 text-center">
 				<h1>对不起，您的操作有误！</h1>
 				<h5>未能监测到的错误操作，请检查原因</h5>
-				<span id="error-link"></span>
+				<span style="font-size: 150px; padding: 10px;">${errorCode}</span>
 				<h2>! 请联系系统管理员 !</h2>
 			</div>
 		</div>
