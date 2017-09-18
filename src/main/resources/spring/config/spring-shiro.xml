@@ -51,7 +51,7 @@
 
 	<!-- 会话验证调度器 -->
 	<bean id="sessionValidationScheduler" class="org.apache.shiro.session.mgt.quartz.QuartzSessionValidationScheduler">
-		<!-- 间隔多久检测一次session是否有效 -->
+		<!-- 间隔多久检测一次session是否有效，单位：毫秒 设置30分钟 -->
 		<property name="sessionValidationInterval" value="#{30 * 60 * 1000}" />
 		<property name="sessionManager" ref="sessionManager" />
 	</bean>
@@ -70,12 +70,10 @@
 		<property name="sessionIdCookie" ref="sessionIdCookie" />
 	</bean>
 
-
 	<!-- 配置安全管理器 -->
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 		<!--设置自定义Realm -->
 		<property name="realm" ref="shiroRealm" />
-		<property name="sessionManager" ref="sessionManager" />
 		<property name="cacheManager" ref="shiroCacheManager" />
 		<property name="rememberMeManager" ref="rememberMeManager" />
 	</bean>
@@ -105,7 +103,7 @@
 
 	<!-- 开启Shiro的注解(如@RequiresRoles,@RequiresPermissions),需借助SpringAOP扫描使用Shiro注解的类,并在必要时进行安全逻辑验证 -->
 	<!-- 配置以下两个bean即可实现此功能 -->
-	<!--
+	<!--  
 	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor" />
 	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor"> 
 		<property name="securityManager" ref="securityManager" />

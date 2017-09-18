@@ -52,7 +52,11 @@ public class IndexController extends BaseController {
 	 */
 	@RequestMapping("/login")
 	public String login() {
-        return "login";
+		if(this.isNull(this.getSessionUser())){
+			return "login";
+		}else{
+			return "redirect:/";
+		}
 	}
 	
 	/**
