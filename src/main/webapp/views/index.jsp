@@ -87,19 +87,17 @@
 					</a>
 					<ul class="dropdown-menu dm-icon pull-right">
 						<li class="skin-switch">
-							角色切换
+							<i class="zmdi zmdi-swap" style="font-size: 16px;" ></i>&nbsp;&nbsp;&nbsp;&nbsp;角色切换
 						</li>
 						<li class="divider"></li>
-						<li>
-							<a class="waves-effect" href="javascript:;"><i class="zmdi zmdi-shield-security"></i> 管理员</a>
+						<li style="text-align: center;">
+							<a class="waves-effect" href="javascript:;">管理员</a>
 						</li>
-						
-						<li>
-							<a class="waves-effect" href="javascript:;"><i class="zmdi zmdi-wikipedia"></i> 一般用户</a>
-						</li>
-						
-						<li>
-							<a class="waves-effect" href="javascript:;"><i class="zmdi zmdi-paypal-alt"></i> 高级用户</a>
+						<li style="text-align: center;">
+							<a class="waves-effect" href="javascript:;">高级用户</a>
+						</li>						
+						<li style="text-align: center;">
+							<a class="waves-effect" href="javascript:;">一般用户</a>
 						</li>
 					</ul>
 				</li>
