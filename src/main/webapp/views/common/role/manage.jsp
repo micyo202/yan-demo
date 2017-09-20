@@ -30,7 +30,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>菜单管理</title>
+<title>角色管理</title>
 </head>
 <body>
 
@@ -38,13 +38,13 @@
 		<div id="toolbar" align="right" style="background: #F5F5F5;">
 			<a id="add-btn" class="waves-effect waves-button"
 				style="margin-right: 5px; background-color: #D2E9FF;"
-				href="javascript:menuAdd();"><i class="zmdi zmdi-plus"></i> 添加</a> <a
+				href="javascript:roleAdd();"><i class="zmdi zmdi-plus"></i> 添加</a> <a
 				id="delete-btn" class="waves-effect waves-button"
 				style="margin-right: 5px; background-color: #FFD2D2;"
-				href="javascript:menuDelete();"><i class="zmdi zmdi-close"></i>
+				href="javascript:roleDelete();"><i class="zmdi zmdi-close"></i>
 				删除</a> <a id="refresh-btn" class="waves-effect waves-button"
 				style="margin-right: 5px; background-color: #E0E0E0;"
-				href="javascript:menuAllRefresh();"><i class="zmdi zmdi-refresh"></i>
+				href="javascript:roleAllRefresh();"><i class="zmdi zmdi-refresh"></i>
 				刷新</a>
 		</div>
 		<div id="ztree" class="ztree"></div>
@@ -53,16 +53,13 @@
 		<iframe id="content_iframe" class="tab_iframe" frameborder="0"
 			width="740" height="800" scrolling="no"></iframe>
 	</div>
-	<form id="aaa" action="${pageContext.request.contextPath}/common/menu/menuTree" method="post">
-	</form>
 </body>
-
 <script type="text/javascript">
 	var treeObj;
 	var setting = {
 		async : {
 			enable : true,
-			url : "${pageContext.request.contextPath}/common/menu/menuTree",
+			url : "${pageContext.request.contextPath}/common/role/roleTree",
 			autoParam : [ "id", "pid", "name", "level" ]
 		},
 		view: {
@@ -89,50 +86,49 @@
 	 var lastChecked;
 	// tree 点击事件
 	function zTreeOnClick(event, treeId, treeNode) {
-		//$("#content").load('${pageContext.request.contextPath}/common/menu/addOrEdit');
 		if(0 == treeNode.level){
 			$('#delete-btn').hide();
 		}else{
 			$('#delete-btn').show();
 		}
 		if(lastSelected != treeNode.id || lastChecked != 'click'){
-			$("#content_iframe").attr("src", "${pageContext.request.contextPath}/common/menu/" + treeNode.id + "/edit");
+			$("#content_iframe").attr("src", "${pageContext.request.contextPath}/common/role/" + treeNode.id + "/edit");
 		}
 		lastSelected = treeNode.id;
 		lastChecked = 'click';
 	}
 	// 添加 tree 节点
-	function menuAdd() {
+	function roleAdd() {
 		var nodes = treeObj.getSelectedNodes();
 		if ("" == nodes) {
 			$.alert("请选择父节点");
 		} else {
 			if(lastSelected != nodes[0].id || lastChecked != 'add'){
-				$("#content_iframe").attr("src", "${pageContext.request.contextPath}/common/menu/" + nodes[0].id + "/add");
+				$("#content_iframe").attr("src", "${pageContext.request.contextPath}/common/role/" + nodes[0].id + "/add");
 			}
 			lastSelected = nodes[0].id;
 			lastChecked = 'add';
 		}
 	}
 	// 删除 tree 节点
-	function menuDelete() {
+	function roleDelete() {
 		var nodes = treeObj.getSelectedNodes();
 		if (nodes != '') {
 			$.confirm({
 				type : 'red',
 				animationSpeed : 300,
 				title : false,
-				content : '确认删除[' + nodes[0].name + ']菜单吗？',
+				content : '确认删除[' + nodes[0].name + ']角色吗？',
 				buttons : {
 					confirm : {
 						text : '确认',
 						btnClass : 'waves-effect waves-button',
 						action : function() {
-							$.post('${pageContext.request.contextPath}/common/menu/delete', {menuId:nodes[0].id, menuPid:nodes[0].pid}, function(data){
+							$.post('${pageContext.request.contextPath}/common/role/delete', {roleId:nodes[0].id, rolePid:nodes[0].pid}, function(data){
 								if('1' == data.status){
-									menuParentsNodeRefresh();
+									roleParentsNodeRefresh();
 								}else{
-									menuParentNodeRefresh();
+									roleParentNodeRefresh();
 								}
 								$.alert(data.msg);
 							});
@@ -160,13 +156,13 @@
 		}
 	}
 	// 全部 tree 刷新 
-	function menuAllRefresh() {
+	function roleAllRefresh() {
 		treeObj.reAsyncChildNodes(null, "refresh");
 		lastSelected='';
 		lastChecked='';
 	}
-	// 选中 tree 节点父节点的父节点刷新 
-	function menuParentsNodeRefresh() {
+	//选中 tree 节点父节点的父节点刷新 
+	function roleParentsNodeRefresh() {
 		var nodes = treeObj.getSelectedNodes();
 		if (nodes.length > 0) {
 			treeObj.reAsyncChildNodes(nodes[0].getParentNode().getParentNode(), "refresh");
@@ -175,7 +171,7 @@
 		lastChecked='';
 	}
 	// 选中 tree 节点的父节点刷新 
-	function menuParentNodeRefresh() {
+	function roleParentNodeRefresh() {
 		var nodes = treeObj.getSelectedNodes();
 		if (nodes.length > 0) {
 			treeObj.reAsyncChildNodes(nodes[0].getParentNode(), "refresh");
@@ -184,16 +180,13 @@
 		lastChecked='';
 	}
 	// 选中 tree 节点刷新 
-	function menuNodeRefresh() {
+	function roleNodeRefresh() {
 		var nodes = treeObj.getSelectedNodes();
 		if (nodes.length > 0) {
 			treeObj.reAsyncChildNodes(nodes[0], "refresh");
 		}
 		lastSelected='';
 		lastChecked='';
-	}
-	function submit(){
-		$('#aaa').submit();
 	}
 </script>
 </html>

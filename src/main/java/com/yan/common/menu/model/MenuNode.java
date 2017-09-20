@@ -48,9 +48,19 @@ public class MenuNode implements Serializable {
 	private Boolean isParent;
 	
 	/**
+	 * 不显示某个节点的 checkbox / radio <br>
+	 */
+	private Boolean nocheck;
+	
+	/**
 	 * 是否展开菜单<br>
 	 */
 	private Boolean open;
+	
+	/**
+	 * 是否选中 <br>
+	 */
+	private Boolean checked;
 	
 	/**
 	 * 有效值<br>
@@ -110,12 +120,28 @@ public class MenuNode implements Serializable {
 		this.isParent = isParent;
 	}
 
+	public Boolean getNocheck() {
+		return nocheck;
+	}
+
+	public void setNocheck(Boolean nocheck) {
+		this.nocheck = nocheck;
+	}
+
 	public Boolean getOpen() {
 		return open;
 	}
 
 	public void setOpen(Boolean open) {
 		this.open = open;
+	}
+
+	public Boolean getChecked() {
+		return checked;
+	}
+
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
 	}
 
 	public Boolean getValid() {
@@ -133,5 +159,5 @@ public class MenuNode implements Serializable {
 	public void setChildren(List<MenuNode> children) {
 		this.children = children;
 	}
-
+	
 }

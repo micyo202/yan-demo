@@ -48,9 +48,9 @@ public class LoggingController extends BaseController {
 	 *
 	 * @return String 初始化页面地址
 	 */
-	@RequestMapping("/init")
-	public String init() {
-		return "common/logging/init";
+	@RequestMapping("/manage")
+	public String manage() {
+		return "common/logging/manage";
 	}
 
 	/**

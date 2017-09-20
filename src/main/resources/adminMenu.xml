@@ -25,27 +25,27 @@
 	<menu name="用户与权限管理" icon="zmdi zmdi-accounts">
 		<menuItem>
 			<name>用户管理</name>
-			<url>/common/user/init</url>
+			<url>/common/user/manage</url>
 		</menuItem>
 		<menuItem>
 			<name>权限管理</name>
-			<url>/common/permission/init</url>
+			<url>/common/permission/manage</url>
 		</menuItem>
 	</menu>
 	<menu name="角色与资源管理" icon="zmdi zmdi-lock-outline">
 		<menuItem>
 			<name>角色管理</name>
-			<url>/common/role/init</url>
+			<url>/common/role/manage</url>
 		</menuItem>
 		<menuItem>
 			<name>菜单资源管理</name>
-			<url>/common/menu/init</url>
+			<url>/common/menu/manage</url>
 		</menuItem>
 	</menu>
 	<menu name="其他数据管理" icon="zmdi zmdi-more">
 		<menuItem>
 			<name>日志记录</name>
-			<url>/common/logging/init</url>
+			<url>/common/logging/manage</url>
 		</menuItem>
 		<menuItem>
 			<name>监控信息</name>

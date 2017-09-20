@@ -33,9 +33,9 @@ public class UserController extends BaseController {
 	@MapperInject(SysUserMapper.class)
 	private SysUserMapper mapper;
 
-	@RequestMapping("/init")
-	public String init() {
-		return "common/user/init";
+	@RequestMapping("/manage")
+	public String manage() {
+		return "common/user/manage";
 	}
 
 	@RequestMapping(value = "/list", method = RequestMethod.POST)

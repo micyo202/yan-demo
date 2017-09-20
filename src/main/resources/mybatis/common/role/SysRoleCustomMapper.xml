@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yan.common.role.mapper.SysRoleCustomMapper">
+	<resultMap id="roleNodeMap" type="com.yan.common.role.model.RoleNode">
+		<id column="ROLE_ID" jdbcType="VARCHAR" property="id" />
+		<id column="ROLE_PID" jdbcType="VARCHAR" property="pid" />
+		<result column="ROLE_NAME" jdbcType="VARCHAR" property="name" />
+		<result column="ROLE_LEVEL" jdbcType="INTEGER" property="level" />
+		<result column="ROLE_PARENT" jdbcType="BIT" property="isParent" />
+		<result column="ROLE_OPEN" jdbcType="BIT" property="open" />
+		<result column="ROLE_VALID" jdbcType="BIT" property="valid" />
+	</resultMap>
+	
+	<select id="getRoleNode" resultMap="roleNodeMap" parameterType="java.lang.String">
+		SELECT ROLE_ID, ROLE_PID, ROLE_NAME, ROLE_LEVEL, IF(ROLE_TYPE='group', TRUE, FALSE) ROLE_PARENT, IF(ROLE_LEVEL=0, TRUE, IF(ROLE_LEVEL=1, TRUE, FALSE)) ROLE_OPEN, ROLE_VALID FROM SYS_ROLE WHERE ROLE_PID=#{0} ORDER BY ROLE_LEVEL, ROLE_INDEX
+	</select>
+	
+	<select id="updateRoleType" parameterType="java.util.HashMap">
+		UPDATE SYS_ROLE SET ROLE_TYPE=#{roleType} WHERE ROLE_ID=#{roleId}		
+	</select>
+	
+</mapper>

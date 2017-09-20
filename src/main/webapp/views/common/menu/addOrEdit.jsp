@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>添加修改页</title>
+<title>资源添加修改页</title>
 </head>
 <body>
 	<form id="dataForm" method="post">

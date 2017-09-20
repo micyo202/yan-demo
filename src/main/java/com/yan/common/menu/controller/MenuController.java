@@ -56,9 +56,9 @@ public class MenuController extends BaseController {
 	 *
 	 * @return String 菜单管理初始化页面
 	 */
-	@RequestMapping("/init")
-	public String init() {
-		return "common/menu/init";
+	@RequestMapping("/manage")
+	public String manage() {
+		return "common/menu/manage";
 	}
 
 	/**
@@ -77,6 +77,29 @@ public class MenuController extends BaseController {
 		List<MenuNode> rootList = delegateMapper.selectList(NAMESPACE + ".getMenuNode", id);
 		for (MenuNode menuNode : rootList) {
 			menuNode.setChildren(getMenuNode(menuNode.getId()));
+			nodeList.add(menuNode);
+		}
+		return nodeList;
+	}
+	
+	@RequestMapping(value = "/menuCheckedTree", method = RequestMethod.POST)
+	@ResponseBody
+	public List<MenuNode> getMenuCheckedTree(String roleId, String id) {
+		
+		System.out.println("roleId = " + roleId + ", id = " + id);
+		
+		if (this.isNull(id)) {
+			id = "00000000000000000000000000000000";
+		}
+		
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("roleId", roleId);
+		paramMap.put("menuId", id);
+		
+		List<MenuNode> nodeList = new ArrayList<>();
+		List<MenuNode> rootList = delegateMapper.selectList(NAMESPACE + ".getMenuChecked", paramMap);
+		for (MenuNode menuNode : rootList) {
+			menuNode.setChildren(getMenuNode(roleId, menuNode.getId()));
 			nodeList.add(menuNode);
 		}
 		return nodeList;
@@ -186,6 +209,16 @@ public class MenuController extends BaseController {
 	 */
 	private List<MenuNode> getMenuNode(String pid) {
 		List<MenuNode> menuList = delegateMapper.selectList(NAMESPACE + ".getMenuNode", pid);
+		return menuList;
+	}
+	
+	private List<MenuNode> getMenuNode(String roleId, String pid) {
+		
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("roleId", roleId);
+		paramMap.put("menuId", pid);
+		
+		List<MenuNode> menuList = delegateMapper.selectList(NAMESPACE + ".getMenuChecked", paramMap);
 		return menuList;
 	}
 

@@ -40,17 +40,9 @@
 		</div>
 	</form>
 </div>
-
-<script>
+<script type="text/javascript">
 var $table = $('#table');
 $(function() {
-	$(document).on('focus', 'input[type="text"]', function() {
-		$(this).parent().find('label').addClass('active');
-	}).on('blur', 'input[type="text"]', function() {
-		if ($(this).val() == '') {
-			$(this).parent().find('label').removeClass('active');
-		}
-	});
 	$table.bsTable({
 		toolbar: '#toolbar',
 		idField: 'productCode',
