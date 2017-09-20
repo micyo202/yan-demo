@@ -363,4 +363,4 @@ int res = mapper.deleteByExample(example);
 <img src="https://github.com/micyo202/yan_demo/raw/master/src/main/webapp/resources/images/mobile_preview.png" alt="mobile" title="mobile">
 
 ## 十、许可证（License）
-[MIT](https://github.com/micyo202/yan_demo/blob/master/LICENSE)
+[MIT License](https://github.com/micyo202/yan_demo/blob/master/LICENSE)
