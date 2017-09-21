@@ -12,15 +12,15 @@
 <body>
 	<form id="dataForm" method="post">
 		<div id="toolbar" align="left" style="background: #F5F5F5;">
-			<button id="save-btn" class="waves-effect waves-button"
-				style="margin-left: 10px; background-color: #DFFFDF" type="button"
-				href="javascript:;">
+			<button id="save-btn" class="waves-effect btn btn-success btn-sm"
+				style="margin-left: 10px;" type="button" href="javascript:;">
 				<i class="zmdi zmdi-save"></i> 保存
 			</button>
 			<c:if test="${role.roleType == 'role'}">
-				<button id="resource-btn" class="waves-effect waves-button"
-					style="margin-left: 10px; background-color: #FFFFDF" type="button"
-					data-toggle="modal" data-target="#resourceModal" href="javascript:;">
+				<button id="resource-btn"
+					class="waves-effect btn btn-primary btn-sm"
+					style="margin-left: 10px;" type="button" data-toggle="modal"
+					data-target="#meneModal" href="javascript:;">
 					<i class="zmdi zmdi-wrench"></i> 菜单资源
 				</button>
 			</c:if>
@@ -135,22 +135,22 @@
 	</form>
 	
 	<!-- 资源管理 -->
-	<div class="modal fade" id="resourceModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal fade" id="meneModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 						&times;
 					</button>
-					<h4 class="modal-title" id="myModalLabel">
+					<h4 class="modal-title">
 						角色拥有的菜单资源
 					</h4>
 				</div>
 				<div class="modal-body">
-					<div id="resourceZtree" class="ztree"></div>
+					<div id="menuZtree" class="ztree"></div>
 				</div>
 				<div class="modal-footer">
-					<button id="resourceSave-btn" class="waves-effect waves-button"
+					<button id="menuSave-btn" class="waves-effect btn btn-success btn-sm"
 						style="margin-left: 10px; type="button"
 						href="javascript:;">
 						<i class="zmdi zmdi-save"></i> 保存
@@ -259,22 +259,22 @@
 			}
 		};
 		// 初始化 tree 数据
-		treeObj = $.fn.zTree.init($('#resourceZtree'), setting);
+		treeObj = $.fn.zTree.init($('#menuZtree'), setting);
 		// 设置样式
 		function setFontCss(treeId, treeNode) {
 			return treeNode.valid == false ? {color:"red"} : {};
 		};
 		
-		// 保存方法
-		$('#resourceSave-btn').click(function(){
+		// 菜单资源保存方法
+		$('#menuSave-btn').click(function(){
 			var nodes = treeObj.getCheckedNodes(true);
-			var resourceId = "";
+			var menuStr = "";
 			$.map(nodes, function(item, index){
-				resourceId  += "," + item.id;
+				menuStr  += "," + item.id;
 			});
 			
-			$.post('${pageContext.request.contextPath}/common/role/resourceSave',{roleId:$('#roleId').val(),menuStr:resourceId.substr(1)},function(data){
-				$('#resourceModal').modal('hide');
+			$.post('${pageContext.request.contextPath}/common/role/menuSave',{'roleId' : $('#roleId').val(), 'menuStr' : menuStr.substr(1)},function(data){
+				$('#meneModal').modal('hide');
 				$.alert(data.msg);
 			});
 			

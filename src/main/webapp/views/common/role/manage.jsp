@@ -36,16 +36,15 @@
 
 	<div class="layout-left">
 		<div id="toolbar" align="right" style="background: #F5F5F5;">
-			<a id="add-btn" class="waves-effect waves-button"
-				style="margin-right: 5px; background-color: #D2E9FF;"
-				href="javascript:roleAdd();"><i class="zmdi zmdi-plus"></i> 添加</a> <a
-				id="delete-btn" class="waves-effect waves-button"
-				style="margin-right: 5px; background-color: #FFD2D2;"
-				href="javascript:roleDelete();"><i class="zmdi zmdi-close"></i>
-				删除</a> <a id="refresh-btn" class="waves-effect waves-button"
-				style="margin-right: 5px; background-color: #E0E0E0;"
-				href="javascript:roleAllRefresh();"><i class="zmdi zmdi-refresh"></i>
-				刷新</a>
+			<a id="add-btn" class="waves-effect btn btn-info btn-sm"
+				style="margin-right: 5px;" href="javascript:roleAdd();"><i
+				class="zmdi zmdi-plus"></i> 添加</a> <a id="delete-btn"
+				class="waves-effect btn btn-danger btn-sm"
+				style="margin-right: 5px;" href="javascript:roleDelete();"><i
+				class="zmdi zmdi-close"></i> 删除</a> <a id="refresh-btn"
+				class="waves-effect btn btn-warning btn-sm"
+				style="margin-right: 5px;" href="javascript:roleAllRefresh();"><i
+				class="zmdi zmdi-refresh"></i> 刷新</a>
 		</div>
 		<div id="ztree" class="ztree"></div>
 	</div>

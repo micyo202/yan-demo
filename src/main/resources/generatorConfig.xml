@@ -61,20 +61,20 @@
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 
-		<javaModelGenerator targetPackage="com.yan.common.role.model" targetProject="${mbg.path}/java">
+		<javaModelGenerator targetPackage="com.yan.common.user.model" targetProject="${mbg.path}/java">
 			<property name="enableSubPackages" value="false" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
-		<sqlMapGenerator targetPackage="mybatis.common.role" targetProject="${mbg.path}/resources">
+		<sqlMapGenerator targetPackage="mybatis.common.user" targetProject="${mbg.path}/resources">
 			<property name="enableSubPackages" value="false" />
 		</sqlMapGenerator>
 
-		<javaClientGenerator targetPackage="com.yan.common.role.mapper" targetProject="${mbg.path}/java" type="XMLMAPPER">
+		<javaClientGenerator targetPackage="com.yan.common.user.mapper" targetProject="${mbg.path}/java" type="XMLMAPPER">
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 
-		<table schema="" tableName="ROLE_MENU_REL" />
+		<table schema="" tableName="USER_ROLE_REL" />
 
 	</context>
 </generatorConfiguration>

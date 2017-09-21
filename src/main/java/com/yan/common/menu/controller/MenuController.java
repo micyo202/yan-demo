@@ -82,11 +82,16 @@ public class MenuController extends BaseController {
 		return nodeList;
 	}
 	
+	/**
+	 * 获取 checkbox 形式的树结构，并获取已选中项（为角色管理提供支持）<br>
+	 *
+	 * @param roleId 角色Id
+	 * @param id 树父Id
+	 * @return List<MenuNode> 树结构结果集
+	 */
 	@RequestMapping(value = "/menuCheckedTree", method = RequestMethod.POST)
 	@ResponseBody
 	public List<MenuNode> getMenuCheckedTree(String roleId, String id) {
-		
-		System.out.println("roleId = " + roleId + ", id = " + id);
 		
 		if (this.isNull(id)) {
 			id = "00000000000000000000000000000000";
@@ -97,9 +102,9 @@ public class MenuController extends BaseController {
 		paramMap.put("menuId", id);
 		
 		List<MenuNode> nodeList = new ArrayList<>();
-		List<MenuNode> rootList = delegateMapper.selectList(NAMESPACE + ".getMenuChecked", paramMap);
+		List<MenuNode> rootList = delegateMapper.selectList(NAMESPACE + ".getMenuCheckedNode", paramMap);
 		for (MenuNode menuNode : rootList) {
-			menuNode.setChildren(getMenuNode(roleId, menuNode.getId()));
+			menuNode.setChildren(getMenuCheckedNode(roleId, menuNode.getId()));
 			nodeList.add(menuNode);
 		}
 		return nodeList;
@@ -212,13 +217,20 @@ public class MenuController extends BaseController {
 		return menuList;
 	}
 	
-	private List<MenuNode> getMenuNode(String roleId, String pid) {
+	/**
+	 * 菜单 checkbox 结构 tree 加载（为角色管理提供支持）<br>
+	 *
+	 * @param roleId 角色Id
+	 * @param pid 父Id
+	 * @return List<MenuNode> 菜单节点集合
+	 */
+	private List<MenuNode> getMenuCheckedNode(String roleId, String pid) {
 		
 		Map<String, Object> paramMap = new HashMap<>();
 		paramMap.put("roleId", roleId);
 		paramMap.put("menuId", pid);
 		
-		List<MenuNode> menuList = delegateMapper.selectList(NAMESPACE + ".getMenuChecked", paramMap);
+		List<MenuNode> menuList = delegateMapper.selectList(NAMESPACE + ".getMenuCheckedNode", paramMap);
 		return menuList;
 	}
 

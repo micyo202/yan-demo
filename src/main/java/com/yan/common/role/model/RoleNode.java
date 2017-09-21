@@ -6,14 +6,16 @@ import java.util.List;
 public class RoleNode implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private String id;
 	private String pid;
 	private String name;
 	private Integer level;
 
 	private Boolean isParent;
+	private Boolean nocheck;
 	private Boolean open;
+	private Boolean checked;
 	private Boolean valid;
 
 	private List<RoleNode> children;
@@ -58,12 +60,28 @@ public class RoleNode implements Serializable {
 		this.isParent = isParent;
 	}
 
+	public Boolean getNocheck() {
+		return nocheck;
+	}
+
+	public void setNocheck(Boolean nocheck) {
+		this.nocheck = nocheck;
+	}
+
 	public Boolean getOpen() {
 		return open;
 	}
 
 	public void setOpen(Boolean open) {
 		this.open = open;
+	}
+
+	public Boolean getChecked() {
+		return checked;
+	}
+
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
 	}
 
 	public Boolean getValid() {

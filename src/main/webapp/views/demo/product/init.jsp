@@ -12,10 +12,10 @@
 <body>
 <div id="main">
 	<div id="toolbar">
-		<a class="waves-effect waves-button" style="background-color: #D2E9FF;" href="javascript:createAction();" ><i class="zmdi zmdi-plus"></i> 新增产品</a>
-		<a class="waves-effect waves-button" style="background-color: #DFFFDF;" href="javascript:updateAction();" ><i class="zmdi zmdi-save"></i> 保存产品</a>
-		<a class="waves-effect waves-button" style="background-color: #FFF8D7;" href="javascript:updateAction();" ><i class="zmdi zmdi-edit"></i> 编辑产品</a>
-		<a class="waves-effect waves-button" style="background-color: #FFD2D2;" href="javascript:deleteAction();" ><i class="zmdi zmdi-close"></i> 删除产品</a>
+		<a class="waves-effect btn btn-info btn-sm" href="javascript:createAction();" ><i class="zmdi zmdi-plus"></i> 新增产品</a>
+		<a class="waves-effect btn btn-success btn-sm" href="javascript:updateAction();" ><i class="zmdi zmdi-save"></i> 保存产品</a>
+		<a class="waves-effect btn btn-warning btn-sm" href="javascript:updateAction();" ><i class="zmdi zmdi-edit"></i> 编辑产品</a>
+		<a class="waves-effect btn btn-danger btn-sm" href="javascript:deleteAction();" ><i class="zmdi zmdi-close"></i> 删除产品</a>
 	</div>
 	<table id="table"></table>
 </div>

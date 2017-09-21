@@ -2,7 +2,9 @@ package com.yan.common.role.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +26,17 @@ import com.yan.core.controller.BaseController;
 import com.yan.core.model.MsgModel;
 import com.yan.core.persistence.DelegateMapper;
 
+/**
+ * 名称：RoleController<br>
+ *
+ * 描述：角色管理模块<br>
+ *
+ * @author Yanzheng 严正<br>
+ * 时间：<br>
+ * 2017-09-21 10:00:57<br>
+ * 版权：<br>
+ * Copyright 2017 <a href="https://github.com/micyo202" target="_blank">https://github.com/micyo202</a>. All rights reserved.
+ */
 @Controller
 @RequestMapping("/common/role")
 public class RoleController extends BaseController {
@@ -41,12 +54,20 @@ public class RoleController extends BaseController {
 		return "common/role/manage";
 	}
 
+	/**
+	 * 获取角色 tree 结构<br>
+	 *
+	 * @param id 父Id
+	 * @return List<RoleNode> 角色节点列表集合
+	 */
 	@RequestMapping(value = "/roleTree", method = RequestMethod.POST)
 	@ResponseBody
 	public List<RoleNode> getRoleTree(String id) {
+
 		if (this.isNull(id)) {
 			id = "00000000000000000000000000000000";
 		}
+
 		List<RoleNode> nodeList = new ArrayList<>();
 		List<RoleNode> rootList = delegateMapper.selectList(NAMESPACE + ".getRoleNode", id);
 		for (RoleNode roleNode : rootList) {
@@ -56,6 +77,41 @@ public class RoleController extends BaseController {
 		return nodeList;
 	}
 
+	/**
+	 * 获取 checkbox 形式的 tree 结构（为用户管理提供支持）<br>
+	 *
+	 * @param userId 用户Id
+	 * @param id 父Id
+	 * @return List<RoleNode> 角色节点列表集合
+	 */
+	@RequestMapping(value = "/roleCheckedTree", method = RequestMethod.POST)
+	@ResponseBody
+	public List<RoleNode> getRoleCheckedTree(String userId, String id) {
+
+		if (this.isNull(id)) {
+			id = "00000000000000000000000000000000";
+		}
+
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("userId", userId);
+		paramMap.put("roleId", id);
+
+		List<RoleNode> nodeList = new ArrayList<>();
+		List<RoleNode> rootList = delegateMapper.selectList(NAMESPACE + ".getRoleCheckedNode", paramMap);
+		for (RoleNode roleNode : rootList) {
+			roleNode.setChildren(getRoleCheckedNode(userId, roleNode.getId()));
+			nodeList.add(roleNode);
+		}
+		return nodeList;
+	}
+
+	/**
+	 * 添加角色<br>
+	 *
+	 * @param roleId 角色上级节点Id
+	 * @param model 页面传递模型信息
+	 * @return String 添加页地址
+	 */
 	@RequestMapping("/{roleId}/add")
 	public String add(@PathVariable String roleId, Model model) {
 		SysRole pRole = mapper.selectByPrimaryKey(roleId);
@@ -68,6 +124,13 @@ public class RoleController extends BaseController {
 		return "common/role/addOrEdit";
 	}
 
+	/**
+	 * 编辑角色<br>
+	 *
+	 * @param roleId 角色Id
+	 * @param model 页面传递模型信息
+	 * @return String 编辑页面地址
+	 */
 	@RequestMapping("/{roleId}/edit")
 	public String edit(@PathVariable String roleId, Model model) {
 		SysRole role = mapper.selectByPrimaryKey(roleId);
@@ -75,6 +138,12 @@ public class RoleController extends BaseController {
 		return "common/role/addOrEdit";
 	}
 
+	/**
+	 * 角色保存方法<br>
+	 *
+	 * @param role 角色信息
+	 * @return MsgModel 消息模型
+	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	@ResponseBody
 	public MsgModel save(SysRole role) {
@@ -91,6 +160,13 @@ public class RoleController extends BaseController {
 		return this.resultMsg(status, "保存成功！");
 	}
 
+	/**
+	 * 角色删除方法<br>
+	 *
+	 * @param roleId 角色Id
+	 * @param rolePid 角色父Id
+	 * @return MsgModel 消息模型
+	 */
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	@ResponseBody
 	@Transactional
@@ -102,10 +178,17 @@ public class RoleController extends BaseController {
 		return this.resultMsg("0", "删除成功！");
 	}
 
-	@RequestMapping(value = "/resourceSave", method = RequestMethod.POST)
+	/**
+	 * 角色对应菜单保存<br>
+	 *
+	 * @param roleId 角色Id
+	 * @param menuStr 菜单列表字符串
+	 * @return MsgModel 消息模型
+	 */
+	@RequestMapping(value = "/menuSave", method = RequestMethod.POST)
 	@ResponseBody
 	@Transactional
-	public MsgModel resourceSave(String roleId, String menuStr) {
+	public MsgModel menuSave(String roleId, String menuStr) {
 		List<String> menuIds = Arrays.asList(menuStr.split(","));
 		RoleMenuRelMapper mapper = this.getMapper(RoleMenuRelMapper.class);
 		// 先清除历史数据
@@ -126,8 +209,31 @@ public class RoleController extends BaseController {
 		return this.resultMsg("资源保存成功！");
 	}
 
+	/**
+	 * 角色 tree 结构加载<br>
+	 *
+	 * @param pid 父Id
+	 * @return List<RoleNode> 角色节点列表集合
+	 */
 	private List<RoleNode> getRoleNode(String pid) {
 		List<RoleNode> roleList = delegateMapper.selectList(NAMESPACE + ".getRoleNode", pid);
+		return roleList;
+	}
+
+	/**
+	 * 角色 checkbox 形式 tree 加载（为用户管理提供支持）<br>
+	 *
+	 * @param userId 用户Id
+	 * @param pid 父Id
+	 * @return List<RoleNode> 角色节点列表集合
+	 */
+	private List<RoleNode> getRoleCheckedNode(String userId, String pid) {
+
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("userId", userId);
+		paramMap.put("roleId", pid);
+
+		List<RoleNode> roleList = delegateMapper.selectList(NAMESPACE + ".getRoleCheckedNode", paramMap);
 		return roleList;
 	}
 

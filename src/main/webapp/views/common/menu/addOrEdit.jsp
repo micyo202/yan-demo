@@ -12,9 +12,8 @@
 <body>
 	<form id="dataForm" method="post">
 		<div id="toolbar" align="left" style="background: #F5F5F5;">
-			<button id="save-btn" class="waves-effect waves-button"
-				style="margin-left: 10px; background-color: #DFFFDF" type="button"
-				href="javascript:;">
+			<button id="save-btn" class="waves-effect btn btn-success btn-sm"
+				style="margin-left: 10px;" type="button" href="javascript:;">
 				<i class="zmdi zmdi-save"></i> 保存
 			</button>
 		</div>

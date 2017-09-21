@@ -12,7 +12,7 @@
 		<result column="MENU_VALID" jdbcType="BIT" property="valid" />
 	</resultMap>
 	
-	<resultMap id="menuCheckedMap" type="com.yan.common.menu.model.MenuNode">
+	<resultMap id="menuCheckedNodeMap" type="com.yan.common.menu.model.MenuNode">
 		<id column="MENU_ID" jdbcType="VARCHAR" property="id" />
 		<id column="MENU_PID" jdbcType="VARCHAR" property="pid" />
 		<result column="MENU_NAME" jdbcType="VARCHAR" property="name" />
@@ -29,7 +29,7 @@
 		SELECT MENU_ID, MENU_PID, MENU_NAME, IF(MENU_URL IS NULL, '', MENU_URL) MENU_URL, MENU_LEVEL, IF(MENU_TYPE='folder', TRUE, FALSE) MENU_PARENT, IF(MENU_LEVEL=0, TRUE, IF(MENU_LEVEL=1, TRUE, FALSE)) MENU_OPEN, MENU_VALID FROM SYS_MENU WHERE MENU_PID=#{0} ORDER BY MENU_LEVEL, MENU_INDEX
 	</select>
 	
-	<select id="getMenuChecked" resultMap="menuCheckedMap" parameterType="java.util.HashMap">
+	<select id="getMenuCheckedNode" resultMap="menuCheckedNodeMap" parameterType="java.util.HashMap">
 		<![CDATA[
 		SELECT T.* FROM (
 			SELECT MENU_ID, MENU_PID, MENU_NAME, IF(MENU_URL IS NULL, '', MENU_URL) MENU_URL, MENU_LEVEL, MENU_INDEX, IF(MENU_TYPE='folder', TRUE, FALSE) MENU_PARENT, IF(MENU_LEVEL=0, TRUE, IF(MENU_LEVEL=1, TRUE, FALSE)) MENU_OPEN, TRUE MENU_CHECKED, MENU_VALID FROM SYS_MENU WHERE MENU_ID IN (SELECT MENU_ID FROM ROLE_MENU_REL WHERE ROLE_ID = #{roleId})
@@ -37,7 +37,7 @@
 			SELECT MENU_ID, MENU_PID, MENU_NAME, IF(MENU_URL IS NULL, '', MENU_URL) MENU_URL, MENU_LEVEL, MENU_INDEX, IF(MENU_TYPE='folder', TRUE, FALSE) MENU_PARENT, IF(MENU_LEVEL=0, TRUE, IF(MENU_LEVEL=1, TRUE, FALSE)) MENU_OPEN, FALSE MENU_CHECKED, MENU_VALID FROM SYS_MENU WHERE MENU_ID NOT IN (SELECT MENU_ID FROM ROLE_MENU_REL WHERE ROLE_ID = #{roleId})
 		) T
 		WHERE T.MENU_PID = #{menuId}
-		ORDER BY MENU_LEVEL, MENU_INDEX
+		ORDER BY T.MENU_LEVEL, T.MENU_INDEX
 		]]>
 	</select>
 	
