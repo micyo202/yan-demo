@@ -46,6 +46,7 @@ $(function() {
 	$table.bsTable({
 		toolbar: '#toolbar',
 		idField: 'productCode',
+		search:true,
 		url: '${pageContext.request.contextPath}/demo/product/list',	// 请求后台的URL
 		columns: [
 			{field: 'state', checkbox: true},
