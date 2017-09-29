@@ -13,7 +13,7 @@
 本项目是使用 **Yan Frame** 框架的 **Demo**。<br>
 什么是 **Yan Frame** ？这是一个基于 **SpringMVC+Spring+MyBatis（SSM）** 支持分布式的高效率便捷开发框架，使开发人员更专注于业务，达到面向业务开发。<br>
 项目使用 **Maven** 构建便于项目管理，支持 **MySql、Oracle、Mongodb** 等主流数据库。<br>
-前端采用基于 **Boostrap** 实现的响应式布局，支持移动端，并集成了一系列的动画效果插件，整体界面美观大方，可优雅的与后台完成交互操作。<br>
+前端采用基于 **Boostrap** 实现的响应式布局，支持移动端，并集成了一系列的动画效果插件，整体界面简洁、美观大方，可优雅的与后台完成交互操作。<br>
 项目目标为中小型企业打造全方位的J2EE企业级开发解决方案。
 
 ## 一、项目开发环境&工具（Environment&Tools）
@@ -103,8 +103,8 @@ yan_demo
 
 ## 五、项目入门（Introduction）
 > 1. 使用 **Maven** 构建项目
-> 2. 创建数据库并执行 **resources/database** 路径下的 **sql** 文件，创建框架必要的表（如：用户表、资源表、日志记录表等...）
-> 3. 修改 **resources/properties** 路径下的配置文件（具体修改方法，详见 - 六、配置说明）
+> 2. 创建数据库并执行 **resources/database** 路径下的 **.sql** 文件，创建框架必要的表（如：用户表、资源表、日志记录表等...）
+> 3. 修改 **resources/properties** 路径下的 **.properties** 配置文件（具体修改方法，详见 - 六、配置说明）
 > 4. 完成以上步骤就可以正常部署启动服务了（使用 **jetty / tomcat** 均可），接下来进入开发阶段
 > 5. 根据实际业务需求，在对应的数据库中创建业务表，表命名规范：“模块名_表名” 如：**SYS_RESOURCE**（系统模块资源表）
 > 6. 修改 **resources** 路径下的 **generatorConfig.xml** 中的 *targetPackage* 包名及 *tableName* 表名，使用 **MyBatis generator** 插件生成对应的持久层模块代码（Maven 执行命令：**mvn mybatis-generator:generate**），具体配置请参考[MyBatis GeneratorXML Configuration](http://www.mybatis.org/generator/configreference/xmlconfig.html)
@@ -148,7 +148,7 @@ yan_demo
 | db.filters | 属性类型是字符串，通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat日志用的filter:log4j防御sql注入的filter:wall |
 
 ## 七、常用方法（Methods）
-##### *方法均在继承于BaseController的类中使用this.metodName；进行调用（其中methodName代表需要调用的方法名称）*
+##### *方法均在继承于BaseController的controller类中使用this.metodName或直接使用methodName来进行调用（注：methodName代表需要调用的方法名称，方法名称见下表）*
 
 | 方法名 | 参数 | 返回值 | 描述 |
 | --- | :--- | :--- | :--- |

@@ -135,7 +135,7 @@
 	</form>
 	
 	<!-- 资源管理 -->
-	<div class="modal fade" id="meneModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal fade" id="meneModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -150,6 +150,7 @@
 					<div id="menuZtree" class="ztree"></div>
 				</div>
 				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-sm" data-dismiss="modal"><i class="zmdi zmdi-close"></i> 关闭</button>
 					<button id="menuSave-btn" class="waves-effect btn btn-success btn-sm"
 						style="margin-left: 10px; type="button"
 						href="javascript:;">

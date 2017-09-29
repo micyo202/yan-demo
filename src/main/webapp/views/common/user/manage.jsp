@@ -14,7 +14,8 @@
 	<div id="toolbar">
 		<a class="waves-effect btn btn-info btn-sm" href="javascript:addAction();" ><i class="zmdi zmdi-plus"></i> 新增用户</a>
 		<a class="waves-effect btn btn-warning btn-sm" href="javascript:editAction();" ><i class="zmdi zmdi-edit"></i> 编辑用户</a>
-		<a class="waves-effect btn btn-danger btn-sm" href="javascript:deleteAction();" ><i class="zmdi zmdi-close"></i> 删除用户</a>
+		<a class="waves-effect btn btn-danger btn-sm" href="javascript:deleteAction();" ><i class="zmdi zmdi-delete"></i> 删除用户</a>
+		<a class="waves-effect btn btn-primary btn-sm" href="javascript:roleAction();" ><i class="zmdi zmdi-male"></i> 用户角色</a>
 	</div>
 	<table id="table"></table>
 </div>
@@ -131,7 +132,7 @@
 			</div>
 			<div class="col-md-7">
 				<div class="form-group">
-					<input id="userPhoto" class="file" type="file">
+			    	<input id="userPhoto" type="file" style="display:block;"> 
 				</div>
 			</div>
 		</div>
@@ -154,7 +155,7 @@
 </div>
 
 <!-- 角色管理 -->
-<div class="modal fade" id="roleModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="roleModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -169,6 +170,7 @@
 				<div id="roleZtree" class="ztree"></div>
 			</div>
 			<div class="modal-footer">
+				<button type="button" class="btn btn-default btn-sm" data-dismiss="modal"><i class="zmdi zmdi-close"></i> 关闭</button>
 				<button id="roleSave-btn" class="waves-effect btn btn-success btn-sm"
 					style="margin-left: 10px; type="button"
 					href="javascript:;">
@@ -182,10 +184,12 @@
 </body>
 
 <script type="text/javascript">
+
 var $table = $('#table');
 var treeObj;
 var userId;
 $(function() {
+	
 	$table.bsTable({
 		url: '${pageContext.request.contextPath}/common/user/list',
 		idField: 'userCode',// 指定主键列
@@ -208,30 +212,11 @@ $(function() {
 				}else {
 					return '<span class="label label-danger">失效</span>';
 				}
-			}},
-			{field: 'action', title: '操作', align: 'center', formatter: 'actionFormatter', events: 'actionEvents', clickToSelect: false}
+			}}
 		]
 	});
 	
 });
-function actionFormatter(value, row, index) {
-    return [
-        '<a class="role ml10" href="javascript:void(0)" data-toggle="tooltip" title="角色"><i class="glyphicon glyphicon-eye-open"></i></a>　'
-    ].join('');
-}
-
-window.actionEvents = {
-    'click .role': function (e, value, row, index) {
-    	if('admin' == row.userType){
-    		$.alert('对不起，您不能编辑管理员的角色！');
-    	}else{
-    		userId = row.userId;
-    		$('#roleModalTitle').html('用户[' + row.userName + ']拥有的角色');
-    		loadRoleTree();
-    	}
-    }
-};
-
 
 // 加载角色 tree 结构
 function loadRoleTree(){
@@ -321,7 +306,7 @@ function deleteAction() {
 			type: 'red',
 			animationSpeed: 300,
 			title: false,
-			content: '确认删除该系统吗？',
+			content: '确认删除该用户吗？',
 			buttons: {
 				confirm: {
 					text: '确认',
@@ -340,6 +325,33 @@ function deleteAction() {
 				}
 			}
 		});
+	}
+}
+// 用户角色
+function roleAction() {
+	var rows = $table.bootstrapTable('getSelections');
+	if (rows.length == 0) {
+		$.confirm({
+			title: false,
+			content: '请至少选择一条记录！',
+			autoClose: 'cancel|3000',
+			backgroundDismiss: true,
+			buttons: {
+				cancel: {
+					text: '取消',
+					btnClass: 'waves-effect waves-button'
+				}
+			}
+		});
+	} else {
+		var row = rows[0];
+		if('admin' == row.userType){
+    		$.alert('对不起，您不能编辑管理员的角色！');
+    	}else{
+    		userId = row.userId;
+    		$('#roleModalTitle').html('用户[' + row.userName + ']拥有的角色');
+    		loadRoleTree();
+    	}
 	}
 }
 </script>

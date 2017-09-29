@@ -41,7 +41,7 @@
 				class="zmdi zmdi-plus"></i> 添加</a> <a id="delete-btn"
 				class="waves-effect btn btn-danger btn-sm"
 				style="margin-right: 5px;" href="javascript:menuDelete();"><i
-				class="zmdi zmdi-close"></i> 删除</a> <a id="refresh-btn"
+				class="zmdi zmdi-delete"></i> 删除</a> <a id="refresh-btn"
 				class="waves-effect btn btn-warning btn-sm"
 				style="margin-right: 5px;" href="javascript:menuAllRefresh();"><i
 				class="zmdi zmdi-refresh"></i> 刷新</a>

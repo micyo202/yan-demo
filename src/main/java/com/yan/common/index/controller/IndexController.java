@@ -98,9 +98,9 @@ public class IndexController extends BaseController {
 	 *
 	 * @return List<MenuModel> 菜单列表集合
 	 */
-	@RequestMapping("/menu")
+	@RequestMapping("/{roleId}/menu")
 	@ResponseBody
-	public List<MenuModel> menu() {
+	public List<MenuModel> menu(@PathVariable String roleId) {
 		if ("admin".equals(this.getSessionUser().getUserType())) {
 			// 管理员菜单（在系统 xml 中配置）
 			return getMenuForXml();
@@ -108,12 +108,13 @@ public class IndexController extends BaseController {
 			// 一般用户菜单 general（根据角色获取对应菜单列表）
 			Map<String, Object> paramMap = new HashMap<>();
 			paramMap.put("menuId", "00000000000000000000000000000001");
+			paramMap.put("roleId", roleId);
 			paramMap.put("userId", this.getSessionUser().getUserId());
 			
 			List<MenuModel> list = new ArrayList<>();
 			List<MenuModel> rootList = delegateMapper.selectList("com.yan.common.index.mapper.IndexCustomMapper.getMenu", paramMap);
 			for (MenuModel menuModel : rootList) {
-				menuModel.setChildren(getMenu(menuModel.getId()));
+				menuModel.setChildren(getMenu(menuModel.getId(), roleId));
 				list.add(menuModel);
 			}
 			return list;
@@ -126,17 +127,18 @@ public class IndexController extends BaseController {
 	 * @param pid 菜单父ID
 	 * @return List<MenuModel> 菜单列表集合
 	 */
-	private List<MenuModel> getMenu(String pid) {
+	private List<MenuModel> getMenu(String pid, String roleId) {
 		
 		Map<String, Object> paramMap = new HashMap<>();
 		paramMap.put("menuId", pid);
+		paramMap.put("roleId", roleId);
 		paramMap.put("userId", this.getSessionUser().getUserId());
 		
 		List<MenuModel> list = new ArrayList<>();
 		List<MenuModel> menuList = delegateMapper.selectList("com.yan.common.index.mapper.IndexCustomMapper.getMenu", paramMap);
 		for (MenuModel menuModel : menuList) {
 			if (!this.isNull(menuModel.getId())) {
-				menuModel.setChildren(getMenu(menuModel.getId()));
+				menuModel.setChildren(getMenu(menuModel.getId(), roleId));
 			}
 			list.add(menuModel);
 		}

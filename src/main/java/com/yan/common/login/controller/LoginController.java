@@ -1,6 +1,8 @@
 package com.yan.common.login.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -12,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yan.common.login.model.LoginModel;
-import com.yan.common.user.mapper.SysUserMapper;
-import com.yan.common.user.model.SysUser;
-import com.yan.common.user.model.SysUserExample;
+import com.yan.common.login.model.LoginUser;
+import com.yan.core.annotation.MapperInject;
 import com.yan.core.controller.BaseController;
+import com.yan.core.persistence.DelegateMapper;
 
 /**
  * 名称：LoginController<br>
@@ -32,6 +34,9 @@ import com.yan.core.controller.BaseController;
 @RequestMapping("/common/login")
 public class LoginController extends BaseController {
 	
+	@MapperInject
+	private DelegateMapper delegateMapper;
+	
 	/**
 	 * 登录方法<br>
 	 *
@@ -44,28 +49,32 @@ public class LoginController extends BaseController {
 	@ResponseBody
 	public LoginModel signin(String username, String password, boolean remember) {
 		
-		SysUserMapper mapper = this.getMapper(SysUserMapper.class);
-		SysUserExample example = new SysUserExample();
-		example.createCriteria().andUserCodeEqualTo(username).andUserPasswordEqualTo(password);
-		List<SysUser> userList = mapper.selectByExample(example);
-		SysUser user = null;
-		
-		if (!this.isNull(userList))
-			user = userList.get(0);
-		
-		if(this.isNull(user))
-			return new LoginModel(0, "用户名、密码不正确！");
-		
-		if(Boolean.FALSE.equals(user.getUserValid()))
+		Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("userCode", username);
+        paramMap.put("userPassword", password);
+        
+        LoginUser loginUser = delegateMapper.selectOne("com.yan.common.login.mapper.LoginCustomMapper.getLoginUser", paramMap);
+        
+        if(this.isNull(loginUser))
+        	return new LoginModel(0, "用户名、密码不正确！");
+        
+        if(Boolean.FALSE.equals(loginUser.getUserValid()))
 			return new LoginModel(0, "该用户已失效！");
-		
+        
+        List<Map<String, Object>> userRoles = delegateMapper.selectList("com.yan.common.login.mapper.LoginCustomMapper.getUserRoles", loginUser.getUserId());
+        if(!this.isNull(userRoles))
+        	loginUser.setUserRoles(userRoles);
+        
+        
+        System.out.println("Yan -> Log 输出：" + loginUser);
+        		
 		try{
 			Subject subject = SecurityUtils.getSubject();
 			if(!subject.isAuthenticated()) { // 当前用户是否已通过身份验证
 				UsernamePasswordToken token = new UsernamePasswordToken(username, password, remember);
 	            // 使用 shiro 来验证
 	            subject.login(token);//验证角色和权限
-	            this.getSession().setAttribute("user", user);
+	            this.getSession().setAttribute("user", loginUser);
 			}
 			return new LoginModel(1, "/", remember);
         }catch(AuthenticationException e){

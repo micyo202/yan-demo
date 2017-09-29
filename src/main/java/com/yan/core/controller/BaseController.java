@@ -32,7 +32,8 @@ import org.apache.shiro.session.InvalidSessionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.yan.common.user.model.SysUser;
+import com.yan.common.login.model.LoginUser;
+import com.yan.core.support.BaseSupport;
 
 /**
  * 名称：BaseController<br>
@@ -125,10 +126,10 @@ public abstract class BaseController extends ControllerSupport {
 	/**
 	 * 获取登录成功后 session 中的存储的用户信息<br>
 	 *
-	 * @return TbSysUser 用户对象
+	 * @return LoginUser 用户对象
 	 */
-	protected SysUser getSessionUser() {
-		return (SysUser) this.session.getAttribute("user");
+	protected LoginUser getSessionUser() {
+		return (LoginUser) this.session.getAttribute("user");
 	}
 	
 	/**

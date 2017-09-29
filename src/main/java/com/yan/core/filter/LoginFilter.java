@@ -37,7 +37,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.yan.common.user.model.SysUser;
+import com.yan.common.login.model.LoginUser;
 
 /**
  * 名称：LoginFilter<br>
@@ -90,7 +90,7 @@ public class LoginFilter implements Filter {
 			return;
 		}
 
-		SysUser user = (SysUser) req.getSession().getAttribute("user");
+		LoginUser user = (LoginUser) req.getSession().getAttribute("user");
 		if (null == user) {
 			res.sendRedirect(loginPath);
 			return;

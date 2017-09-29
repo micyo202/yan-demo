@@ -50,6 +50,34 @@
 	</style>
 </head>
 <body>
+
+<!-- 角色选择 -->
+<div class="modal fade" id="selRoleModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 id="selRoleModalTitle" class="modal-title">
+					请选择用户角色
+				</h4>
+			</div>
+			<div class="modal-body">
+				<select id="userRole" name="userRole" class="selectpicker">
+					<c:forEach items="${user.userRoles }" var="item">
+						<option value="${item.ROLE_ID}">${item.ROLE_NAME}</option>
+					</c:forEach>
+				</select>
+			</div>
+			<div class="modal-footer">
+				<button id="selRole-btn" class="waves-effect btn btn-success btn-sm"
+					style="margin-left: 10px; type="button"
+					href="javascript:;">
+					<i class="zmdi zmdi-save"></i> 确定
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 <header id="header">
 	<ul id="menu">
 		<li id="guide" class="line-trigger">
@@ -90,15 +118,23 @@
 							<i class="zmdi zmdi-swap" style="font-size: 16px;" ></i>&nbsp;&nbsp;&nbsp;&nbsp;角色切换
 						</li>
 						<li class="divider"></li>
-						<li style="text-align: center;">
-							<a class="waves-effect" href="javascript:;">管理员</a>
-						</li>
-						<li style="text-align: center;">
-							<a class="waves-effect" href="javascript:;">高级用户</a>
-						</li>						
-						<li style="text-align: center;">
-							<a class="waves-effect" href="javascript:;">一般用户</a>
-						</li>
+						<c:if test="${user.userType == 'admin' }">
+							<li style="text-align: center;">
+								<a class="waves-effect" href="javascript:;">管理员角色</a>
+							</li>
+						</c:if>
+						<c:if test="${user.userType == 'general' }">
+							<c:forEach items="${user.userRoles }" var="item">
+								<li style="text-align: center;">
+									<c:if test="${user.userRoles.size() <= 1 }">
+										<a class="waves-effect" href="javascript:;">${item.ROLE_NAME }</a>
+									</c:if>
+									<c:if test="${user.userRoles.size() > 1 }">
+										<a class="waves-effect" href="javascript:changeRole('${item.ROLE_ID}');">${item.ROLE_NAME }</a>
+									</c:if>
+								</li>
+							</c:forEach>
+						</c:if>
 					</ul>
 				</li>
 				<li class="dropdown">
@@ -212,13 +248,29 @@
 				<p><b>项目目标为中小型企业打造全方位的J2EE企业级开发解决方案</b></p>
 				<p><b>代码已托管至<a href="https://github.com/micyo202/yan_demo"> github</a>，目前正在不断完善，敬请期待...</b></p>
 				<p>Created by Yanzheng on 2017-08-01</p>
-				<p>Copyright <a href="https://github.com/micyo202" target="_blank">https://github.com/micyo202</a>. All rights reserved.<br/>
+				<p>Copyright <a href="https://github.com/micyo202" target="_blank">https://github.com/micyo202</a>. All rights reserved.</p>
 			</div>
 		</div>
 	</section>
 </section>
 <footer id="footer"></footer>
+
 <script type="text/javascript">
+	var roleSize = '${user.userRoles.size() }';
+	if(roleSize > 1 ){
+		$('#selRoleModal').modal('show');
+	}else{
+		loadMenu(null);
+	}
+	$('#selRole-btn').click(function(){
+		var roleId = $('#userRole').val();
+		loadMenu(roleId);
+		$('#selRoleModal').modal('hide');
+	});
+	
+	function changeRole(roleId){
+		loadMenu(roleId);
+	}
 	function logout(){
 		$.confirm({
 			type: 'grey',
@@ -238,6 +290,22 @@
 					btnClass: 'waves-effect waves-button'
 				}
 			}
+		});
+	}
+	
+	function loadMenu(roleId){
+		// Yan左侧菜单数据初始化
+		var menuHtml="<li><a class='waves-effect' href='javascript:Tab.addTab(\"首页\", \"home\");'><i class='zmdi zmdi-home'></i> 首页</a></li>";
+		$.post('${pageContext.request.contextPath}/'+roleId+'/menu',null,function(data){
+			$.each(data,function(index,item){
+				menuHtml += "<li class='sub-menu system_menus'><a class='waves-effect'><i class='"+item.icon+"'></i> "+item.name+"</a><ul>";
+				$.each(item.children,function(ids,itm){
+					menuHtml += "<li><a class='waves-effect' href='javascript:Tab.addTab(\""+itm.name+"\", \"${pageContext.request.contextPath}"+itm.url+"\");'>"+itm.name+"</a></li>";
+				});
+				menuHtml += "</ul></li>";
+			});
+			menuHtml += "<li><div class='upms-version'>&copy; YAN FRAME V1.0</div></li>";
+			$('#main-menu').html(menuHtml);
 		});
 	}
 </script>

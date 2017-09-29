@@ -1,9 +1,11 @@
 var click = device.mobile() ? 'touchstart' : 'click';
 $(function() {
 	// 获取当前服务名
+	/*
 	var localObj = window.location;
 	var contextPath = localObj.pathname.split("/")[1];
 	var basePath = localObj.protocol+"//"+localObj.host+"/"+contextPath;
+	*/
 	// 侧边栏操作按钮
 	$(document).on(click, '#guide', function() {
 		$(this).toggleClass('toggled');
@@ -33,6 +35,7 @@ $(function() {
 		}
 	});
 	// Yan左侧菜单数据初始化
+	/*
 	var menuHtml="<li><a class='waves-effect' href='javascript:Tab.addTab(\"首页\", \"home\");'><i class='zmdi zmdi-home'></i> 首页</a></li>";
 	$.post('/'+contextPath+'/menu',null,function(data){
 		$.each(data,function(index,item){
@@ -45,6 +48,7 @@ $(function() {
 		menuHtml += "<li><div class='upms-version'>&copy; YAN FRAME V1.0</div></li>";
 		$('#main-menu').html(menuHtml);
 	});
+	*/
 });
 // iframe高度自适应
 function changeFrameHeight(ifm) {
