@@ -192,7 +192,7 @@ public abstract class ControllerSupport extends BaseSupport {
 							String fileName = this.currentDate("yyyyMMdd") + System.currentTimeMillis() + fileSuffix;
 							String modelPath = request.getServletPath().substring(0,
 									request.getServletPath().lastIndexOf("/"));
-							String uploadPath = this.propertiesValue("config.upload") + modelPath;
+							String uploadPath = this.propertiesValue("setting.upload") + modelPath;
 							this.generatePath(uploadPath);
 							// 定义上传路径
 							String path = uploadPath + "/" + fileName;

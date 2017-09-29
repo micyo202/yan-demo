@@ -271,7 +271,7 @@ public class BaseSupport {
 	}
 
 	/**
-	 * 读取配置 properties 文件中的值，读取 classpath 下 /properties/config.properties 配置文件<br>
+	 * 读取配置 properties 文件中的值，读取 classpath 下 /properties/setting.properties 配置文件<br>
 	 *
 	 * @param key 资源文件中的 key 值
 	 * @return String 读取到的 key 对应的 value 值
@@ -282,7 +282,7 @@ public class BaseSupport {
 		try {
 			// 获取需要读取的properties文件路径
 			Properties prop = new Properties();
-			InputStream inputStream = this.getClass().getResourceAsStream("/properties/config.properties");
+			InputStream inputStream = this.getClass().getResourceAsStream("/properties/setting.properties");
 			prop.load(inputStream);
 			return prop.getProperty(key);
 		} catch (IOException e) {
