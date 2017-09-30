@@ -30,7 +30,7 @@
 #### 1.服务端技术（Server）
 名称 | 版本号 | 网址
 --- | --- | ---
-Spring Framework | 4.3.10.RELEASE  | [http://projects.spring.io/spring-framework/](http://projects.spring.io/spring-framework/)
+Spring Framework | 4.3.11.RELEASE  | [http://projects.spring.io/spring-framework/](http://projects.spring.io/spring-framework/)
 Shiro | 1.4.0 | [http://shiro.apache.org](http://shiro.apache.org)
 AspectJ | 1.8.10 | [http://www.eclipse.org/aspectj/](http://www.eclipse.org/aspectj/)
 MyBatis | 3.4.5 | [http://www.mybatis.org/mybatis-3/zh/index.html](http://www.mybatis.org/mybatis-3/zh/index.html)
