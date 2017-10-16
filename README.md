@@ -195,7 +195,7 @@ public class XxxController extends BaseController {
 ##### 获取日志日志记录Logger对象
 
 ```java
-// 使用注解获取（推荐）
+// 使用注解获取
 @LogInject
 private static Logger log;
 
@@ -206,10 +206,10 @@ private static Logger log = LoggerFactory.getLogger(XxxController.class);
 ##### 获取mapper对象
 
 ```java
-// 注解方式获取delegateMapper（推荐）
+// 注解方式获取delegateMapper
 @MapperInject
 private DelegateMapper delegateMapper;
-// 注解方式获取对象对应的mapper（推荐）
+// 注解方式获取对象对应的mapper
 @MapperInject(XxxMapper.class)
 private XxxMapper mapper;
 
@@ -222,19 +222,19 @@ this.getMapper(XxxMapper.class);
 ##### 动态切换数据源
 
 ```java
-// 注解切换数据源，默认切换扩展数据源（推荐）
+// 注解切换数据源，默认切换扩展数据源
 @DynamicDataSource
 public String init(){
 	...
 }
 
-// 注解切换数据源，传入ENUM类型的数据源名称（推荐）
+// 注解切换数据源，传入ENUM类型的数据源名称
 @DynamicDataSource(DataSourceName.EXTEND)
 public String init(){
 	...
 }
 
-// 调用父类方法执行切换数据源（参数名称推荐使用框架的ENUM类型，DataSourceName.DEFAULT/EXTEND）
+// 调用父类方法执行切换数据源（参数名称建议使用框架中已经定义好的，DataSourceName.DEFAULT/EXTEND.getName()）
 this.setDataSource("extendDataSource");
 	...
 this.clearDataSource();
