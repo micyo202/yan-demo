@@ -3,12 +3,11 @@
 <mapper namespace="com.yan.junit.JunitMapper">
 
 	<select id="getLoggingEvent" resultType="java.util.HashMap">
-		SELECT * FROM
-		logging_event
+		SELECT * FROM logging_event
 	</select>
 
 	<select id="getSysUser" resultType="java.util.HashMap">
-		SELECT * FROM TB_SYS_USER
+		SELECT * FROM SYS_USER
 	</select>
 
 </mapper>
