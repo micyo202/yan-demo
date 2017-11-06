@@ -69,31 +69,34 @@ jquery-cookie | - | [https://github.com/carhartl/jquery-cookie](https://github.c
 
 ## 三、组织树（Tree）
 ```lua
-yan_demo
-├── java -- java类路径
-|    ├── com.yan.common -- 通用功能模块
-|    ├── com.yan.core -- 框架核心模块
-|    ├── com.yan.demo -- 业务模块
-|    ├── com.yan.junit -- 单元测试模块
-├── resources -- 资源配置路径
-|    ├── database -- 数据库sql文件
-|    ├── mybatis -- mapper映射文件
-|    ├── properties -- 配置文件
-|    ├── spring -- spring的配置文件
-├── webapp -- web应用根路径
-|    ├── common -- 公共路径
-|    ├── resources -- 静态资源路径
-|    ├── views -- 视图路径
+yan_demo -- 项目
+├── src -- 源文件路径
+|    ├── main -- 主模块路径
+|    |    ├── java -- java类路径
+|    |    |    ├── com.yan.common -- 通用功能模块
+|    |    |    ├── com.yan.core -- 框架核心模块
+|    |    |    ├── com.yan.demo -- 业务模块
+|    |    ├── resources -- 资源配置路径
+|    |    |    ├── database -- 数据库sql文件
+|    |    |    ├── mybatis -- mapper映射文件
+|    |    |    ├── properties -- 配置文件
+|    |    |    ├── spring -- spring的配置文件
+|    |    ├── webapp -- web应用根路径
+|    |    |    ├── common -- 公共路径
+|    |    |    ├── resources -- 静态资源路径
+|    |    |    ├── views -- 视图路径
+|    ├── test -- 测试模块路径
+|    |    ├── com.yan.junit -- 撰写单元测试类
 ```
 
 ## 四、项目结构（Construction）
 > * com.yan.common：通用功能模块（包含：用户登录、菜单、后台管理等...）
 > * com.yan.core：框架核心模块（包括基础的控制器、过滤器、拦截器、类加载器、注入器、注解、以及框架封装的核心方法部分）
 > * com.yan.demo：业务模块（根据实际项目名称换掉demo名称，所有业务模块均在该路径下）
-> * com.yan.junit：单元测试模块（便于撰写单元测试代码）
 > * com.yan.**.controller：控制器路径，存放自己编写业务处理的控制器（继承BaseController）
 > * com.yan.**.mapper：持久层映射接口类路径（mbg生成mybatis对应的Mapper映射接口类）
 > * com.yan.**.model：模型类路径（mbg生成的模型以及自定义模型）
+> * com.yan.junit：单元测试模块（便于撰写单元测试代码）
 > * resources/database：数据库sql文件（数据库表结构的*.sql文件，包含Yan Frame框架所需的基本系统数据表，如：用户表、权限表、菜单表等...）
 > * resources/mybatis：mapper映射文件（所有mybatis的sql模板*.xml文件）
 > * resources/properties：配置文件（如：系统基本配置、数据库配置、日志配置、MyBatis generator配置）
