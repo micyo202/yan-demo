@@ -22,7 +22,7 @@
 * MySql 5.7
 * JDK 1.8
 * CentOS 7
-* Eclipse 4.6.1
+* IntelliJ IDEA 2017.2.5 / Eclipse 4.6.1
 * Navicat Premium 11.1.12
 * Maven 3.3.9
 * Jetty 9.4.6.v20170531 / Tomcat 9.0
