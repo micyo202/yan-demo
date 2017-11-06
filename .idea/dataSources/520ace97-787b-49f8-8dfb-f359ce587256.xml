@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="demo@192.168.1.200">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="demo">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <schema id="7" parent="1" name="test"/>
+    <table id="8" parent="2" name="ROLE_MENU_REL">
+      <Comment>角色与菜单关系表</Comment>
+    </table>
+    <table id="9" parent="2" name="SYS_MENU">
+      <Comment>系统菜单表</Comment>
+    </table>
+    <table id="10" parent="2" name="SYS_ROLE">
+      <Comment>角色表</Comment>
+    </table>
+    <table id="11" parent="2" name="SYS_USER">
+      <Comment>系统用户表</Comment>
+    </table>
+    <table id="12" parent="2" name="USER_ROLE_REL">
+      <Comment>人员角色关系表</Comment>
+    </table>
+    <table id="13" parent="2" name="logging_event"/>
+    <table id="14" parent="2" name="logging_event_exception"/>
+    <table id="15" parent="2" name="logging_event_property"/>
+    <column id="16" parent="8" name="REL_ID">
+      <Position>1</Position>
+      <Comment>关系ID（主键）</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="8" name="ROLE_ID">
+      <Position>2</Position>
+      <Comment>角色ID</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="8" name="MENU_ID">
+      <Position>3</Position>
+      <Comment>菜单资源ID</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="19" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>REL_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="20" parent="9" name="MENU_ID">
+      <Position>1</Position>
+      <Comment>菜单ID</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="21" parent="9" name="MENU_PID">
+      <Position>2</Position>
+      <Comment>菜单父ID</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="22" parent="9" name="MENU_NAME">
+      <Position>3</Position>
+      <Comment>菜单名称</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="23" parent="9" name="MENU_DESCRIBE">
+      <Position>4</Position>
+      <Comment>菜单描述</Comment>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="24" parent="9" name="MENU_URL">
+      <Position>5</Position>
+      <Comment>菜单地址URL</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="25" parent="9" name="MENU_ICON">
+      <Position>6</Position>
+      <Comment>图标</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="26" parent="9" name="MENU_INDEX">
+      <Position>7</Position>
+      <Comment>菜单排序</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="27" parent="9" name="MENU_TYPE">
+      <Position>8</Position>
+      <Comment>菜单类型（文件夹/菜单）</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="9" name="MENU_LEVEL">
+      <Position>9</Position>
+      <Comment>菜单级别</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="29" parent="9" name="MENU_VALID">
+      <Position>10</Position>
+      <Comment>有效值</Comment>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <key id="30" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>MENU_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="31" parent="10" name="ROLE_ID">
+      <Position>1</Position>
+      <Comment>角色ID（主键）</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="10" name="ROLE_PID">
+      <Position>2</Position>
+      <Comment>角色父ID</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="33" parent="10" name="ROLE_NAME">
+      <Position>3</Position>
+      <Comment>角色名称</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="34" parent="10" name="ROLE_INDEX">
+      <Position>4</Position>
+      <Comment>角色排序</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="35" parent="10" name="ROLE_TYPE">
+      <Position>5</Position>
+      <Comment>角色类型，菜单类型（文件夹/菜单）</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="36" parent="10" name="ROLE_LEVEL">
+      <Position>6</Position>
+      <Comment>角色级别</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="37" parent="10" name="ROLE_VALID">
+      <Position>7</Position>
+      <Comment>有效值</Comment>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <key id="38" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ROLE_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="39" parent="11" name="USER_ID">
+      <Position>1</Position>
+      <Comment>用户ID（主键）</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="11" name="USER_CODE">
+      <Position>2</Position>
+      <Comment>用户代码（用户名）</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="11" name="USER_NAME">
+      <Position>3</Position>
+      <Comment>姓名</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="11" name="USER_PASSWORD">
+      <Position>4</Position>
+      <Comment>密码</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="11" name="USER_ADDRESS">
+      <Position>5</Position>
+      <Comment>地址</Comment>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="44" parent="11" name="USER_EMAIL">
+      <Position>6</Position>
+      <Comment>邮箱</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="45" parent="11" name="USER_PHONE">
+      <Position>7</Position>
+      <Comment>电话</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="46" parent="11" name="USER_BIRTHDAY">
+      <Position>8</Position>
+      <Comment>生日（系统会根据生日计算年龄）</Comment>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="47" parent="11" name="USER_JOINDATE">
+      <Position>9</Position>
+      <Comment>加入时间（注册时间）</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="11" name="USER_PHOTO">
+      <Position>10</Position>
+      <Comment>照片（头像）</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="49" parent="11" name="USER_TYPE">
+      <Position>11</Position>
+      <Comment>类型</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="11" name="USER_VALID">
+      <Position>12</Position>
+      <Comment>有效标志，true：有效、false：无效</Comment>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="51" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID
+USER_CODE</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="52" parent="12" name="REL_ID">
+      <Position>1</Position>
+      <Comment>关系ID（主键）</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="12" name="USER_ID">
+      <Position>2</Position>
+      <Comment>人员ID</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="12" name="ROLE_ID">
+      <Position>3</Position>
+      <Comment>角色ID</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="55" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>REL_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="56" parent="13" name="timestmp">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="13" name="formatted_message">
+      <Position>2</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="13" name="logger_name">
+      <Position>3</Position>
+      <DataType>varchar(254)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="13" name="level_string">
+      <Position>4</Position>
+      <DataType>varchar(254)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="13" name="thread_name">
+      <Position>5</Position>
+      <DataType>varchar(254)|0</DataType>
+    </column>
+    <column id="61" parent="13" name="reference_flag">
+      <Position>6</Position>
+      <DataType>smallint(6)|0</DataType>
+    </column>
+    <column id="62" parent="13" name="arg0">
+      <Position>7</Position>
+      <DataType>varchar(254)|0</DataType>
+    </column>
+    <column id="63" parent="13" name="arg1">
+      <Position>8</Position>
+      <DataType>varchar(254)|0</DataType>
+    </column>
+    <column id="64" parent="13" name="arg2">
+      <Position>9</Position>
+      <DataType>varchar(254)|0</DataType>
+    </column>
+    <column id="65" parent="13" name="arg3">
+      <Position>10</Position>
+      <DataType>varchar(254)|0</DataType>
+    </column>
+    <column id="66" parent="13" name="caller_filename">
+      <Position>11</Position>
+      <DataType>varchar(254)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="67" parent="13" name="caller_class">
+      <Position>12</Position>
+      <DataType>varchar(254)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="13" name="caller_method">
+      <Position>13</Position>
+      <DataType>varchar(254)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="69" parent="13" name="caller_line">
+      <Position>14</Position>
+      <DataType>char(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="13" name="event_id">
+      <Position>15</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <key id="71" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>event_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="72" parent="14" name="event_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="14" name="i">
+      <Position>2</Position>
+      <DataType>smallint(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="14" name="trace_line">
+      <Position>3</Position>
+      <DataType>varchar(254)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="75" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>event_id
+i</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="76" parent="14" name="logging_event_exception_ibfk_1">
+      <ColNames>event_id</ColNames>
+      <RefSchemaName>demo</RefSchemaName>
+      <RefTableName>logging_event</RefTableName>
+      <RefColNames>event_id</RefColNames>
+    </foreign-key>
+    <column id="77" parent="15" name="event_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="78" parent="15" name="mapped_key">
+      <Position>2</Position>
+      <DataType>varchar(254)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="79" parent="15" name="mapped_value">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <key id="80" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>event_id
+mapped_key</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="81" parent="15" name="logging_event_property_ibfk_1">
+      <ColNames>event_id</ColNames>
+      <RefSchemaName>demo</RefSchemaName>
+      <RefTableName>logging_event</RefTableName>
+      <RefColNames>event_id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
