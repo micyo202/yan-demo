@@ -34,7 +34,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.framework.version>4.3.11.RELEASE</spring.framework.version>
+        <spring.framework.version>4.3.12.RELEASE</spring.framework.version>
         <aspectj.version>1.8.10</aspectj.version>
         <shiro.version>1.4.0</shiro.version>
         <jackson.version>2.9.1</jackson.version>
@@ -78,10 +78,10 @@
          -->
 
         <!-- 添加 spring 依赖包 -->
-        <!-- 包含 spring-aop-4.3.11.RELEASE.jar、 spring-aspects-4.3.11.RELEASE.jar、 spring-beans-4.3.11.RELEASE.jar、
-            spring-context-4.3.11.RELEASE.jar、 spring-core-4.3.11.RELEASE.jar、 spring-expression-4.3.11.RELEASE.jar、
-            spring-jdbc-4.3.11.RELEASE.jar、 spring-test-4.3.11.RELEASE.jar、 spring-tx-4.3.11.RELEASE.jar、
-            spring-web-4.3.11.RELEASE.jar、 spring-webmvc-4.3.11.RELEASE.jar、 spring-context-support-4.3.11.RELEASE.jar -->
+        <!-- 包含 spring-aop-4.3.12.RELEASE.jar、 spring-aspects-4.3.12.RELEASE.jar、 spring-beans-4.3.12.RELEASE.jar、
+            spring-context-4.3.12.RELEASE.jar、 spring-core-4.3.12.RELEASE.jar、 spring-expression-4.3.12.RELEASE.jar、
+            spring-jdbc-4.3.12.RELEASE.jar、 spring-test-4.3.12.RELEASE.jar、 spring-tx-4.3.12.RELEASE.jar、
+            spring-web-4.3.12.RELEASE.jar、 spring-webmvc-4.3.12.RELEASE.jar、 spring-context-support-4.3.12.RELEASE.jar -->
         <!--
         <dependency>
             <groupId>org.springframework</groupId>
