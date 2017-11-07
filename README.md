@@ -1,11 +1,13 @@
-# Yan Frame Demo 项目简介
+# Yan Frame Demo 项目简介（Introduction）
+
+[English](https://github.com/micyo202/yan_demo/blob/master/README_EN.md) [中文文档](https://github.com/micyo202/yan_demo/blob/master/README.md)
 
 <p align="center" >
   <img src="https://github.com/micyo202/yan_demo/raw/master/src/main/webapp/resources/images/logo.png" alt="Yan Frame" title="Yan Frame">
 </p>
 
 [![Beta](https://img.shields.io/badge/beta-0.0.7-brightgreen.svg)](https://github.com/micyo202/yan_demo)
-[![Downloads](https://img.shields.io/badge/downloads-4.08MB-yellow.svg)](https://github.com/micyo202/yan_demo/archive/master.zip)
+[![Downloads](https://img.shields.io/badge/downloads-4.3MB-yellow.svg)](https://github.com/micyo202/yan_demo/archive/master.zip)
 [![Since](https://img.shields.io/badge/since-2017-blue.svg)](https://github.com/micyo202/yan_demo)
 [![License MIT](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/micyo202/yan_demo/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/micyo202/yan_demo.svg?style=social&label=Stars)](https://github.com/micyo202/yan_demo)
@@ -25,13 +27,13 @@
 * IntelliJ IDEA 2017.2.5 / Eclipse 4.6.1
 * Navicat Premium 11.1.12
 * Maven 3.3.9
-* Jetty 9.4.6.v20170531 / Tomcat 9.0
+* Jetty 9.4.6.v20170531 / Tomcat 9.0.1
 
 ## 二、技术选型（Technology）
 #### 1.服务端技术（Server）
 名称 | 版本号 | 网址
 --- | --- | ---
-Spring Framework | 4.3.11.RELEASE  | [http://projects.spring.io/spring-framework/](http://projects.spring.io/spring-framework/)
+Spring Framework | 4.3.12.RELEASE  | [http://projects.spring.io/spring-framework/](http://projects.spring.io/spring-framework/)
 Shiro | 1.4.0 | [http://shiro.apache.org](http://shiro.apache.org)
 AspectJ | 1.8.10 | [http://www.eclipse.org/aspectj/](http://www.eclipse.org/aspectj/)
 MyBatis | 3.4.5 | [http://www.mybatis.org/mybatis-3/zh/index.html](http://www.mybatis.org/mybatis-3/zh/index.html)
@@ -105,7 +107,7 @@ yan_demo -- 项目
 > * webapp/resources：静态资源路径（包含了js、css、images、doc、plugins等）
 > * webapp/views：视图路径（所有业务功能的*.jsp页面）
 
-## 五、项目入门（Introduction）
+## 五、项目入门（Instruction）
 > 1. 使用 **Maven** 构建项目
 > 2. 创建数据库并执行 **resources/database** 路径下的 **.sql** 文件，创建框架必要的表（如：用户表、资源表、日志记录表等...）
 > 3. 修改 **resources/properties** 路径下的 **.properties** 配置文件（具体修改方法，详见 - 六、配置说明）
