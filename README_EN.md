@@ -218,7 +218,7 @@ private XxxMapper mapper;
 
 // Obtain delegateMapper
 this.getMapper();
-// 获取对象对应的mapper
+// Gets the mapper for the object
 this.getMapper(XxxMapper.class);
 ```
 
