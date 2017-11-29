@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- Copyright (c) 2017 Yanzheng [https://github.com/micyo202/yan_demo]
+ Copyright (c) 2017 Yanzheng [https://github.com/micyo202/yan-demo]
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,7 @@
          xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          id="WebApp_ID" version="3.1">
-    <display-name>yan_demo</display-name>
+    <display-name>yan-demo</display-name>
 
     <!-- 过滤器解决中文乱码问题、强制编码 UTF-8 -->
     <filter>

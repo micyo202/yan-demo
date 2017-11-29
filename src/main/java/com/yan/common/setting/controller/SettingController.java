@@ -37,7 +37,7 @@ public class SettingController extends BaseController {
 		String filePath = this.getClass().getResource("/properties/setting.properties").getPath();
 		
 		System.out.println(this.readFromFile(filePath));
-		String content =  "# Copyright (c) 2017 Yanzheng [https://github.com/micyo202/yan_demo]	\n"
+		String content =  "# Copyright (c) 2017 Yanzheng [https://github.com/micyo202/yan-demo]	\n"
 						+ "# 	\n"
 						+ "# Permission is hereby granted, free of charge, to any person obtaining	\n"
 						+ "# a copy of this software and associated documentation files (the	\n"
