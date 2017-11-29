@@ -1,17 +1,17 @@
 # Yan Frame Demo 项目简介（Introduction）
 
-[English](https://github.com/micyo202/yan_demo/blob/master/README_EN.md) [中文文档](https://github.com/micyo202/yan_demo/blob/master/README.md)
+[English](https://github.com/micyo202/yan-demo/blob/master/README_EN.md) [中文文档](https://github.com/micyo202/yan-demo/blob/master/README.md)
 
 <p align="center" >
-  <img src="https://github.com/micyo202/yan_demo/raw/master/src/main/webapp/resources/images/logo.png" alt="Yan Frame" title="Yan Frame">
+  <img src="https://github.com/micyo202/yan-demo/raw/master/src/main/webapp/resources/images/logo.png" alt="Yan Frame" title="Yan Frame">
 </p>
 
-[![Beta](https://img.shields.io/badge/beta-0.0.7-brightgreen.svg)](https://github.com/micyo202/yan_demo)
-[![Downloads](https://img.shields.io/badge/downloads-4.3MB-yellow.svg)](https://github.com/micyo202/yan_demo/archive/master.zip)
-[![Since](https://img.shields.io/badge/since-2017-blue.svg)](https://github.com/micyo202/yan_demo)
-[![License MIT](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/micyo202/yan_demo/blob/master/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/micyo202/yan_demo.svg?style=social&label=Stars)](https://github.com/micyo202/yan_demo)
-[![GitHub forks](https://img.shields.io/github/forks/micyo202/yan_demo.svg?style=social&label=Fork)](https://github.com/micyo202/yan_demo)
+[![Beta](https://img.shields.io/badge/beta-0.0.7-brightgreen.svg)](https://github.com/micyo202/yan-demo)
+[![Downloads](https://img.shields.io/badge/downloads-4.3MB-yellow.svg)](https://github.com/micyo202/yan-demo/archive/master.zip)
+[![Since](https://img.shields.io/badge/since-2017-blue.svg)](https://github.com/micyo202/yan-demo)
+[![License MIT](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/micyo202/yan-demo/blob/master/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/micyo202/yan-demo.svg?style=social&label=Stars)](https://github.com/micyo202/yan-demo)
+[![GitHub forks](https://img.shields.io/github/forks/micyo202/yan-demo.svg?style=social&label=Fork)](https://github.com/micyo202/yan-demo)
 
 本项目是使用 **Yan Frame** 框架的 **Demo**。<br>
 什么是 **Yan Frame** ？这是一个基于 **SpringMVC+Spring+MyBatis（SSM）** 支持分布式的高效率便捷开发框架，使开发人员更专注于业务，达到面向业务开发。<br>
@@ -71,7 +71,7 @@ jquery-cookie | - | [https://github.com/carhartl/jquery-cookie](https://github.c
 
 ## 三、组织树（Tree）
 ```lua
-yan_demo -- 项目
+yan-demo -- 项目
 ├── src -- 源文件路径
 |    ├── main -- 主模块路径
 |    |    ├── java -- java类路径
@@ -364,9 +364,9 @@ int res = mapper.deleteByExample(example);
 *更多方法使用请参考项目中API文档或demo模块下的代码*
 
 ## 九、效果预览（Preview）
-<img src="https://github.com/micyo202/yan_demo/raw/master/src/main/webapp/resources/images/login_preview.png" alt="login" title="login">
-<img src="https://github.com/micyo202/yan_demo/raw/master/src/main/webapp/resources/images/web_preview.png" alt="web" title="web">
-<img src="https://github.com/micyo202/yan_demo/raw/master/src/main/webapp/resources/images/mobile_preview.png" alt="mobile" title="mobile">
+<img src="https://github.com/micyo202/yan-demo/raw/master/src/main/webapp/resources/images/login_preview.png" alt="login" title="login">
+<img src="https://github.com/micyo202/yan-demo/raw/master/src/main/webapp/resources/images/web_preview.png" alt="web" title="web">
+<img src="https://github.com/micyo202/yan-demo/raw/master/src/main/webapp/resources/images/mobile_preview.png" alt="mobile" title="mobile">
 
 ## 十、许可证（License）
-[MIT License](https://github.com/micyo202/yan_demo/blob/master/LICENSE)
+[MIT License](https://github.com/micyo202/yan-demo/blob/master/LICENSE)
