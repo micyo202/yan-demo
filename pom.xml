@@ -1,5 +1,5 @@
 <!--
- Copyright (c) 2017 Yanzheng [https://github.com/micyo202/yan_demo]
+ Copyright (c) 2017 Yanzheng [https://github.com/micyo202/yan-demo]
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +23,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.yan</groupId>
-    <artifactId>yan_demo</artifactId>
+    <artifactId>yan-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>yan_demo</name>
+    <name>yan-demo</name>
     <description>基于 SpringMVC+Spring+Mybaits 开发的 Yan Frame Demo.</description>
 
     <properties>
@@ -361,7 +361,7 @@
                     <!-- 指定监控的扫描时间间隔，0为关闭jetty自身的热部署 -->
                     <scanIntervalSeconds>0</scanIntervalSeconds>
                     <webAppConfig>
-                        <contextPath>/yan_demo</contextPath>
+                        <contextPath>/yan-demo</contextPath>
                     </webAppConfig>
                     <httpConnector>
                         <port>8888</port>
