@@ -1,4 +1,4 @@
-# Yan Frame Demo Project Introduction
+# Yan Frame Demo Project Instruction
 [中文文档](https://github.com/micyo202/yan-demo/blob/master/README.md) [English](https://github.com/micyo202/yan-demo/blob/master/README_EN.md)
 
 <p align="center" >
@@ -104,7 +104,7 @@ yan-demo -- priject name
 > * webapp/resources：static resource path (including js, CSS, images, doc, plugins, etc.)
 > * webapp/views：view path (*.jsp page for all business functions)
 
-## Five. Instruction
+## Five. Introduction
 > 1. Use the **Maven** to build project
 > 2. Create a database and perform the **.sql** file under the **resources/database** path to create the necessary tables for the framework (such as user tables, resource tables, log records, etc.)
 > 3. Modify the **.properties** configuration file under the **resources/properties** path (specific modification method, see -Six, configuration description)
