@@ -1,4 +1,4 @@
-# Yan Frame Demo 项目简介（Introduction）
+# Yan Frame Demo 项目简介（Instruction）
 
 [English](https://github.com/micyo202/yan-demo/blob/master/README_EN.md) [中文文档](https://github.com/micyo202/yan-demo/blob/master/README.md)
 
@@ -107,7 +107,7 @@ yan-demo -- 项目
 > * webapp/resources：静态资源路径（包含了js、css、images、doc、plugins等）
 > * webapp/views：视图路径（所有业务功能的*.jsp页面）
 
-## 五、项目入门（Instruction）
+## 五、项目入门（Introduction）
 > 1. 使用 **Maven** 构建项目
 > 2. 创建数据库并执行 **resources/database** 路径下的 **.sql** 文件，创建框架必要的表（如：用户表、资源表、日志记录表等...）
 > 3. 修改 **resources/properties** 路径下的 **.properties** 配置文件（具体修改方法，详见 - 六、配置说明）
