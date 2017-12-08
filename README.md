@@ -1,6 +1,6 @@
 # Yan Demo 项目简介（Instruction）
 
-[English](https://github.com/micyo202/yan-demo/blob/master/README_EN.md) [中文文档](https://github.com/micyo202/yan-demo/blob/master/README.md)
+### [English](https://github.com/micyo202/yan-demo/blob/master/README_EN.md) [中文文档](https://github.com/micyo202/yan-demo/blob/master/README.md)
 
 <p align="center" >
   <img src="https://github.com/micyo202/yan-demo/raw/master/src/main/webapp/resources/images/logo.png" alt="Yan Demo" title="Yan Demo">
