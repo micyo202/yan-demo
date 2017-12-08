@@ -20,7 +20,7 @@ The project used **Maven** construction, facilitate the management and supports 
 The front-end display interface adopts the response layout based on the **Boostrap** implementation, and integrates a series of animation effect plug-ins. The overall interface is simple, elegant and elegant, and can complete the interaction with the background.<br>
 The project encapsulates a series of commonly used methods and easy to deploy to facilitate efficient development of individuals or enterprises.
 
-## One. Environment & Tools
+## Environment & Tools
 * MacOS Sierra / Windows 7
 * MySql 5.7
 * JDK 1.8
@@ -30,7 +30,7 @@ The project encapsulates a series of commonly used methods and easy to deploy to
 * Maven 3.3.9
 * Jetty 9.4.6.v20170531 / Tomcat 9.0.1
 
-## Two. Technology Choose
+## Technology Choose
 #### 1. Server Tech
 Name | Version | URL
 --- | --- | ---
@@ -70,7 +70,7 @@ jquery | 3.2.1 | [http://jquery.com](http://jquery.com)
 jquery-cookie | - | [https://github.com/carhartl/jquery-cookie](https://github.com/carhartl/jquery-cookie)
 
 
-## Three. Organization Chart
+## Organization Chart
 ```lua
 yan-demo -- priject name
 ├── src -- source file path
@@ -92,7 +92,7 @@ yan-demo -- priject name
 |    |    ├── com.yan.junit -- unit test class path
 ```
 
-## Four. Construction
+## Construction
 > * com.yan.common：general function module (including: user login, menu, background management, etc. )
 > * com.yan.core：framework core modules (including basic controllers, filters, interceptors, classloaders, injectors, annotations, and core methods of framework encapsulation)> * com.yan.demo：business module (to replace the demo name according to the actual project name, all business modules are under this path)
 > * com.yan.**.controller：controller path, store the controller (inherit BaseController)
@@ -106,18 +106,18 @@ yan-demo -- priject name
 > * webapp/resources：static resource path (including js, CSS, images, doc, plugins, etc.)
 > * webapp/views：view path (*.jsp page for all business functions)
 
-## Five. Introduction
+## Introduction
 > 1. Use the **Maven** to build project
 > 2. Create a database and perform the **.sql** file under the **resources/database** path to create the necessary tables for the framework (such as user tables, resource tables, log records, etc.)
 > 3. Modify the **.properties** configuration file under the **resources/properties** path (specific modification method, see -Six, configuration description)
 > 4. Complete the above steps to deploy the startup service (using ** jetty/tomcat ** both), then enter the development phase
-> 5. Create a business table in the corresponding database according to the actual business requirements, and the table naming specification: "module name _ table name" such as: **SYS_RESOURCE** (system module resource table)
+> 5. Create a business table in the corresponding database according to the actual business requirements, and the table naming specification: "ModuleName_TableName" such as: **SYS_RESOURCE** (system module resource table)
 > 6. Modify the *targetPackage* package name and *tableName* table name in **generatorConfig.xml** under **resources** path, and generate the corresponding persistent layer module code using the  **MyBatis generator** plug-in (Maven execution command: **mvn mybatis-generator:generate**). Please refer to [MyBatis GeneratorXML Configuration](http://www.mybatis.org/generator/configreference/xmlconfig.html) for specific configuration
 > 7. Create the corresponding **controller** package under the business module package and create the controller class in the package. The controller class name specification ends with **Controller** and inherits from class **BaseController**
 > 8. Write the controller business handling code, using reference - Eight, sample code
 > 9. Create the corresponding JSP page and write the front page display code
 
-## Six. Properties
+## Properties
 | Name（Key value）| Describe |
 | --- | :--- |
 | **setting.upload** | File upload path (absolute path) |
@@ -152,7 +152,7 @@ yan-demo -- priject name
 | db.maxPoolPreparedStatementPerConnectionSize | The size of PSCache on each connection |
 | db.filters | The attribute type is a string, and the extension plug-in is configured by an alias, and the commonly used plug-ins are: monitor the statistics used filter:stat log's filter:log4j defenses SQL injection filter:wall |
 
-## Seven. Methods
+## Methods
 ##### *Methods are both inherited in the controller class of BaseController using this.metodname or directly using the methodName to make the call (note: methodName represents the method name that needs to be called, and the method name is shown in the table below)*
 
 | Method Name | Parameter | Return value | Describe |
@@ -189,7 +189,7 @@ yan-demo -- priject name
 | propertiesValue | key Key values in resource files | String The value of the key corresponding to the key | Read the values in the properties file, read the classpath/properties/config. Under the properties configuration file |
 | propertiesValue | resource Resource file path (the path in the corresponding classpath); Key in the key resource file | String The value of the key corresponding to the key | Read the values in the specified path properties file and find the resource file from the classpath path |
 
-## Eight. Sample Codes
+## Sample Codes
 ##### Create a controller that inherits and BaseController
 ```java
 @Controller
@@ -362,10 +362,10 @@ int res = mapper.deleteByExample(example);
 
 *For more information, refer to the code under the API documentation or demo module in the project*
 
-## Nine. Preview Results
+## Preview Results
 <img src="https://github.com/micyo202/yan-demo/raw/master/src/main/webapp/resources/images/login_preview.png" alt="login" title="login">
 <img src="https://github.com/micyo202/yan-demo/raw/master/src/main/webapp/resources/images/web_preview.png" alt="web" title="web">
 <img src="https://github.com/micyo202/yan-demo/raw/master/src/main/webapp/resources/images/mobile_preview.png" alt="mobile" title="mobile">
 
-## Ten. License
+## License
 [MIT License](https://github.com/micyo202/yan-demo/blob/master/LICENSE)
