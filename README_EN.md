@@ -12,11 +12,12 @@
 [![GitHub stars](https://img.shields.io/github/stars/micyo202/yan-demo.svg?style=social&label=Stars)](https://github.com/micyo202/yan-demo)
 [![GitHub forks](https://img.shields.io/github/forks/micyo202/yan-demo.svg?style=social&label=Fork)](https://github.com/micyo202/yan-demo)
 
-This project an **Demo** of using **Yan Frame**.<br>
-What's the **Yan Frame** ？This is a distributed efficient and convenient development framework based on **SpringMVC+Spring+MyBatis（SSM）** support, which enables developers to focus on business and achieve business development.<br>
-The project is build with **Maven** construction for project management and supports mainstream databases such as **Oracle、MySql**.<br>
-Front-end display interface based on **Boostrap** responsive layout, and integration of a series of animation effects plug-ins, the interface simple, beautiful and elegant finish interactions with the background.<br>
-The project aims to build a comprehensive J2EE enterprise development solution for smes.
+### Note：The project has supported distributed，please visit：[https://github.com/micyo202/yan](https://github.com/micyo202/yan) view details，continuous update...<br>
+This project is a **Demo** that integrates the **SpringMVC+Spring+MyBatis（SSM）** framework.<br>
+With efficient and convenient development mode, developers are more focused on business and business development.<br>
+The project used **Maven** construction, facilitate the management and supports mainstream databases such as **Oracle & MySql**.<br>
+The front-end display interface adopts the response layout based on the **Boostrap** implementation, and integrates a series of animation effect plug-ins. The overall interface is simple, elegant and elegant, and can complete the interaction with the background.<br>
+The project encapsulates a series of commonly used methods and easy to deploy to facilitate efficient development of individuals or enterprises.
 
 ## One. Environment & Tools
 * MacOS Sierra / Windows 7
