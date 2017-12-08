@@ -13,7 +13,8 @@
 [![GitHub stars](https://img.shields.io/github/stars/micyo202/yan-demo.svg?style=social&label=Stars)](https://github.com/micyo202/yan-demo)
 [![GitHub forks](https://img.shields.io/github/forks/micyo202/yan-demo.svg?style=social&label=Fork)](https://github.com/micyo202/yan-demo)
 
-### Note：The project has supported distributed，please visit：[https://github.com/micyo202/yan](https://github.com/micyo202/yan) view details，continuous update...<br>
+
+### Note：The project has been refactored and structured more clearly，please visit：[https://github.com/micyo202/yan](https://github.com/micyo202/yan) view details，continuous update...<br>
 This project is a **Demo** that integrates the **SpringMVC+Spring+MyBatis（SSM）** framework.<br>
 With efficient and convenient development mode, developers are more focused on business and business development.<br>
 The project used **Maven** construction, facilitate the management and supports mainstream databases such as **Oracle & MySql**.<br>
