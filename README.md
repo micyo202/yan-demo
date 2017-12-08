@@ -1,9 +1,9 @@
-# Yan Frame Demo 项目简介（Instruction）
+# Yan Demo 项目简介（Instruction）
 
 [English](https://github.com/micyo202/yan-demo/blob/master/README_EN.md) [中文文档](https://github.com/micyo202/yan-demo/blob/master/README.md)
 
 <p align="center" >
-  <img src="https://github.com/micyo202/yan-demo/raw/master/src/main/webapp/resources/images/logo.png" alt="Yan Frame" title="Yan Frame">
+  <img src="https://github.com/micyo202/yan-demo/raw/master/src/main/webapp/resources/images/logo.png" alt="Yan Demo" title="Yan Demo">
 </p>
 
 [![Beta](https://img.shields.io/badge/beta-0.0.7-brightgreen.svg)](https://github.com/micyo202/yan-demo)
@@ -13,11 +13,12 @@
 [![GitHub stars](https://img.shields.io/github/stars/micyo202/yan-demo.svg?style=social&label=Stars)](https://github.com/micyo202/yan-demo)
 [![GitHub forks](https://img.shields.io/github/forks/micyo202/yan-demo.svg?style=social&label=Fork)](https://github.com/micyo202/yan-demo)
 
-本项目是使用 **Yan Frame** 框架的 **Demo**。<br>
-什么是 **Yan Frame** ？这是一个基于 **SpringMVC+Spring+MyBatis（SSM）** 支持分布式的高效率便捷开发框架，使开发人员更专注于业务，达到面向业务开发。<br>
+### 注：该项目已支持分布式，请移步至：[https://github.com/micyo202/yan](https://github.com/micyo202/yan)查看详情，持续更新中...<br>
+本项目是一个整合 **SpringMVC+Spring+MyBatis（SSM）** 框架的 **Demo**。<br>
+拥有高效率便捷开发模式，使开发人员更专注于业务，达到面向业务开发。<br>
 项目使用 **Maven** 构建，便于项目管理，支持 **Oracle、MySql** 等主流数据库。<br>
-前端展示界面采用基于 **Boostrap** 实现的响应式布局，并集成了一系列的动画效果插件，整体界面简洁、美观大方并能优雅的与后台完成交互操作。<br>
-该项目目标是为中小型企业打造全方位的J2EE企业级开发解决方案。
+前端展示界面采用基于 **Boostrap** 实现的响应式布局，并集成了一系列的动画效果插件，整体界面简洁、美观大方并可优雅的与后台完成交互操作。<br>
+项目封装了一系列常用方法、部署运行简单，便于个人或企业进行高效开发。
 
 ## 一、项目开发环境&工具（Environment&Tools）
 * MacOS Sierra / Windows 7
