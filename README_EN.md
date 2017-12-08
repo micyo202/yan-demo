@@ -1,4 +1,4 @@
-# Yan Frame Demo Project Instruction
+# Yan Demo Project Instruction
 
 ### [中文文档](https://github.com/micyo202/yan-demo/blob/master/README.md) [English](https://github.com/micyo202/yan-demo/blob/master/README_EN.md)
 
