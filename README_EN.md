@@ -1,5 +1,6 @@
 # Yan Frame Demo Project Instruction
-[中文文档](https://github.com/micyo202/yan-demo/blob/master/README.md) [English](https://github.com/micyo202/yan-demo/blob/master/README_EN.md)
+
+### [中文文档](https://github.com/micyo202/yan-demo/blob/master/README.md) [English](https://github.com/micyo202/yan-demo/blob/master/README_EN.md)
 
 <p align="center" >
   <img src="https://github.com/micyo202/yan-demo/raw/master/src/main/webapp/resources/images/logo.png" alt="Yan Frame" title="Yan Frame">
