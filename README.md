@@ -6,7 +6,7 @@
   <img src="https://github.com/micyo202/yan-demo/raw/master/src/main/webapp/resources/images/logo.png" alt="Yan Demo" title="Yan Demo">
 </p>
 
-[![Beta](https://img.shields.io/badge/beta-0.0.7-brightgreen.svg)](https://github.com/micyo202/yan-demo)
+[![Beta](https://img.shields.io/badge/beta-0.0.8-brightgreen.svg)](https://github.com/micyo202/yan-demo)
 [![Downloads](https://img.shields.io/badge/downloads-4.3MB-yellow.svg)](https://github.com/micyo202/yan-demo/archive/master.zip)
 [![Since](https://img.shields.io/badge/since-2017-blue.svg)](https://github.com/micyo202/yan-demo)
 [![License MIT](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/micyo202/yan-demo/blob/master/LICENSE)
@@ -34,14 +34,14 @@
 #### 1.服务端技术（Server）
 名称 | 版本号 | 网址
 --- | --- | ---
-Spring Framework | 4.3.12.RELEASE  | [http://projects.spring.io/spring-framework/](http://projects.spring.io/spring-framework/)
+Spring Framework | 4.3.13.RELEASE  | [http://projects.spring.io/spring-framework/](http://projects.spring.io/spring-framework/)
 Shiro | 1.4.0 | [http://shiro.apache.org](http://shiro.apache.org)
-AspectJ | 1.8.10 | [http://www.eclipse.org/aspectj/](http://www.eclipse.org/aspectj/)
+AspectJ | 1.8.13 | [http://www.eclipse.org/aspectj/](http://www.eclipse.org/aspectj/)
 MyBatis | 3.4.5 | [http://www.mybatis.org/mybatis-3/zh/index.html](http://www.mybatis.org/mybatis-3/zh/index.html)
-MyBatis Generator | 1.3.5 | [http://www.mybatis.org/generator/index.html](http://www.mybatis.org/generator/index.html)
-PageHelper | 5.1.1 | [http://git.oschina.net/free/Mybatis_PageHelper](http://git.oschina.net/free/Mybatis_PageHelper)
-Druid | 1.1.3 | [https://github.com/alibaba/druid](https://github.com/alibaba/druid)
-Jackson | 2.9.1 | [https://github.com/FasterXML/jackson](https://github.com/FasterXML/jackson)
+MyBatis Generator | 1.3.6 | [http://www.mybatis.org/generator/index.html](http://www.mybatis.org/generator/index.html)
+PageHelper | 5.1.2 | [http://git.oschina.net/free/Mybatis_PageHelper](http://git.oschina.net/free/Mybatis_PageHelper)
+Druid | 1.1.6 | [https://github.com/alibaba/druid](https://github.com/alibaba/druid)
+Jackson | 2.9.3 | [https://github.com/FasterXML/jackson](https://github.com/FasterXML/jackson)
 Dom4j | 1.6.1 | [http://www.dom4j.org](http://www.dom4j.org)
 Ehcache | 2.6.11| [http://www.ehcache.org/](http://www.ehcache.org/)
 Logback | 1.2.3 | [https://logback.qos.ch](https://logback.qos.ch)
@@ -124,11 +124,12 @@ yan-demo -- 项目
 | --- | :--- |
 | **setting.upload** | 文件上传路径（绝对路径） |
 |- |- |
-| **logback.path** | 日志存放路径（绝对路径） |
-| **logback.name** | 日志前缀名称（一般使用项目名称，便于区分） |
-|- |- |
 | **mbg.jar** | mgb插件链接数据库所需的jar包（绝对路径） |
 | **mbg.path** | 生成代码的路径（绝对路径） |
+| **mbg.username** | 数据库连接用户名 |
+| **mbg.password** | 数据库链接密码 |
+| **mbg.driverClassName** | 数据库连接驱动 |
+| **mbg.url** | 数据库连接url |
 |- |- |
 | **default.db.username** | 默认数据库用户名 |
 | **default.db.password** | 默认数据库密码 |
