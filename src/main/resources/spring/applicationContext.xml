@@ -31,7 +31,7 @@
 	</context:component-scan>
 	
 	<!-- 加载 properties 配置文件 -->
-	<context:property-placeholder location="classpath:properties/config.properties" />
+	<context:property-placeholder location="classpath:properties/db.properties" />
 
 	<!-- 导入 spring-* 配置 -->
 	<import resource="classpath:spring/config/spring-*.xml" />
