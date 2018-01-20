@@ -189,7 +189,7 @@ yan-demo -- 项目
 | writeToFile | content 需要写入文件中的内容 | filePath 文件路径（绝对路径） | 将内容写入到指定文件中（写入会覆盖文件原有内容，建议先读取，再写入，将读取的内容与需要写入的内容并在一起进行写入） |
 | generatePath | path 文件夹路径（绝对路径） | 无 | 生成指定路径文件夹，先进行判断文件夹是否存在，若不存在则创建对应目录的文件夹，若存在则不进行任何操作 |
 | generateFile | path 文件路径（绝对路径） | 无 | 生成指定路径的文件，先进行判断文件是否存在，若不存在则进行创建文件，若存在则不进行任何操作 |
-| propertiesValue | key 资源文件中的 key 值 | String 读取到的 key 对应的 value 值 | 读取 properties 文件中的值，读取 classpath 下 /properties/config.properties 配置文件 |
+| propertiesValue | key 资源文件中的 key 值 | String 读取到的 key 对应的 value 值 | 读取 properties 文件中的值，读取 classpath 下 /properties/setting.properties 配置文件 |
 | propertiesValue | resource 资源文件路径（对应 classpath 中的路径）；key 资源文件中的 key 值 | String 读取到的 key 对应的 value 值 | 读取指定路径 properties 文件中的值，会从 classpath 路径下进行查找资源文件 |
 
 ## 八、示例代码（Codes）
