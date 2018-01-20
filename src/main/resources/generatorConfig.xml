@@ -24,7 +24,7 @@
 <generatorConfiguration>
 
 	<!-- 引入 properties 配置文件 -->  
-    <properties resource="properties/config.properties"/>
+    <properties resource="properties/mbg.properties"/>
 
 	<!-- 数据库链接驱动包 -->
 	<classPathEntry location="${mbg.jar}" />
@@ -54,27 +54,27 @@
 		<!-- 为生成的Java模型创建一个toString方法 -->
 		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
 
-		<jdbcConnection driverClass="${default.db.driverClassName}" connectionURL="${default.db.url}" userId="${default.db.username}" password="${default.db.password}" />
+		<jdbcConnection driverClass="${mbg.driverClassName}" connectionURL="${mbg.url}" userId="${mbg.username}" password="${mbg.password}" />
 
 		<!-- java类型处理器 用于处理DB中的类型到Java中的类型，默认使用JavaTypeResolverDefaultImpl； 注意一点，默认会先尝试使用Integer，Long，Short等来对应DECIMAL和 NUMERIC数据类型； -->
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 
-		<javaModelGenerator targetPackage="com.yan.common.user.model" targetProject="${mbg.path}/java">
+		<javaModelGenerator targetPackage="com.yan.demo.product.model" targetProject="${mbg.path}/java">
 			<property name="enableSubPackages" value="false" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
-		<sqlMapGenerator targetPackage="mybatis.common.user" targetProject="${mbg.path}/resources">
+		<sqlMapGenerator targetPackage="mybatis.demo.product" targetProject="${mbg.path}/resources">
 			<property name="enableSubPackages" value="false" />
 		</sqlMapGenerator>
 
-		<javaClientGenerator targetPackage="com.yan.common.user.mapper" targetProject="${mbg.path}/java" type="XMLMAPPER">
+		<javaClientGenerator targetPackage="com.yan.demo.product.mapper" targetProject="${mbg.path}/java" type="XMLMAPPER">
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 
-		<table schema="" tableName="USER_ROLE_REL" />
+		<table schema="" tableName="TB_PRODUCT" />
 
 	</context>
 </generatorConfiguration>
