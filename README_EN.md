@@ -3,16 +3,15 @@
 ### [中文文档](https://github.com/micyo202/yan-demo/blob/master/README.md) [English](https://github.com/micyo202/yan-demo/blob/master/README_EN.md)
 
 <p align="center" >
-  <img src="https://github.com/micyo202/yan-demo/raw/master/src/main/webapp/resources/images/logo.png" alt="Yan Frame" title="Yan Frame">
+  <img src="https://github.com/micyo202/yan-demo/raw/master/src/main/webapp/resources/images/logo.png" alt="Yan Demo" title="Yan Frame">
 </p>
 
-[![Beta](https://img.shields.io/badge/beta-0.0.9-brightgreen.svg)](https://github.com/micyo202/yan-demo)
+[![Beta](https://img.shields.io/badge/beta-0.2.6-brightgreen.svg)](https://github.com/micyo202/yan-demo)
 [![Downloads](https://img.shields.io/badge/downloads-4.3MB-yellow.svg)](https://github.com/micyo202/yan-demo/archive/master.zip)
 [![Since](https://img.shields.io/badge/since-2017-blue.svg)](https://github.com/micyo202/yan-demo)
 [![License MIT](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/micyo202/yan-demo/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/micyo202/yan-demo.svg?style=social&label=Stars)](https://github.com/micyo202/yan-demo)
 [![GitHub forks](https://img.shields.io/github/forks/micyo202/yan-demo.svg?style=social&label=Fork)](https://github.com/micyo202/yan-demo)
-
 
 ### Note：The project has been refactored and structured more clearly，please visit：[https://github.com/micyo202/yan](https://github.com/micyo202/yan) view details，continuous update...<br>
 This project is a **Demo** that integrates the **SpringMVC+Spring+MyBatis（SSM）** framework.<br>
@@ -20,6 +19,8 @@ With efficient and convenient development mode, developers are more focused on b
 The project used **Maven** construction, facilitate the management and supports mainstream databases such as **Oracle & MySql**.<br>
 The front-end display interface adopts the response layout based on the **Boostrap** implementation, and integrates a series of animation effect plug-ins. The overall interface is simple, elegant and elegant, and can complete the interaction with the background.<br>
 The project encapsulates a series of commonly used methods and easy to deploy to facilitate efficient development of individuals or enterprises.
+
+### To facilitate better learning, Special provision for the project deployment tutorial video, Please go to [http://v.youku.com/v_show/id_XMzI2MDg4Njk4NA==.html?spm=a2h3j.8428770.3416059.1](http://v.youku.com/v_show/id_XMzI2MDg4Njk4NA==.html?spm=a2h3j.8428770.3416059.1) for watching, for more detailed configuration instructions, refer to this document ------ *Properties*
 
 ## Environment & Tools
 * MacOS Sierra / Windows 7
@@ -35,14 +36,14 @@ The project encapsulates a series of commonly used methods and easy to deploy to
 #### 1. Server Tech
 Name | Version | URL
 --- | --- | ---
-Spring Framework | 4.3.12.RELEASE  | [http://projects.spring.io/spring-framework/](http://projects.spring.io/spring-framework/)
+Spring Framework | 4.3.13.RELEASE  | [http://projects.spring.io/spring-framework/](http://projects.spring.io/spring-framework/)
 Shiro | 1.4.0 | [http://shiro.apache.org](http://shiro.apache.org)
-AspectJ | 1.8.10 | [http://www.eclipse.org/aspectj/](http://www.eclipse.org/aspectj/)
+AspectJ | 1.8.13 | [http://www.eclipse.org/aspectj/](http://www.eclipse.org/aspectj/)
 MyBatis | 3.4.5 | [http://www.mybatis.org/mybatis-3/zh/index.html](http://www.mybatis.org/mybatis-3/zh/index.html)
-MyBatis Generator | 1.3.5 | [http://www.mybatis.org/generator/index.html](http://www.mybatis.org/generator/index.html)
-PageHelper | 5.1.1 | [http://git.oschina.net/free/Mybatis_PageHelper](http://git.oschina.net/free/Mybatis_PageHelper)
-Druid | 1.1.3 | [https://github.com/alibaba/druid](https://github.com/alibaba/druid)
-Jackson | 2.9.1 | [https://github.com/FasterXML/jackson](https://github.com/FasterXML/jackson)
+MyBatis Generator | 1.3.6 | [http://www.mybatis.org/generator/index.html](http://www.mybatis.org/generator/index.html)
+PageHelper | 5.1.2 | [http://git.oschina.net/free/Mybatis_PageHelper](http://git.oschina.net/free/Mybatis_PageHelper)
+Druid | 1.1.6 | [https://github.com/alibaba/druid](https://github.com/alibaba/druid)
+Jackson | 2.9.3 | [https://github.com/FasterXML/jackson](https://github.com/FasterXML/jackson)
 Dom4j | 1.6.1 | [http://www.dom4j.org](http://www.dom4j.org)
 Ehcache | 2.6.11| [http://www.ehcache.org/](http://www.ehcache.org/)
 Logback | 1.2.3 | [https://logback.qos.ch](https://logback.qos.ch)
@@ -123,11 +124,17 @@ yan-demo -- priject name
 | --- | :--- |
 | **setting.upload** | File upload path (absolute path) |
 |- |- |
-| **logback.path** | Log storage path (absolute path) |
-| **logback.name** | Log prefix names (general use of project names for easy distinction) |
+| log.name | Log prefix names (general use of project names for easy distinction) |
+| **log.dir** | Log storage path (absolute path) |
+| log.maxHistory | Log files save the maximum number of days |
+| log.maxSize | Log file max size |
 |- |- |
 | **mbg.jar** | The required jar package for the MGB plug-in link database (absolute path) |
 | **mbg.path** | Path to generate code (absolute path) |
+| **mbg.username** | The database connects to the user name |
+| **mbg.password** | 数据库链接密码 |
+| **mbg.driverClassName** | Database link password |
+| **mbg.url** | Database connection url |
 |- |- |
 | **default.db.username** | Default database user name |
 | **default.db.password** | Default database password |
