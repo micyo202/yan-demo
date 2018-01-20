@@ -6,19 +6,21 @@
   <img src="https://github.com/micyo202/yan-demo/raw/master/src/main/webapp/resources/images/logo.png" alt="Yan Demo" title="Yan Demo">
 </p>
 
-[![Beta](https://img.shields.io/badge/beta-0.0.8-brightgreen.svg)](https://github.com/micyo202/yan-demo)
+[![Beta](https://img.shields.io/badge/beta-0.2.6-brightgreen.svg)](https://github.com/micyo202/yan-demo)
 [![Downloads](https://img.shields.io/badge/downloads-4.3MB-yellow.svg)](https://github.com/micyo202/yan-demo/archive/master.zip)
 [![Since](https://img.shields.io/badge/since-2017-blue.svg)](https://github.com/micyo202/yan-demo)
 [![License MIT](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/micyo202/yan-demo/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/micyo202/yan-demo.svg?style=social&label=Stars)](https://github.com/micyo202/yan-demo)
 [![GitHub forks](https://img.shields.io/github/forks/micyo202/yan-demo.svg?style=social&label=Fork)](https://github.com/micyo202/yan-demo)
 
-### 注：该项目已经重构，结构化更清晰，请移步至：[https://github.com/micyo202/yan](https://github.com/micyo202/yan)查看详情，持续更新中...<br>
+### 注：该项目已经重构，结构化更清晰，请移步至：[https://github.com/micyo202/yan](https://github.com/micyo202/yan)查看详情<br>
 本项目是一个整合 **SpringMVC+Spring+MyBatis（SSM）** 框架的 **Demo**。<br>
 拥有高效率便捷开发模式，使开发人员更专注于业务，达到面向业务开发。<br>
 项目使用 **Maven** 构建，便于项目管理，支持 **Oracle、MySql** 等主流数据库。<br>
 前端展示界面采用基于 **Boostrap** 实现的响应式布局，并集成了一系列的动画效果插件，整体界面简洁、美观大方并可优雅的与后台完成交互操作。<br>
 项目封装了一系列常用方法、部署运行简单，便于个人或企业进行高效开发。
+
+### 为了方便大家更好的学习，特别提供了该项目的部署教程视频，请前往[http://v.youku.com/v_show/id_XMzI2MDg4Njk4NA==.html?spm=a2h3j.8428770.3416059.1](http://v.youku.com/v_show/id_XMzI2MDg4Njk4NA==.html?spm=a2h3j.8428770.3416059.1)进行观看，更多详细配置说明还请参考本文档中 ------ *六、配置说明（Properties）*
 
 ## 一、项目开发环境&工具（Environment&Tools）
 * MacOS Sierra / Windows 7
@@ -123,6 +125,11 @@ yan-demo -- 项目
 | 名称（Key值）| 描述 |
 | --- | :--- |
 | **setting.upload** | 文件上传路径（绝对路径） |
+| --- | :--- |
+| log.name | 日志文件名称（绝对路径） |
+| **log.dir** | 日志文件输出路径（绝对路径） |
+| log.maxHistory | 日志文件保存最大天数 |
+| log.maxSize | 日志文件大小 |
 |- |- |
 | **mbg.jar** | mgb插件链接数据库所需的jar包（绝对路径） |
 | **mbg.path** | 生成代码的路径（绝对路径） |
