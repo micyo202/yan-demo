@@ -42,7 +42,7 @@ import org.springframework.util.ClassUtils;
 /**
  * 名称：SqlSessionFactoryBeanExtend<br>
  *
- * 描述：自定义 typeAliasesPackage 支持通配符，为 mybatisMapper.xml 支持别名<br>
+ * 描述：自定义 typeAliasesPackage 支持通配符，为 mybatisMapper.xml 支持别名（废弃使用）<br>
  *
  * @author Yanzheng 严正<br>
  * 时间：<br>

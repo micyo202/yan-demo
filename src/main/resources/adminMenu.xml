@@ -61,7 +61,7 @@
 		</menuItem>
 		<menuItem>
 			<name>API帮助文档</name>
-			<url>/resources/doc/index.html</url>
+			<url>/resources/javadocs/index.html</url>
 		</menuItem>
 	</menu>
 </adminMenu>

@@ -38,7 +38,7 @@ import com.yan.common.login.model.LoginUser;
 /**
  * 名称：LoginInterceptor<br>
  *
- * 描述：自定义登录Interceptor拦截器，用户拦截未登录的请求<br>
+ * 描述：自定义登录Interceptor拦截器，用户拦截未登录的请求（废弃使用，改为shiro认证）<br>
  *
  * @author Yanzheng 严正<br>
  * 时间：<br>

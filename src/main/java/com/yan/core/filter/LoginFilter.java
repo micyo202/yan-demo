@@ -42,7 +42,7 @@ import com.yan.common.login.model.LoginUser;
 /**
  * 名称：LoginFilter<br>
  *
- * 描述：自定义登录过滤器 Filter，对未登录的 *.jsp 进行过滤拦截<br>
+ * 描述：自定义登录过滤器 Filter，对未登录的 *.jsp 进行过滤拦截（废弃使用，改为shiro认证）<br>
  *
  * @author Yanzheng 严正<br>
  * 时间：<br>
