@@ -13,7 +13,7 @@ public class ApnsTest {
     public static void main(String[] args) {
         ApnsService service =
                 APNS.newService()
-                        .withCert("/Users/apple/Desktop/Push Certificate/Development/apns-development.p12", "密码") // 指定p12文件及密钥
+                        .withCert("/Users/apple/Desktop/Push Certificate/Development/apns-development.p12", "123456") // 指定p12文件及密钥
                         .withSandboxDestination() // 使用苹果推送测试服务器
                         //.withProductionDestination() // 使用苹果推送生产服务器
                         .build();
@@ -28,7 +28,7 @@ public class ApnsTest {
                 .badge(1) // 应用角标
                 .build();
 
-        String token = "eb0209d8ae5beccbc87c81a95f717a1fcf85ca0c413c14295464600da079eb12";
+        String token = "4b37ebe66cb0c64b109c0a21ba2321d735bd67fd09905c0b87a24cccc250cbc3";
 
         service.push(token, payload);
     }
